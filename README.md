@@ -29,3 +29,5 @@
 5. **ALWAYS** sync/pull your latest commit
 > There can be error the next time you commit after your push
 
+# GOODLUCK SA ATEN
+![balls](https://github.com/y1ya/Game-Development/blob/main/goodluck.jpg)
