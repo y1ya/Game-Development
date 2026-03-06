@@ -1,3 +1,4 @@
 # **Pre-requisite:**
-  1. Download [Git Bash](https://git-scm.com/install/)
-  2. Download [GLFS](https://git-lfs.com)
+  1. Download [Git Bash](https://git-scm.com/install/) or [Github Desktop](https://desktop.github.com/download/)
+  2. Download [Git Large File Storage](https://git-lfs.com)
+
