@@ -14,7 +14,6 @@ public class ShopScript : MonoBehaviour
 
     private void Start()
     {
-
         for (int i = 0; i < pages.transform.childCount; i++)
         {
             if (pages.transform.GetChild(i).gameObject)

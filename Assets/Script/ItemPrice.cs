@@ -19,6 +19,12 @@ public class ItemPrice : MonoBehaviour
     public float chippyPrice = 5.00f;
     public float novaPrice = 6.00f;
     public float piattosPrice = 7.00f;
+    public float cokePrice = 7.00f;
+    public float pepsiPrice = 6.00f;
+    public float royalPrice = 6.00f;
+    public float zestoApplePrice = 3.00f;
+    public float zestoGrapePrice = 3.00f;
+    public float zestoOrangePrice = 4.00f;
 
     private float totalPrice = 0f;
 
@@ -60,6 +66,18 @@ public class ItemPrice : MonoBehaviour
                 return novaPrice;
             case "piattos":
                 return piattosPrice;
+            case "coke":
+                return cokePrice;
+            case "pepsi":
+                return pepsiPrice;
+            case "royal":
+                return royalPrice;
+            case "zesto apple":
+                return zestoApplePrice;
+            case "zesto grape":
+                return zestoGrapePrice;
+            case "zesto orange":
+                return zestoOrangePrice;
             default:
                 Debug.LogWarning("Unknown item: " + itemName);
                 return 0f;

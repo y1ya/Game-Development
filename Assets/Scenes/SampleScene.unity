@@ -291,6 +291,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18496426}
   m_CullTransparentMesh: 1
+--- !u!1 &18997701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18997702}
+  - component: {fileID: 18997704}
+  - component: {fileID: 18997703}
+  m_Layer: 5
+  m_Name: Pepsi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &18997702
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18997701}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743131656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -110, y: 103.8}
+  m_SizeDelta: {x: 435, y: 52.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &18997703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18997701}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Pespi: 0'
+--- !u!222 &18997704
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18997701}
+  m_CullTransparentMesh: 1
 --- !u!1 &20785245
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +541,7 @@ GameObject:
   - component: {fileID: 38535197}
   - component: {fileID: 38535196}
   m_Layer: 5
-  m_Name: Rice Buy Button
+  m_Name: Royal Buy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,7 +1267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy Mentos
+  m_Text: Buy Coke
 --- !u!222 &91472221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1210,7 +1289,7 @@ GameObject:
   - component: {fileID: 102454455}
   - component: {fileID: 102454454}
   m_Layer: 5
-  m_Name: Soy Sauce Buy Button
+  m_Name: Zesto Apple Buy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2763,6 +2842,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 28da13c544aa1f64e8ce6f21de095bb5, type: 3}
   - {fileID: 21300000, guid: 09ad6a41fe8d74e4f859c076f53149a4, type: 3}
   - {fileID: 21300000, guid: a8c319dcb931ef248be2eb8762217b12, type: 3}
+  - {fileID: 21300000, guid: ef1b73d503147c6468d4ff501cf6f5c9, type: 3}
+  - {fileID: 21300000, guid: 32819a7e954eab24e967500162393f14, type: 3}
+  - {fileID: 21300000, guid: a7a973a7261dd12499c9452ba29aa3cb, type: 3}
+  - {fileID: 21300000, guid: 243bad03ce5fb114d8dcd55f9103cdd2, type: 3}
+  - {fileID: 21300000, guid: 7d183d22e3bc22f418fd6f1602f778fe, type: 3}
+  - {fileID: 21300000, guid: bfdb1cb5f466fbe499b04a34bbfa233c, type: 3}
   oneItemRequest: {fileID: 1069300963}
   item1QuantityText: {fileID: 477215002}
   item2QuantityText: {fileID: 1135130055}
@@ -2947,7 +3032,7 @@ GameObject:
   - component: {fileID: 224605087}
   - component: {fileID: 224605086}
   m_Layer: 0
-  m_Name: Juice Box 3
+  m_Name: Zesto Orange
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2975,7 +3060,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224605084}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -3103,7 +3188,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 747445164}
+  m_Father: {fileID: 1235963533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3758,7 +3843,7 @@ GameObject:
   - component: {fileID: 263504816}
   - component: {fileID: 263504815}
   m_Layer: 5
-  m_Name: White Rabbit Price
+  m_Name: Pepsi Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3992,6 +4077,7 @@ GameObject:
   - component: {fileID: 284351481}
   - component: {fileID: 284351487}
   - component: {fileID: 284351488}
+  - component: {fileID: 284351489}
   m_Layer: 0
   m_Name: Logic Manager
   m_TagString: Untagged
@@ -4028,6 +4114,12 @@ MonoBehaviour:
   chippyObject: {fileID: 1656891586}
   novaObject: {fileID: 1840890517}
   piattosObject: {fileID: 60137426}
+  cokeObject: {fileID: 2056834287}
+  pepsiObject: {fileID: 1838373314}
+  royalObject: {fileID: 640420224}
+  zestoAppleObject: {fileID: 576994050}
+  zestoGrapeObject: {fileID: 1017798666}
+  zestoOrangeObject: {fileID: 224605084}
   goyaJarObject: {fileID: 987730896}
   mentosJarObject: {fileID: 499485914}
   whiteRabbitJarObject: {fileID: 633397185}
@@ -4036,6 +4128,7 @@ MonoBehaviour:
   orderScript: {fileID: 196513654}
   itemsLeft: {fileID: 2053033508}
   itemsInCart: {fileID: 2053033507}
+  refrigeratorScript: {fileID: 284351489}
   holdThreshold: 0.5
 --- !u!4 &284351482
 Transform:
@@ -4102,8 +4195,32 @@ MonoBehaviour:
   chippyItem: {fileID: 818621799}
   novaItem: {fileID: 258925868}
   piattos: {fileID: 1707990806}
+  cokeItem: {fileID: 754177012}
+  pepsiItem: {fileID: 1758370991}
+  royalItem: {fileID: 38535196}
+  zestoAppleItem: {fileID: 102454454}
+  zestoGrapeItem: {fileID: 1076826105}
+  zestoOrangeItem: {fileID: 2048446326}
   itemsLeft: {fileID: 2053033508}
   playerCurrency: {fileID: 499462661}
+--- !u!114 &284351489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284351480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed2e56ba7d469047a8671733b91c33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RefrigeratorScript
+  currentSpriteRenderer: {fileID: 314488531}
+  refrigeratorObject: {fileID: 314488529}
+  topShelfObjects: {fileID: 1231652735}
+  bottomShelfObjects: {fileID: 843522951}
+  closedRefrigerator: {fileID: 21300000, guid: 4f10c5d983529984bb61bd4cf75eff88, type: 3}
+  openRefrigerator: {fileID: 21300000, guid: 5b9e37fb1af7fad4fba89a110257a347, type: 3}
 --- !u!1 &290691158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,9 +4709,10 @@ GameObject:
   m_Component:
   - component: {fileID: 314488530}
   - component: {fileID: 314488531}
+  - component: {fileID: 314488532}
   m_Layer: 0
   m_Name: Refrigerator
-  m_TagString: Untagged
+  m_TagString: Refrigerator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4608,7 +4726,7 @@ Transform:
   m_GameObject: {fileID: 314488529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.87, y: -1.18, z: -0.40748}
+  m_LocalPosition: {x: -4, y: -2.01, z: -0.40748}
   m_LocalScale: {x: 0.2627954, y: 0.2627954, z: 0.2627954}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4664,7 +4782,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5b9e37fb1af7fad4fba89a110257a347, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f10c5d983529984bb61bd4cf75eff88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4674,6 +4792,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &314488532
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314488529}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.19071507, y: 0.4000001}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15.69, y: 17.94}
+    newSize: {x: 17.21, y: 3.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 16.183279, y: 15.64}
+  m_EdgeRadius: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4761,7 +4925,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.64, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6017,12 +6181,12 @@ GameObject:
   m_Component:
   - component: {fileID: 423890220}
   m_Layer: 5
-  m_Name: White Rabbit
+  m_Name: Pepsi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &423890220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7109,7 +7273,7 @@ GameObject:
   - component: {fileID: 543895638}
   - component: {fileID: 543895637}
   m_Layer: 5
-  m_Name: Joy Package
+  m_Name: Zesto Orange Package
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7167,7 +7331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Joy Package: 25 pcs'
+  m_Text: 'Zesto Orange Package: 10 pcs'
 --- !u!222 &543895638
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7326,7 +7490,7 @@ GameObject:
   - component: {fileID: 576994053}
   - component: {fileID: 576994052}
   m_Layer: 0
-  m_Name: Juice Box 1
+  m_Name: Zesto Apple
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7341,8 +7505,8 @@ Transform:
   m_GameObject: {fileID: 576994050}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.829999, y: 2.25, z: -1.3546119}
-  m_LocalScale: {x: 0.10118608, y: 0.1011861, z: 0.1011861}
+  m_LocalPosition: {x: 5.81, y: 2.25, z: -1.3546119}
+  m_LocalScale: {x: 0.11460335, y: 0.11460337, z: 0.11460337}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 843522952}
@@ -7354,7 +7518,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576994050}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -7385,7 +7549,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 13.77, y: 19.2}
+    oldSize: {x: 11.59, y: 16.11}
     newSize: {x: 25, y: 25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7442,7 +7606,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 7d183d22e3bc22f418fd6f1602f778fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 243bad03ce5fb114d8dcd55f9103cdd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8493,7 +8657,7 @@ GameObject:
   - component: {fileID: 640420227}
   - component: {fileID: 640420226}
   m_Layer: 0
-  m_Name: Bottle Item 3
+  m_Name: Royal
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8508,7 +8672,7 @@ Transform:
   m_GameObject: {fileID: 640420224}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.95, y: 2.25, z: -1.3546119}
+  m_LocalPosition: {x: 7.91, y: 2.25, z: -1.3546119}
   m_LocalScale: {x: 0.10118608, y: 0.1011861, z: 0.1011861}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8521,7 +8685,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640420224}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -9862,7 +10026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &747445164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9875,8 +10039,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 237032120}
-  - {fileID: 1744133321}
+  - {fileID: 1235963533}
+  - {fileID: 840288610}
   m_Father: {fileID: 1472093070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10030,7 +10194,7 @@ GameObject:
   - component: {fileID: 754177013}
   - component: {fileID: 754177012}
   m_Layer: 5
-  m_Name: Mentos Buy Button
+  m_Name: Coke Buy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10330,12 +10494,12 @@ GameObject:
   m_Component:
   - component: {fileID: 788292713}
   m_Layer: 5
-  m_Name: Rice
+  m_Name: Royal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &788292713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11002,6 +11166,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &840288609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 840288610}
+  m_Layer: 5
+  m_Name: Refrigerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &840288610
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840288609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 916916905}
+  - {fileID: 1890529319}
+  m_Father: {fileID: 747445164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -17, y: -548}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &843522951
 GameObject:
   m_ObjectHideFlags: 0
@@ -11027,7 +11228,7 @@ Transform:
   m_GameObject: {fileID: 843522951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.49, z: 0}
+  m_LocalPosition: {x: 0, y: -3.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11598,6 +11799,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908441308}
   m_CullTransparentMesh: 1
+--- !u!1 &916916904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916916905}
+  m_Layer: 5
+  m_Name: Top Shelf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &916916905
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916916904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1065366399}
+  - {fileID: 1336319084}
+  - {fileID: 1286149119}
+  m_Father: {fileID: 840288610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &917041806
 GameObject:
   m_ObjectHideFlags: 0
@@ -11613,7 +11852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &917041807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11651,7 +11890,7 @@ GameObject:
   - component: {fileID: 960448012}
   - component: {fileID: 960448011}
   m_Layer: 5
-  m_Name: Vinegar Price
+  m_Name: Zesto Grape Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11709,7 +11948,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Price: \u20B121"
+  m_Text: "Price: \u20B120"
 --- !u!222 &960448012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11999,12 +12238,12 @@ GameObject:
   m_Component:
   - component: {fileID: 983882864}
   m_Layer: 5
-  m_Name: Soy Sauce
+  m_Name: Zesto Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &983882864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12408,7 +12647,7 @@ GameObject:
   - component: {fileID: 1017798669}
   - component: {fileID: 1017798668}
   m_Layer: 0
-  m_Name: Juice Box 2
+  m_Name: Zesto Grape
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12436,7 +12675,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017798666}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -12467,8 +12706,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.71, y: 17.49}
-    newSize: {x: 25, y: 25}
+    oldSize: {x: 13.77, y: 19.2}
+    newSize: {x: 13.77, y: 19.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -12524,12 +12763,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 2691aa398499bed4b9afb106eb1c6a53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d183d22e3bc22f418fd6f1602f778fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 25, y: 25}
+  m_Size: {x: 13.77, y: 19.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -12955,6 +13194,85 @@ Transform:
   - {fileID: 314488530}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1048594266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048594267}
+  - component: {fileID: 1048594269}
+  - component: {fileID: 1048594268}
+  m_Layer: 5
+  m_Name: Zesto Orange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1048594267
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048594266}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1890529319}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1336, y: 544}
+  m_SizeDelta: {x: 121.92, y: 44.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1048594268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048594266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1048594269
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048594266}
+  m_CullTransparentMesh: 1
 --- !u!1 &1057056737
 GameObject:
   m_ObjectHideFlags: 0
@@ -13033,6 +13351,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057056737}
+  m_CullTransparentMesh: 1
+--- !u!1 &1065366398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065366399}
+  - component: {fileID: 1065366401}
+  - component: {fileID: 1065366400}
+  m_Layer: 5
+  m_Name: Coke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1065366399
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065366398}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 916916905}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1151, y: 544}
+  m_SizeDelta: {x: 121.92, y: 44.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1065366400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065366398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1065366401
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065366398}
   m_CullTransparentMesh: 1
 --- !u!1 &1067327128
 GameObject:
@@ -13284,7 +13681,7 @@ GameObject:
   - component: {fileID: 1076826106}
   - component: {fileID: 1076826105}
   m_Layer: 5
-  m_Name: Vinegar Buy Button
+  m_Name: Zesto Grape Buy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13403,6 +13800,164 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076826103}
+  m_CullTransparentMesh: 1
+--- !u!1 &1079199674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079199675}
+  - component: {fileID: 1079199677}
+  - component: {fileID: 1079199676}
+  m_Layer: 5
+  m_Name: Coke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1079199675
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079199674}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743131656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -112, y: -20}
+  m_SizeDelta: {x: 435, y: 52.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1079199676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079199674}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Coke: 0'
+--- !u!222 &1079199677
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079199674}
+  m_CullTransparentMesh: 1
+--- !u!1 &1081555150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081555151}
+  - component: {fileID: 1081555153}
+  - component: {fileID: 1081555152}
+  m_Layer: 5
+  m_Name: Zesto Orange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1081555151
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081555150}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743131656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -110, y: 105}
+  m_SizeDelta: {x: 435, y: 52.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1081555152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081555150}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Zesto Orange: 0'
+--- !u!222 &1081555153
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081555150}
   m_CullTransparentMesh: 1
 --- !u!1 &1089683190
 GameObject:
@@ -13542,6 +14097,85 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1096305306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096305307}
+  - component: {fileID: 1096305309}
+  - component: {fileID: 1096305308}
+  m_Layer: 5
+  m_Name: Zesto Grape
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1096305307
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096305306}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1890529319}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1240, y: 544}
+  m_SizeDelta: {x: 121.92, y: 44.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1096305308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096305306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1096305309
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096305306}
+  m_CullTransparentMesh: 1
 --- !u!1 &1102743308
 GameObject:
   m_ObjectHideFlags: 0
@@ -13816,7 +14450,7 @@ GameObject:
   - component: {fileID: 1118185754}
   - component: {fileID: 1118185753}
   m_Layer: 5
-  m_Name: White Rabbit Package
+  m_Name: Pepsi Package
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13874,7 +14508,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'White Rabbit Package: 10 pcs'
+  m_Text: 'Pepsi Package: 24 pcs'
 --- !u!222 &1118185754
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14594,7 +15228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy Soy Sauce
+  m_Text: Buy Zesto Apple
 --- !u!222 &1163353372
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14694,7 +15328,7 @@ GameObject:
   - component: {fileID: 1172631138}
   - component: {fileID: 1172631137}
   m_Layer: 5
-  m_Name: Soy Sauce Package
+  m_Name: Zestp Apple Package
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14752,7 +15386,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Soy Sauce Package: 12 pcs'
+  m_Text: 'Zesto Apple Package: 10 pcs'
 --- !u!222 &1172631138
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14773,7 +15407,7 @@ GameObject:
   - component: {fileID: 1173631837}
   - component: {fileID: 1173631836}
   m_Layer: 5
-  m_Name: Soy Sauce Price
+  m_Name: Zesto Apple Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14831,7 +15465,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Price: \u20B124"
+  m_Text: "Price: \u20B120"
 --- !u!222 &1173631837
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14918,6 +15552,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182133758}
+  m_CullTransparentMesh: 1
+--- !u!1 &1192683521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192683522}
+  - component: {fileID: 1192683524}
+  - component: {fileID: 1192683523}
+  m_Layer: 5
+  m_Name: Zesto Apple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1192683522
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192683521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1890529319}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1151, y: 544}
+  m_SizeDelta: {x: 121.92, y: 44.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1192683523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192683521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1192683524
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192683521}
   m_CullTransparentMesh: 1
 --- !u!1 &1194639948
 GameObject:
@@ -15068,7 +15781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy Vinegar
+  m_Text: Buy Zesto
 --- !u!222 &1202505777
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15305,7 +16018,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy Joy
+  m_Text: Buy Zesto Orange
 --- !u!222 &1214411820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15418,8 +16131,8 @@ Transform:
   m_GameObject: {fileID: 1231652735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.21, y: -0.86, z: 0.73272}
+  m_LocalScale: {x: 1.5408174, y: 1.5408174, z: 1.5408174}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2056834288}
@@ -15427,6 +16140,43 @@ Transform:
   - {fileID: 640420225}
   m_Father: {fileID: 1372593964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1235963532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235963533}
+  m_Layer: 5
+  m_Name: Top Shelf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1235963533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235963532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 237032120}
+  - {fileID: 1744133321}
+  m_Father: {fileID: 747445164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1249650314
 GameObject:
   m_ObjectHideFlags: 0
@@ -15731,6 +16481,85 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1286149118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286149119}
+  - component: {fileID: 1286149121}
+  - component: {fileID: 1286149120}
+  m_Layer: 5
+  m_Name: Royal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1286149119
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286149118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 916916905}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1336, y: 544}
+  m_SizeDelta: {x: 121.92, y: 44.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1286149120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286149118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1286149121
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286149118}
+  m_CullTransparentMesh: 1
 --- !u!1 &1288895869
 GameObject:
   m_ObjectHideFlags: 0
@@ -15801,7 +16630,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy White Rabbit
+  m_Text: Buy Pepsi
 --- !u!222 &1288895872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15856,6 +16685,12 @@ MonoBehaviour:
   chippyPrice: 5
   novaPrice: 6
   piattosPrice: 7
+  cokePrice: 7
+  pepsiPrice: 6
+  royalPrice: 6
+  zestoApplePrice: 3
+  zestoGrapePrice: 3
+  zestoOrangePrice: 3
 --- !u!4 &1292793528
 Transform:
   m_ObjectHideFlags: 0
@@ -16398,6 +17233,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332845271}
+  m_CullTransparentMesh: 1
+--- !u!1 &1336319083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336319084}
+  - component: {fileID: 1336319086}
+  - component: {fileID: 1336319085}
+  m_Layer: 5
+  m_Name: Pepsi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1336319084
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336319083}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 916916905}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1240, y: 544}
+  m_SizeDelta: {x: 121.92, y: 44.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1336319085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336319083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 33
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1336319086
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336319083}
   m_CullTransparentMesh: 1
 --- !u!1 &1338416879
 GameObject:
@@ -18928,7 +19842,7 @@ GameObject:
   - component: {fileID: 1545298938}
   - component: {fileID: 1545298937}
   m_Layer: 5
-  m_Name: Joy Price
+  m_Name: Zesto Orange Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18986,7 +19900,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Price: \u20B132.50"
+  m_Text: "Price: \u20B120"
 --- !u!222 &1545298938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19098,7 +20012,7 @@ GameObject:
   - component: {fileID: 1551105001}
   - component: {fileID: 1551105000}
   m_Layer: 5
-  m_Name: Vinegar Package
+  m_Name: Zesto Grape Package
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19156,7 +20070,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Vinegar Package: 12 pcs'
+  m_Text: 'Zesto Package: 10 pcs'
 --- !u!222 &1551105001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19731,7 +20645,7 @@ GameObject:
   - component: {fileID: 1601092077}
   - component: {fileID: 1601092076}
   m_Layer: 5
-  m_Name: Mentos Price
+  m_Name: Coke Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19789,7 +20703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Price: \u20B184"
+  m_Text: "Price: \u20B1108"
 --- !u!222 &1601092077
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19889,7 +20803,7 @@ GameObject:
   - component: {fileID: 1614315549}
   - component: {fileID: 1614315548}
   m_Layer: 5
-  m_Name: Rice Price
+  m_Name: Royal Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19947,7 +20861,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Price: \u20B1300"
+  m_Text: "Price: \u20B1108"
 --- !u!222 &1614315549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20113,6 +21027,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636286274}
+  m_CullTransparentMesh: 1
+--- !u!1 &1641978394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1641978395}
+  - component: {fileID: 1641978397}
+  - component: {fileID: 1641978396}
+  m_Layer: 5
+  m_Name: Zesto Apple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1641978395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641978394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743131656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -112, y: 63}
+  m_SizeDelta: {x: 435, y: 52.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1641978396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641978394}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Zesto Apple: 0'
+--- !u!222 &1641978397
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641978394}
   m_CullTransparentMesh: 1
 --- !u!1 &1656891586
 GameObject:
@@ -20929,7 +21922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy Rice
+  m_Text: Buy Royal
 --- !u!222 &1724289406
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21041,7 +22034,7 @@ GameObject:
   - component: {fileID: 1727715964}
   - component: {fileID: 1727715963}
   m_Layer: 5
-  m_Name: Mentos Package
+  m_Name: Coke Package
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21099,7 +22092,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mentos Package: 24 pcs'
+  m_Text: 'Coke Package: 24 pcs'
 --- !u!222 &1727715964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21488,6 +22481,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1081555151}
+  - {fileID: 1953813896}
+  - {fileID: 1641978395}
+  - {fileID: 1875633465}
+  - {fileID: 18997702}
+  - {fileID: 1079199675}
   - {fileID: 1889756502}
   - {fileID: 120016077}
   - {fileID: 439214622}
@@ -21584,7 +22583,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 747445164}
+  m_Father: {fileID: 1235963533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21646,7 +22645,7 @@ GameObject:
   - component: {fileID: 1758370992}
   - component: {fileID: 1758370991}
   m_Layer: 5
-  m_Name: White Rabbit Buy Button
+  m_Name: Pepsi Buy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22583,7 +23582,7 @@ GameObject:
   - component: {fileID: 1838373317}
   - component: {fileID: 1838373316}
   m_Layer: 0
-  m_Name: Bottle Item 2
+  m_Name: Pepsi
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22598,7 +23597,7 @@ Transform:
   m_GameObject: {fileID: 1838373314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.33, y: 2.25, z: -1.3546119}
+  m_LocalPosition: {x: 6.85, y: 2.25, z: -1.3546119}
   m_LocalScale: {x: 0.10118608, y: 0.1011861, z: 0.1011861}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22611,7 +23610,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838373314}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -23188,6 +24187,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874534147}
   m_CullTransparentMesh: 1
+--- !u!1 &1875633464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1875633465}
+  - component: {fileID: 1875633467}
+  - component: {fileID: 1875633466}
+  m_Layer: 5
+  m_Name: Royal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1875633465
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875633464}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743131656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -110, y: 64}
+  m_SizeDelta: {x: 435, y: 52.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1875633466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875633464}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Royal: 0'
+--- !u!222 &1875633467
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875633464}
+  m_CullTransparentMesh: 1
 --- !u!1 &1889756501
 GameObject:
   m_ObjectHideFlags: 0
@@ -23267,6 +24345,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889756501}
   m_CullTransparentMesh: 1
+--- !u!1 &1890529318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890529319}
+  m_Layer: 5
+  m_Name: Bottom Shelf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1890529319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890529318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1192683522}
+  - {fileID: 1096305307}
+  - {fileID: 1048594267}
+  m_Father: {fileID: 840288610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -206}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1899554957
 GameObject:
   m_ObjectHideFlags: 0
@@ -23966,6 +25082,85 @@ RectTransform:
   m_AnchoredPosition: {x: -352, y: -89}
   m_SizeDelta: {x: 473.83, y: 150.3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1953813895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953813896}
+  - component: {fileID: 1953813898}
+  - component: {fileID: 1953813897}
+  m_Layer: 5
+  m_Name: Zesto Grape
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1953813896
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953813895}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743131656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -110, y: 142}
+  m_SizeDelta: {x: 435, y: 52.16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1953813897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953813895}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Zesto Grape: 0'
+--- !u!222 &1953813898
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953813895}
+  m_CullTransparentMesh: 1
 --- !u!1 &1958970807
 GameObject:
   m_ObjectHideFlags: 0
@@ -24939,7 +26134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 262, y: -484}
+  m_AnchoredPosition: {x: 208, y: -484}
   m_SizeDelta: {x: 251.96, y: 48.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019467692
@@ -25405,7 +26600,7 @@ GameObject:
   - component: {fileID: 2048446327}
   - component: {fileID: 2048446326}
   m_Layer: 5
-  m_Name: Joy Buy Button
+  m_Name: Zesto Orange Buy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25667,6 +26862,12 @@ MonoBehaviour:
   totalChippyText: {fileID: 439214623}
   totalNovaText: {fileID: 120016078}
   totalPiattosText: {fileID: 1889756503}
+  totalCokeText: {fileID: 1079199676}
+  totalPepsiText: {fileID: 18997703}
+  totalRoyalText: {fileID: 1079199676}
+  totalZestoAppleText: {fileID: 1641978396}
+  totalZestoGrapeText: {fileID: 1953813897}
+  totalZestoOrangeText: {fileID: 1081555152}
   itemsLeft: {fileID: 2053033508}
 --- !u!114 &2053033508
 MonoBehaviour:
@@ -25699,6 +26900,12 @@ MonoBehaviour:
   chippyLeftText: {fileID: 2104866407}
   novaLeftText: {fileID: 71825535}
   piattosLeftText: {fileID: 1969102661}
+  cokeLeftText: {fileID: 1065366400}
+  spriteLeftText: {fileID: 1336319085}
+  royalLeftText: {fileID: 1286149120}
+  zestoAppleLeftText: {fileID: 1192683523}
+  zestoGrapeLeftText: {fileID: 1096305308}
+  zestoOrangeLeftText: {fileID: 1048594268}
 --- !u!1 &2056834287
 GameObject:
   m_ObjectHideFlags: 0
@@ -25711,7 +26918,7 @@ GameObject:
   - component: {fileID: 2056834290}
   - component: {fileID: 2056834289}
   m_Layer: 0
-  m_Name: Bottle Item 1
+  m_Name: Coke
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25726,7 +26933,7 @@ Transform:
   m_GameObject: {fileID: 2056834287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.829999, y: 2.25, z: -1.3546119}
+  m_LocalPosition: {x: 5.829999, y: 2.22, z: -1.3546119}
   m_LocalScale: {x: 0.10118608, y: 0.1011861, z: 0.1011861}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25739,7 +26946,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056834287}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -26179,12 +27386,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2079578956}
   m_Layer: 5
-  m_Name: Joy
+  m_Name: Zesto Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2079578956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26648,7 +27855,7 @@ GameObject:
   - component: {fileID: 2086895577}
   - component: {fileID: 2086895576}
   m_Layer: 5
-  m_Name: Rice Package
+  m_Name: Royal Package
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26706,7 +27913,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Rice Package: 25 sack'
+  m_Text: 'Pepsi Package: 24 pcs'
 --- !u!222 &2086895577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26806,12 +28013,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2101327359}
   m_Layer: 5
-  m_Name: Vinegar
+  m_Name: Zesto Grape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2101327359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26923,12 +28130,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2107162350}
   m_Layer: 5
-  m_Name: Mentos
+  m_Name: Coke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2107162350
 RectTransform:
   m_ObjectHideFlags: 0

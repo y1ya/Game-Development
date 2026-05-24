@@ -17,7 +17,7 @@ public class PayingCustomer : MonoBehaviour
     private float paymentAmount = 0f;
     private float totalPrice = 0f;
 
-    private int[] choiceCustomerGiveMoney = new int[8] { 5, 10, 20, 50, 70, 100, 150, 200 };
+    private int[] choiceCustomerGiveMoney = new int[6] { 5, 10, 20, 50, 100, 200 };
 
     private List<string> itemName;
     private List<int> itemQuantities;

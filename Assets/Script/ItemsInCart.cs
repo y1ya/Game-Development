@@ -25,13 +25,21 @@ public class ItemsInCart : MonoBehaviour
     private int totalChippy = 0;
     private int totalNova = 0;
     private int totalPiattos = 0;
+    private int totalCoke = 0;
+    private int totalPepsi = 0;
+    private int totalRoyal = 0;
+    private int totalZestoApple = 0;
+    private int totalZestoGrape = 0;
+    private int totalZestoOrange = 0;
 
     public Text totalGoyaCandyText, totalMentosText, totalWhiteRabbitText,
         totalRiceText, totalSoySauceText, totalVinegarText,
         totalJoyText, totalSurfText,
         totalPaylessXtraBigText, totalLuckyMeText, totalCupNoodleText,
         totalColgateText, totalRexonaText, totalSunsilkText,
-        totalChippyText, totalNovaText, totalPiattosText;
+        totalChippyText, totalNovaText, totalPiattosText,
+        totalCokeText, totalPepsiText, totalRoyalText,
+        totalZestoAppleText, totalZestoGrapeText, totalZestoOrangeText;
 
     private List<string> cartItems = new List<string>();
 
@@ -75,6 +83,18 @@ public class ItemsInCart : MonoBehaviour
         { totalNova++; Debug.Log($"Added Nova to Cart"); }
         else if (ItemName.Equals("Piattos"))
         { totalPiattos++; Debug.Log($"Added Piattos to Cart"); }
+        else if (ItemName.Equals("Coke"))
+        { totalCoke++; Debug.Log($"Added Coke to Cart"); }
+        else if (ItemName.Equals("Pepsi"))
+        { totalPepsi++; Debug.Log($"Added Pepsi to Cart"); }
+        else if (ItemName.Equals("Royal"))
+        { totalRoyal++; Debug.Log($"Added Royal to Cart"); }
+        else if (ItemName.Equals("Zesto Apple"))
+        { totalZestoApple++; Debug.Log($"Added Zesto Apple to Cart"); }
+        else if (ItemName.Equals("Zesto Grape"))
+        { totalZestoGrape++; Debug.Log($"Added Zesto Grape to Cart"); }
+        else if (ItemName.Equals("Zesto Orange"))
+        { totalZestoOrange++; Debug.Log($"Added Zesto Orange to Cart"); }
 
         AddItemsInCart();
     }
@@ -155,6 +175,30 @@ public class ItemsInCart : MonoBehaviour
             if (totalPiattos > 0)
             { totalPiattosText.enabled = true; }
             else { totalPiattosText.enabled = false; }
+
+            if (totalCoke > 0)
+            { totalCokeText.enabled = true; }
+            else { totalCokeText.enabled = false; }
+
+            if (totalPepsi > 0)
+            { totalPepsiText.enabled = true; }
+            else { totalPepsiText.enabled = false; }
+
+            if (totalRoyal > 0)
+            { totalRoyalText.enabled = true; }
+            else { totalRoyalText.enabled = false; }
+
+            if (totalZestoApple > 0)
+            { totalZestoAppleText.enabled = true; }
+            else { totalZestoAppleText.enabled = false; }
+
+            if (totalZestoGrape > 0)
+            { totalZestoGrapeText.enabled = true; }
+            else { totalZestoGrapeText.enabled = false; }
+
+            if (totalZestoOrange > 0)
+            { totalZestoOrangeText.enabled = true; }
+            else { totalZestoOrangeText.enabled = false; }
         }
 
         totalItemsText.text = $"Total Items: {totalItems}";
@@ -175,6 +219,12 @@ public class ItemsInCart : MonoBehaviour
         totalChippyText.text = $"Chippy: {totalChippy}";
         totalNovaText.text = $"Nova: {totalNova}";
         totalPiattosText.text = $"Piattos: {totalPiattos}";
+        totalCokeText.text = $"Coke: {totalCoke}";
+        totalPepsiText.text = $"Pepsi: {totalPepsi}";
+        totalRoyalText.text = $"Royal: {totalRoyal}";
+        totalZestoAppleText.text = $"Zesto Apple: {totalZestoApple}";
+        totalZestoGrapeText.text = $"Zesto Grape: {totalZestoGrape}";
+        totalZestoOrangeText.text = $"Zesto Orange: {totalZestoOrange}";
     }
 
     public void ClearCart()
@@ -194,6 +244,10 @@ public class ItemsInCart : MonoBehaviour
         totalColgate = 0; totalRexona = 0; totalSunsilk = 0;
 
         totalChippy = 0; totalNova = 0; totalPiattos = 0;
+
+        totalCoke = 0; totalPepsi = 0; totalRoyal = 0;
+
+        totalZestoApple = 0; totalZestoGrape = 0; totalZestoOrange = 0;
 
         UpdateTotalText();
     }
@@ -237,4 +291,16 @@ public class ItemsInCart : MonoBehaviour
     { return totalNova; }
     public int GetTotalPiattos() 
     { return totalPiattos; }
+    public int GetTotalCoke() 
+    { return totalCoke; }
+    public int GetTotalPepsi() 
+    { return totalPepsi; }
+    public int GetTotalRoyal() 
+    { return totalRoyal; }
+    public int GetTotalZestoApple() 
+    { return totalZestoApple; }
+    public int GetTotalZestoGrape() 
+    { return totalZestoGrape; }
+    public int GetTotalZestoOrange() 
+    { return totalZestoOrange; }
 }

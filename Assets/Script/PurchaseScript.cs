@@ -23,6 +23,12 @@ public class PurchaseScript : MonoBehaviour
     public Button chippyItem;
     public Button novaItem;
     public Button piattos;
+    public Button cokeItem;
+    public Button pepsiItem;
+    public Button royalItem;
+    public Button zestoAppleItem;
+    public Button zestoGrapeItem;
+    public Button zestoOrangeItem;
 
     public ItemsLeft itemsLeft;
     public PlayerCurrency playerCurrency;
@@ -304,6 +310,96 @@ public class PurchaseScript : MonoBehaviour
             else
             {
                 Debug.Log("[PURCHASE] Not enough currency to purchase Piattos.");
+            }
+        }
+        else if (cleanedItemName.Equals("Coke"))
+        {
+            if (currentCurrency >= 108f)
+            {
+                int currentCoke = itemsLeft.GetCokeLeft();
+                itemsLeft.SetCokeLeft(currentCoke + 24);
+                Debug.Log($"[PURCHASE] Current Coke: {itemsLeft.GetCokeLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 108f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Coke.");
+            }
+        }
+        else if (cleanedItemName.Equals("Pepsi"))
+        {
+            if (currentCurrency >= 108f)
+            {
+                int currentPepsi = itemsLeft.GetPepsiLeft();
+                itemsLeft.SetPepsiLeft(currentPepsi + 24);
+                Debug.Log($"[PURCHASE] Current Pepsi: {itemsLeft.GetPepsiLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 108f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Pepsi.");
+            }
+        }
+        else if (cleanedItemName.Equals("Royal"))
+        {
+            if (currentCurrency >= 108f)
+            {
+                int currentRoyal = itemsLeft.GetRoyalLeft();
+                itemsLeft.SetRoyalLeft(currentRoyal + 24);
+                Debug.Log($"[PURCHASE] Current Royal: {itemsLeft.GetRoyalLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 108f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Royal.");
+            }
+        }
+        else if (cleanedItemName.Equals("Zesto Apple"))
+        {
+            if (currentCurrency >= 20f)
+            {
+                int currentZestoApple = itemsLeft.GetZestoAppleLeft();
+                itemsLeft.SetZestoAppleLeft(currentZestoApple + 10);
+                Debug.Log($"[PURCHASE] Current Zesto Apple: {itemsLeft.GetZestoAppleLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Zesto Apple.");
+            }
+        }
+        else if (cleanedItemName.Equals("Zesto Grape"))
+        {
+            if (currentCurrency >= 20f)
+            {
+                int currentZestoGrape = itemsLeft.GetZestoGrapeLeft();
+                itemsLeft.SetZestoGrapeLeft(currentZestoGrape + 10);
+                Debug.Log($"[PURCHASE] Current Zesto Grape: {itemsLeft.GetZestoGrapeLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Zesto Grape.");
+            }
+        }
+        else if (cleanedItemName.Equals("Zesto Orange"))
+        {
+            if (currentCurrency >= 20f)
+            {
+                int currentZestoOrange = itemsLeft.GetZestoOrangeLeft();
+                itemsLeft.SetZestoOrangeLeft(currentZestoOrange + 10);
+                Debug.Log($"[PURCHASE] Current Zesto Orange: {itemsLeft.GetZestoOrangeLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Zesto Orange.");
             }
         }
         else
