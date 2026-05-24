@@ -267,7 +267,7 @@ public class OrderScript : MonoBehaviour
 
     private void GetQuantityOrderRandomizer(int randItems, int whatItem)
     {
-        int quantity = Random.Range(1, 11);
+        int quantity = Random.Range(1, 10);
 
         if (randItems == 1)
         {
@@ -291,7 +291,7 @@ public class OrderScript : MonoBehaviour
                 sprite = items[i];
                 spriteName = sprite.name;
 
-                int quantityItems = Random.Range(1, 10);
+                int quantityItems = Random.Range(1, 6);
                 Debug.Log($"[ORDER] Quantity for Item {i + 1} ({spriteName}): {quantityItems}");
 
                 itemQuantities.Add(quantityItems);
