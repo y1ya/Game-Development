@@ -5,14 +5,19 @@ using System.Collections.Generic;
 
 public class OrderScript : MonoBehaviour
 {
-    private int orderQuantity;
-    public Text quantityText;
+    public GameObject requestItem;
+    public GameObject item1;
+    public GameObject item2;
 
-    public GameObject getCandy; 
-    public GameObject getCookie;
+    private Vector3 item1OriginalScale;
+    private Vector3 item2OriginalScale;
 
-    public Text candyQuantityText;
-    public Text cookieQuantityText;
+    public Sprite[] items;
+
+    public Text oneItemRequest;
+
+    public Text item1QuantityText;
+    public Text item2QuantityText;
 
     private int manyItems, whatItemRoll;
     private List<string> itemName;
@@ -20,21 +25,22 @@ public class OrderScript : MonoBehaviour
 
     public DragDropClick dragDropClick;
     public PayingCustomer payingCustomer;
+    public DisablingUI disableUI;
 
     private void Start()
     {
-        GetOrderRandomizer();
-    }
-    public void addScoreToOrder(int addItemsOrder)
-    {
-        orderQuantity = orderQuantity + addItemsOrder;
-        quantityText.text = $"Cat Ate: {orderQuantity.ToString()}";
+        item1OriginalScale = item1.transform.localScale;
+        item2OriginalScale = item2.transform.localScale;
 
-        Debug.Log($"[ORDER] Order quantity updated: {orderQuantity}");
+        GetOrderRandomizer();
+
     }
 
     public void GetOrderRandomizer()
     {
+        int countItems = items.Length;
+
+        requestItem.SetActive(true);
         manyItems = Random.Range(1, 3);
 
         itemName = new List<string>(); 
@@ -47,30 +53,166 @@ public class OrderScript : MonoBehaviour
 
         if (manyItems == 1)
         {
+            item1.SetActive(true);
             Debug.Log("[ORDER] Items: 1");
 
-            whatItemRoll = Random.Range(0, 2);
+            whatItemRoll = Random.Range(0, countItems);
 
             /*
-            1 = Candy
-            2 = Cookie
+            0 = Goya Candy
+            1 = Mentos
+            2 = Rice
+            3 = Soy Sauce
+            4 = Vinegar
+            5 = White Rabbit
+            6 = Joy
+            7 = Surf
+            8 = Payless Xtrabig
+            9 = Lucky Me
+            10 = Cup Noodle
+            11 = Colgate
+            12 = Rexona
+            13 = Sunsilk
+            14 = Chippy
+            15 = Nova
+            16 = Piattos
             */
 
             if (whatItemRoll == 0)
-            { Debug.Log("[ORDER] Item: Piece of Candy");
-                itemName.Add("Piece of Candy");
+            {
+                Debug.Log("[ORDER] Item: Goya Candy");
+                itemName.Add("Goya Candy");
+
+                item1.GetComponent<SpriteRenderer>().sprite = items[0];
             }
             else if (whatItemRoll == 1)
-            { Debug.Log("[ORDER] Item: Cookie");
-                itemName.Add("Cookie");
+            {
+                Debug.Log("[ORDER] Item: Mentos");
+                itemName.Add("Mentos");
+
+                item1.GetComponent<SpriteRenderer>().sprite = items[1];
+            }
+            else if (whatItemRoll == 2)
+            {
+                Debug.Log("[ORDER] Item: Rice");
+                itemName.Add("Rice");
+
+                item1.GetComponent<SpriteRenderer>().sprite = items[2];
+            }
+            else if (whatItemRoll == 3)
+            {
+                Debug.Log("[ORDER] Item: Soy Sauce");
+                itemName.Add("Soy Sauce");
+
+                item1.GetComponent<SpriteRenderer>().sprite = items[3];
+            }
+            else if (whatItemRoll == 4)
+            {
+                Debug.Log("[ORDER] Item: Vinegar");
+                itemName.Add("Vinegar");
+
+                item1.GetComponent<SpriteRenderer>().sprite = items[4];
+            }
+            else if (whatItemRoll == 5)
+            {
+                Debug.Log("[ORDER] Item: White Rabbit");
+                itemName.Add("White Rabbit");
+
+                item1.GetComponent<SpriteRenderer>().sprite = items[5];
+            }
+            else if (whatItemRoll == 6)
+            {
+                Debug.Log("[ORDER] Item: Joy");
+                itemName.Add("Joy");
+
+                item1.GetComponent<SpriteRenderer>().sprite = items[6];
+            }
+            else if (whatItemRoll == 7)
+            {
+                Debug.Log("[ORDER] Item: Surf");
+                itemName.Add("Surf");
+                item1.GetComponent<SpriteRenderer>().sprite = items[7];
+            }
+            else if (whatItemRoll == 8)
+            {
+                Debug.Log("[ORDER] Item: Payless Xtra Big");
+                itemName.Add("Payless Xtra Big");
+                item1.GetComponent<SpriteRenderer>().sprite = items[8];
+            }
+            else if (whatItemRoll == 9)
+            {
+                Debug.Log("[ORDER] Item: Lucky Me");
+                itemName.Add("Lucky Me");
+                item1.GetComponent<SpriteRenderer>().sprite = items[9];
+            }
+            else if (whatItemRoll == 10)
+            {
+                Debug.Log("[ORDER] Item: Cup Noodle");
+                itemName.Add("Cup Noodle");
+                item1.GetComponent<SpriteRenderer>().sprite = items[10];
+            }
+            else if (whatItemRoll == 11)
+            {
+                Debug.Log("[ORDER] Item: Colgate");
+                itemName.Add("Colgate");
+                item1.GetComponent<SpriteRenderer>().sprite = items[11];
+            }
+            else if (whatItemRoll == 12)
+            {
+                Debug.Log("[ORDER] Item: Rexona");
+                itemName.Add("Rexona");
+                item1.GetComponent<SpriteRenderer>().sprite = items[12];
+            }
+            else if (whatItemRoll == 13)
+            {
+                Debug.Log("[ORDER] Item: Sunsilk");
+                itemName.Add("Sunsilk");
+                item1.GetComponent<SpriteRenderer>().sprite = items[13];
+            }
+            else if (whatItemRoll == 14)
+            {
+                Debug.Log("[ORDER] Item: Chippy");
+                itemName.Add("Chippy");
+                item1.GetComponent<SpriteRenderer>().sprite = items[14];
+            }
+            else if (whatItemRoll == 15)
+            {
+                Debug.Log("[ORDER] Item: Nova");
+                itemName.Add("Nova");
+                item1.GetComponent<SpriteRenderer>().sprite = items[15];
+            }
+            else if (whatItemRoll == 16)
+            {
+                Debug.Log("[ORDER] Item: Piattos");
+                itemName.Add("Piattos");
+                item1.GetComponent<SpriteRenderer>().sprite = items[16];
             }
 
+            NormalizeSpriteScale(item1, items[whatItemRoll], item1OriginalScale);
             GetQuantityOrderRandomizer(manyItems, whatItemRoll);
         }
         else if (manyItems == 2)
         { Debug.Log("[ORDER] Items: 2");
-            itemName.Add("Piece of Candy");
-            itemName.Add("Cookie");
+
+            int whatItemRoll1 = Random.Range(0, countItems);
+            int whatItemRoll2 = Random.Range(0, countItems);
+
+            while (whatItemRoll1 == whatItemRoll2)
+            {
+                whatItemRoll2 = Random.Range(0, countItems);
+            }
+
+            item1.SetActive(true);
+            item2.SetActive(true);
+
+            itemName.Add(items[whatItemRoll1].name);
+            itemName.Add(items[whatItemRoll2].name);
+
+            item1.GetComponent<SpriteRenderer>().sprite = items[whatItemRoll1];
+            item2.GetComponent<SpriteRenderer>().sprite = items[whatItemRoll2];
+
+            NormalizeSpriteScale(item1, items[whatItemRoll1], item1OriginalScale);
+            NormalizeSpriteScale(item2, items[whatItemRoll2], item2OriginalScale);
 
             GetQuantityOrderRandomizer(manyItems, itemName.Count);
         }
@@ -79,8 +221,6 @@ public class OrderScript : MonoBehaviour
         {
             Debug.Log($"[ORDER] Item {i + 1}: {itemName[i]}");
         }
-
-        
     }
 
     private void GetQuantityOrderRandomizer(int randItems, int whatItem)
@@ -89,46 +229,45 @@ public class OrderScript : MonoBehaviour
 
         if (randItems == 1)
         {
-            if (whatItem == 0)
+            if (whatItem >= 0)
             {
-                candyQuantityText.enabled = true;
+                oneItemRequest.enabled = true;
 
-                Debug.Log($"[ORDER] Quantity (Piece of Candy): {quantity}");
-                candyQuantityText.text = $"Candy Req: {quantity}";
-            }
-            else if (whatItem == 1)
-            {
-                cookieQuantityText.enabled = true;
-
-                Debug.Log($"[ORDER] Quantity (Cookie): {quantity}");
-                cookieQuantityText.text = $"Cookie Req: {quantity}";
+                Debug.Log($"[ORDER] One Item Req: {quantity}");
+                oneItemRequest.text = $"{quantity}";
             }
 
             itemQuantities.Add(quantity);
         }
         else if (randItems == itemName.Count)
         {
+            Sprite sprite;
+            string spriteName;
+
             for (int i = 0; i < randItems; i++)
             {
+                sprite = items[i];
+                spriteName = sprite.name;
+
                 int quantityItems = Random.Range(1, 10);
-                Debug.Log($"[ORDER] Quantity for Item {i + 1}: {quantityItems}");
+                Debug.Log($"[ORDER] Quantity for Item {i + 1} ({spriteName}): {quantityItems}");
 
                 itemQuantities.Add(quantityItems);
             }
 
-            candyQuantityText.enabled = true;
-            cookieQuantityText.enabled = true;
+            item1QuantityText.enabled = true;
+            item2QuantityText.enabled = true;
 
-            candyQuantityText.text = $"Candy Req: {itemQuantities[0]}";
-            cookieQuantityText.text = $"Cookie Req: {itemQuantities[1]}";
+            item1QuantityText.text = $"{itemQuantities[0]}";
+            item2QuantityText.text = $"{itemQuantities[1]}";
         }
     }
 
     public void DecreaseItemRequest(string itemName, int itemToGive)
     {
-        if (itemName == "Piece of Candy")
+        if (itemName == "Goya Candy")
         {
-            //get current position of Piece of Candy in itemName/itemQuantities list
+            //get current position of Goya Candy in itemName/itemQuantities list
             int index = this.itemName.IndexOf(itemName);
             int quantity = itemQuantities[index];
 
@@ -137,19 +276,55 @@ public class OrderScript : MonoBehaviour
                 quantity -= itemToGive;
                 itemQuantities[index] = quantity;
 
-                candyQuantityText.text = $"Candy Req: {quantity}";
-                Debug.Log($"[ORDER] Decreased Piece of Candy quantity. New quantity: {quantity}");
+                Debug.Log($"[ORDER] Value of manyItems: {manyItems}");
+
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Goya Candy quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Goya Candy quantity. New quantity: {quantity}");
+                    }
+                }
             }
 
             if (quantity == 0)
             {
-                Debug.Log("[ORDER] Piece of Candy order complete!");
-                candyQuantityText.enabled = false;
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Goya Candy order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Goya Candy quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Goya Candy quantity. New quantity: {quantity}");
+                    }
+                }
             }
         }
-        else if (itemName == "Cookie")
+        else if (itemName == "Mentos")
         {
-            //get current position of Cookie in itemName/itemQuantities list
+            //get current position of Mentos in itemName/itemQuantities list
             int index = this.itemName.IndexOf(itemName);
             int quantity = itemQuantities[index];
 
@@ -158,19 +333,858 @@ public class OrderScript : MonoBehaviour
                 quantity -= itemToGive;
                 itemQuantities[index] = quantity;
 
-                cookieQuantityText.text = $"Cookie Req: {quantity}";
-                Debug.Log($"[ORDER] Decreased Cookie quantity. New quantity: {quantity}");
+                Debug.Log($"[ORDER] Value of manyItems: {manyItems}");
+
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Mentos quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Mentos quantity. New quantity: {quantity}");
+                    }
+                }
             }
 
             if (quantity == 0)
             {
-                Debug.Log("[ORDER] Cookie order complete!");
-                cookieQuantityText.enabled = false;
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Mentos order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Mentos quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Mentos quantity. New quantity: {quantity}");
+                    }
+                }
             }
+        }
+        else if (itemName == "White Rabbit")
+        {
+            //get current position of White Rabbit in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased White Rabbit quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased White Rabbit quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] White Rabbit order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased White Rabbit quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased White Rabbit quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Rice")
+        {
+            //get current position of Rice in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Rice quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Rice quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Rice order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Rice quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Rice quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Soy Sauce")
+        {
+            //get current position of Soy Sauce in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Soy Sauce quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Soy Sauce quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Soy Sauce order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Soy Sauce quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Soy Sauce quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Vinegar")
+        {
+            //get current position of Vinegar in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Vinegar quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Vinegar quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Vinegar order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Vinegar quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Vinegar quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Joy")
+        {
+            //get current position of Joy in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Joy quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Joy quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Joy order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Joy quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Joy quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Surf")
+        {
+            //get current position of Surf in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Surf quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Surf quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Surf order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Surf quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Surf quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Payless Xtra Big")
+        {
+            //get current position of Payless Xtrabig in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Payless Xtrabig quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Payless Xtrabig quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Payless Xtra Big order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Payless Xtrabig quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Payless Xtrabig quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Lucky Me")
+        {
+            //get current position of Lucky Me in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Lucky Me quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Lucky Me quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Lucky Me order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Lucky Me quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Lucky Me quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Cup Noodle")
+        {
+            //get current position of Cup Noodle in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Cup Noodle quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Cup Noodle quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Cup Noodle order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Cup Noodle quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Cup Noodle quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Colgate")
+        {
+            //get current position of Colgate in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Colgate quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Colgate quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Colgate order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Colgate quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Colgate quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Rexona")
+        {
+            //get current position of Rexona in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Rexona quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Rexona quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Rexona order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Rexona quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Rexona quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Sunsilk")
+        {
+            //get current position of Sunsilk in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Sunsilk quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Sunsilk quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Sunsilk order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Sunsilk quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Sunsilk quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Chippy")
+        {
+            //get current position of Chippy in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Chippy quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Chippy quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+            if (manyItems == 1 && quantity == 0)
+            {
+                Debug.Log("[ORDER] Chippy order complete!");
+                oneItemRequest.enabled = false;
+            }
+            if (quantity == 0 && manyItems != 1)
+            {
+                if (index == 0)
+                {
+                    item1.SetActive(false);
+                    item1QuantityText.enabled = false;
+                    Debug.Log($"[ORDER] Decreased Chippy quantity. New quantity: {quantity}");
+                }
+                else if (index == 1)
+                {
+                    item2.SetActive(false);
+                    item2QuantityText.enabled = false;
+                    Debug.Log($"[ORDER] Decreased Chippy quantity. New quantity: {quantity}");
+                }
+            }
+        }
+        else if (itemName == "Nova")
+        {
+            //get current position of Nova in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Nova quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Nova quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+            if (manyItems == 1 && quantity == 0)
+            {
+                Debug.Log("[ORDER] Nova order complete!");
+                oneItemRequest.enabled = false;
+            }
+            if (quantity == 0 && manyItems != 1)
+            {
+                if (index == 0)
+                {
+                    item1.SetActive(false);
+                    item1QuantityText.enabled = false;
+                    Debug.Log($"[ORDER] Decreased Nova quantity. New quantity: {quantity}");
+                }
+                else if (index == 1)
+                {
+                    item2.SetActive(false);
+                    item2QuantityText.enabled = false;
+                    Debug.Log($"[ORDER] Decreased Nova quantity. New quantity: {quantity}");
+                }
+            }
+        }
+        else if (itemName == "Piattos")
+        {
+            //get current position of Piattos in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Piattos quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Piattos quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+            if (manyItems == 1 && quantity == 0)
+            {
+                Debug.Log("[ORDER] Piattos order complete!");
+                oneItemRequest.enabled = false;
+            }
+
+            if (quantity == 0 && manyItems != 1)
+            {
+                if (index == 0)
+                {
+                    item1.SetActive(false);
+                    item1QuantityText.enabled = false;
+                    Debug.Log($"[ORDER] Decreased Piattos quantity. New quantity: {quantity}");
+                }
+                else if (index == 1)
+                {
+                    item2.SetActive(false);
+                    item2QuantityText.enabled = false;
+                    Debug.Log($"[ORDER] Decreased Piattos quantity. New quantity: {quantity}");
+                }
+            }
+
         }
 
         if (itemQuantities.TrueForAll(q => q == 0))
-        { payingCustomer.PayForTotalAmount(); }
+        {
+            payingCustomer.PayForTotalAmount();
+            requestItem.SetActive(false);
+
+            item1.SetActive(false);
+            item2.SetActive(false);
+
+            disableUI.DisableWhileCalcu();
+        }
 
         UpdateListFromDragDropClick();
 
@@ -190,6 +1204,11 @@ public class OrderScript : MonoBehaviour
         }
     }
 
+    private void NormalizeSpriteScale(GameObject itemGameObject, Sprite sprite, Vector3 originalScale)
+    {
+        if (sprite != null)
+        { itemGameObject.transform.localScale = originalScale; }
+    }
     public void ClearItemsList()
     {
         itemName.Clear();

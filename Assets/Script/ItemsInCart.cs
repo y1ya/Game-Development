@@ -8,10 +8,30 @@ public class ItemsInCart : MonoBehaviour
     private int totalItems = 0;
     public Text totalItemsText;
 
-    private int totalCandy = 0; 
-    private int totalCookie = 0;
+    private int totalGoyaCandy = 0; 
+    private int totalMentos = 0;
+    private int totalWhiteRabbit = 0;
+    private int totalRice = 0;
+    private int totalSoySauce = 0;
+    private int totalVinegar = 0;
+    private int totalJoy = 0;
+    private int totalSurf = 0;
+    private int totalPaylessXtraBig = 0;
+    private int totalLuckyMe = 0;
+    private int totalCupNoodle = 0;
+    private int totalColgate = 0;
+    private int totalRexona = 0;
+    private int totalSunsilk = 0;
+    private int totalChippy = 0;
+    private int totalNova = 0;
+    private int totalPiattos = 0;
 
-    public Text totalCandyText, totalCookieText;
+    public Text totalGoyaCandyText, totalMentosText, totalWhiteRabbitText,
+        totalRiceText, totalSoySauceText, totalVinegarText,
+        totalJoyText, totalSurfText,
+        totalPaylessXtraBigText, totalLuckyMeText, totalCupNoodleText,
+        totalColgateText, totalRexonaText, totalSunsilkText,
+        totalChippyText, totalNovaText, totalPiattosText;
 
     private List<string> cartItems = new List<string>();
 
@@ -21,10 +41,40 @@ public class ItemsInCart : MonoBehaviour
         cartItems.Add(ItemName);
         Debug.Log("Added to cart: " + ItemName);
 
-        if (ItemName.Equals("Piece of Candy"))
-        { totalCandy++; Debug.Log($"Added Candy to Cart"); }
-        else if (ItemName.Equals("Cookie"))
-        { totalCookie++; Debug.Log($"Added Cookie to Cart"); }
+        if (ItemName.Equals("Goya Candy"))
+        { totalGoyaCandy++; Debug.Log($"Added Goya Candy to Cart"); }
+        else if (ItemName.Equals("Mentos"))
+        { totalMentos++; Debug.Log($"Added Mentos to Cart"); }
+        else if (ItemName.Equals("White Rabbit"))
+        { totalWhiteRabbit++; Debug.Log($"Added White Rabbit to Cart"); }
+        else if (ItemName.Equals("Rice"))
+        { totalRice++; Debug.Log($"Added Rice to Cart"); }
+        else if (ItemName.Equals("Soy Sauce"))
+        { totalSoySauce++; Debug.Log($"Added Soy Sauce to Cart"); }
+        else if (ItemName.Equals("Vinegar"))
+        { totalVinegar++; Debug.Log($"Added Vinegar to Cart"); }
+        else if (ItemName.Equals("Joy"))
+        { totalJoy++; Debug.Log($"Added Joy to Cart"); }
+        else if (ItemName.Equals("Surf"))
+        { totalSurf++; Debug.Log($"Added Surf to Cart"); }
+        else if (ItemName.Equals("Payless Xtra Big"))
+        { totalPaylessXtraBig++; Debug.Log($"Added Payless Xtra Big to Cart"); }
+        else if (ItemName.Equals("Lucky Me"))
+        { totalLuckyMe++; Debug.Log($"Added Lucky Me to Cart"); }
+        else if (ItemName.Equals("Cup Noodle"))
+        { totalCupNoodle++; Debug.Log($"Added Cup Noodle to Cart"); }
+        else if (ItemName.Equals("Colgate"))
+        { totalColgate++; Debug.Log($"Added Colgate to Cart"); }
+        else if (ItemName.Equals("Rexona"))
+        { totalRexona++; Debug.Log($"Added Rexona to Cart"); }
+        else if (ItemName.Equals("Sunsilk"))
+        { totalSunsilk++; Debug.Log($"Added Sunsilk to Cart"); }
+        else if (ItemName.Equals("Chippy"))
+        { totalChippy++; Debug.Log($"Added Chippy to Cart"); }
+        else if (ItemName.Equals("Nova"))
+        { totalNova++; Debug.Log($"Added Nova to Cart"); }
+        else if (ItemName.Equals("Piattos"))
+        { totalPiattos++; Debug.Log($"Added Piattos to Cart"); }
 
         AddItemsInCart();
     }
@@ -36,9 +86,95 @@ public class ItemsInCart : MonoBehaviour
 
     public void UpdateTotalText()
     {
+        if (totalItems >= 0)
+        {
+            if (totalGoyaCandy > 0)
+            { totalGoyaCandyText.enabled = true; }
+            else { totalGoyaCandyText.enabled = false; }
+
+            if (totalMentos > 0)
+            { totalMentosText.enabled = true; }
+            else { totalMentosText.enabled = false; }
+
+            if (totalWhiteRabbit > 0)
+            { totalWhiteRabbitText.enabled = true; }
+            else { totalWhiteRabbitText.enabled = false; }
+
+            if (totalRice > 0)
+            { totalRiceText.enabled = true; }
+            else { totalRiceText.enabled = false; }
+
+            if (totalSoySauce > 0)
+            { totalSoySauceText.enabled = true; }
+            else { totalSoySauceText.enabled = false; }
+
+            if (totalVinegar > 0)
+            { totalVinegarText.enabled = true; }
+            else { totalVinegarText.enabled = false; }
+
+            if (totalJoy > 0)
+            { totalJoyText.enabled = true; }
+            else { totalJoyText.enabled = false; }
+
+            if (totalSurf > 0)
+            { totalSurfText.enabled = true; }
+            else { totalSurfText.enabled = false; }
+
+            if (totalPaylessXtraBig > 0)
+            { totalPaylessXtraBigText.enabled = true; }
+            else { totalPaylessXtraBigText.enabled = false; }
+
+            if (totalLuckyMe > 0)
+            { totalLuckyMeText.enabled = true; }
+            else { totalLuckyMeText.enabled = false; }
+
+            if (totalCupNoodle > 0)
+            { totalCupNoodleText.enabled = true; }
+            else { totalCupNoodleText.enabled = false; }
+
+            if (totalColgate > 0)
+            { totalColgateText.enabled = true; }
+            else { totalColgateText.enabled = false; }
+
+            if (totalRexona > 0)
+            { totalRexonaText.enabled = true; }
+            else { totalRexonaText.enabled = false; }
+
+            if (totalSunsilk > 0)
+            { totalSunsilkText.enabled = true; }
+            else { totalSunsilkText.enabled = false; }
+
+            if (totalChippy > 0)
+            { totalChippyText.enabled = true; }
+            else { totalChippyText.enabled = false; }
+
+            if (totalNova > 0)
+            { totalNovaText.enabled = true; }
+            else { totalNovaText.enabled = false; }
+
+            if (totalPiattos > 0)
+            { totalPiattosText.enabled = true; }
+            else { totalPiattosText.enabled = false; }
+        }
+
         totalItemsText.text = $"Total Items: {totalItems}";
-        totalCandyText.text = $"Candy: {totalCandy}";
-        totalCookieText.text = $"Cookie: {totalCookie}";
+        totalGoyaCandyText.text = $"Goya: {totalGoyaCandy}";
+        totalMentosText.text = $"Mentos: {totalMentos}";
+        totalWhiteRabbitText.text = $"White Rabbit: {totalWhiteRabbit}";
+        totalRiceText.text = $"Rice: {totalRice}";
+        totalSoySauceText.text = $"Soy Sauce: {totalSoySauce}";
+        totalVinegarText.text = $"Vinegar: {totalVinegar}";
+        totalJoyText.text = $"Joy: {totalJoy}";
+        totalSurfText.text = $"Surf: {totalSurf}";
+        totalPaylessXtraBigText.text = $"Payless Xtra Big: {totalPaylessXtraBig}";
+        totalLuckyMeText.text = $"Lucky Me: {totalLuckyMe}";
+        totalCupNoodleText.text = $"Cup Noodle: {totalCupNoodle}";
+        totalColgateText.text = $"Colgate: {totalColgate}";
+        totalRexonaText.text = $"Rexona: {totalRexona}";
+        totalSunsilkText.text = $"Sunsilk: {totalSunsilk}";
+        totalChippyText.text = $"Chippy: {totalChippy}";
+        totalNovaText.text = $"Nova: {totalNova}";
+        totalPiattosText.text = $"Piattos: {totalPiattos}";
     }
 
     public void ClearCart()
@@ -46,8 +182,18 @@ public class ItemsInCart : MonoBehaviour
         cartItems.Clear();
 
         totalItems = 0;
-        totalCandy = 0;
-        totalCookie = 0;
+        
+        totalGoyaCandy = 0; totalMentos = 0; totalWhiteRabbit = 0;
+        
+        totalRice = 0; totalSoySauce = 0; totalVinegar = 0;
+
+        totalJoy = 0; totalSurf = 0;
+
+        totalPaylessXtraBig = 0; totalLuckyMe = 0; totalCupNoodle = 0;
+
+        totalColgate = 0; totalRexona = 0; totalSunsilk = 0;
+
+        totalChippy = 0; totalNova = 0; totalPiattos = 0;
 
         UpdateTotalText();
     }
@@ -57,8 +203,38 @@ public class ItemsInCart : MonoBehaviour
     public List<string> GetCartItems()
     { return cartItems; }
 
-    public int GetTotalCandy()
-    { return totalCandy; }
-    public int GetTotalCookie() 
-    { return totalCookie; }
+    public int GetTotalGoyaCandy()
+    { return totalGoyaCandy; }
+    public int GetTotalMentos() 
+    { return totalMentos; }
+    public int GetTotalWhiteRabbit() 
+    { return totalWhiteRabbit; }
+    public int GetTotalRice() 
+    { return totalRice; }
+    public int GetTotalSoySauce() 
+    { return totalSoySauce; }
+    public int GetTotalVinegar() 
+    { return totalVinegar; }
+    public int GetTotalJoy() 
+    { return totalJoy; }
+    public int GetTotalSurf() 
+    { return totalSurf; }
+    public int GetTotalPaylessXtraBig() 
+    { return totalPaylessXtraBig; }
+    public int GetTotalLuckyMe() 
+    { return totalLuckyMe; }
+    public int GetTotalCupNoodle() 
+    { return totalCupNoodle; }
+    public int GetTotalColgate() 
+    { return totalColgate; }
+    public int GetTotalRexona() 
+    { return totalRexona; }
+    public int GetTotalSunsilk() 
+    { return totalSunsilk; }
+    public int GetTotalChippy() 
+    { return totalChippy; }
+    public int GetTotalNova() 
+    { return totalNova; }
+    public int GetTotalPiattos() 
+    { return totalPiattos; }
 }

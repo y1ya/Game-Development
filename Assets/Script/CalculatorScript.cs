@@ -8,6 +8,8 @@ public class CalculatorScript : MonoBehaviour
     public PlayerCurrency playerCurrency;
     public PlayerIncome playerIncome;
     public SuccessfulTransaction successfulTransaction;
+    public ItemPrice itemPrice;
+    public DisablingUI disableUI;
 
     public GameObject calculator;
 
@@ -54,6 +56,20 @@ public class CalculatorScript : MonoBehaviour
         textCalcu.text = currentValue.ToString("F2");
         Debug.Log("[CALCULATOR] 50 Peso button pressed.");
     }
+    public void Press100PesoCalcu()
+    {
+        currentValue += 100f;
+
+        textCalcu.text = currentValue.ToString("F2");
+        Debug.Log("[CALCULATOR] 100 Peso button pressed.");
+    }
+    public void Press1CentCalcu()
+    {
+        currentValue += 0.01f;
+
+        textCalcu.text = currentValue.ToString("F2");
+        Debug.Log("[CALCULATOR] 1 cent button pressed.");
+    }
     public void Press5CentCalcu()
     {
         currentValue += 0.05f;
@@ -90,9 +106,13 @@ public class CalculatorScript : MonoBehaviour
             playerIncome.AddIncome();
 
             PressClearCalcu();
+            itemPrice.ResetTotalPrice();
+
             calculator.SetActive(false);
             
             successfulTransaction.Success();
+
+            disableUI.EnableWhileCalcu();
         }
         else
         {

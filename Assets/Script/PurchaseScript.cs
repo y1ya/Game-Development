@@ -6,8 +6,23 @@ public class PurchaseScript : MonoBehaviour
     public GameObject shopBuyItems;
     public GameObject purchaseButton;
 
-    public Button candyItem;
-    public Button cookieItem;
+    public Button goyaCandyItem;
+    public Button mentosItem;
+    public Button whiteRabbitItem;
+    public Button riceItem;
+    public Button soySauceItem;
+    public Button vinegarItem;
+    public Button surfItem;
+    public Button joyItem;
+    public Button paylessXtraBigItem;
+    public Button luckyMeItem;
+    public Button cupNoodleItem;
+    public Button colgateItem;
+    public Button rexonaItem;
+    public Button sunsilkItem;
+    public Button chippyItem;
+    public Button novaItem;
+    public Button piattos;
 
     public ItemsLeft itemsLeft;
     public PlayerCurrency playerCurrency;
@@ -32,39 +47,268 @@ public class PurchaseScript : MonoBehaviour
         float currentCurrency = playerCurrency.GetCurrentCurrency();
         Debug.Log($"[PURCHASE] Current currency: {currentCurrency}");
 
-        if (cleanedItemName.Equals("Candy"))
+        if (cleanedItemName.Equals("Goya Candy"))
         {
-            if (currentCurrency >= 50f)
+            if (currentCurrency >= 62.50f)
             {
-                int currentCandy = itemsLeft.GetCandyLeft();
+                int currentGoyaCandy = itemsLeft.GetGoyaCandyLeft();
 
-                itemsLeft.SetCandyLeft(currentCandy + 20);
-                Debug.Log($"[PURCHASE] Current Candy: {itemsLeft.GetCandyLeft()}");
+                itemsLeft.SetGoyaCandyLeft(currentGoyaCandy + 50);
+                Debug.Log($"[PURCHASE] Current Candy: {itemsLeft.GetGoyaCandyLeft()}");
 
-                playerCurrency.SetCurrentCurrency(currentCurrency - 50f);
+                playerCurrency.SetCurrentCurrency(currentCurrency - 62.50f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
             {
-                Debug.Log("[PURCHASE] Not enough currency to purchase Candy.");
+                Debug.Log("[PURCHASE] Not enough currency to purchase Goya Candy.");
             }
         }
-        else if (cleanedItemName.Equals("Cookies"))
+        else if (cleanedItemName.Equals("Mentos"))
         {
-            if (currentCurrency >= 60f)
+            if (currentCurrency >= 84f)
             {
-                int currentCookie = itemsLeft.GetCookieLeft();
+                int currentMentos = itemsLeft.GetMentosLeft();
 
-                itemsLeft.SetCookieLeft(currentCookie + 20);
-                Debug.Log($"[PURCHASE] Current Cookies: {itemsLeft.GetCookieLeft()}");
+                itemsLeft.SetMentosLeft(currentMentos + 24);
+                Debug.Log($"[PURCHASE] Current Mentos: {itemsLeft.GetMentosLeft()}");
 
-                playerCurrency.SetCurrentCurrency(currentCurrency - 60f);
+                playerCurrency.SetCurrentCurrency(currentCurrency - 84f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
             {
-                Debug.Log("[PURCHASE] Not enough currency to purchase Cookies.");
+                Debug.Log("[PURCHASE] Not enough currency to purchase Mentos.");
             }
+        }
+        else if (cleanedItemName.Equals("White Rabbit"))
+        {
+            if (currentCurrency >= 20f)
+            {
+                int currentWhiteRabbit = itemsLeft.GetWhiteRabbitLeft();
+                itemsLeft.SetWhiteRabbitLeft(currentWhiteRabbit + 10);
+                Debug.Log($"[PURCHASE] Current White Rabbit: {itemsLeft.GetWhiteRabbitLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase White Rabbit.");
+            }
+        }
+        else if (cleanedItemName.Equals("Rice"))
+        {
+            if (currentCurrency >= 300f)
+            {
+                int currentRice = itemsLeft.GetRiceLeft();
+                itemsLeft.SetRiceLeft(currentRice + 25);
+                Debug.Log($"[PURCHASE] Current Rice: {itemsLeft.GetRiceLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 300f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Rice.");
+            }
+        }
+        else if (cleanedItemName.Equals("Soy Sauce"))
+        {
+            if (currentCurrency >= 24f)
+            {
+                int currentSoySauce = itemsLeft.GetSoySauceLeft();
+                itemsLeft.SetSoySauceLeft(currentSoySauce + 12);
+                Debug.Log($"[PURCHASE] Current Soy Sauce: {itemsLeft.GetSoySauceLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 24f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Soy Sauce.");
+            }
+        }
+        else if (cleanedItemName.Equals("Vinegar"))
+        {
+            if (currentCurrency >= 21f)
+            {
+                int currentVinegar = itemsLeft.GetVinegarLeft();
+                itemsLeft.SetVinegarLeft(currentVinegar + 12);
+                Debug.Log($"[PURCHASE] Current Vinegar: {itemsLeft.GetVinegarLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 21f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Vinegar.");
+            }
+        }
+        else if (cleanedItemName.Equals("Joy"))
+        {
+            if (currentCurrency >= 31.25f)
+            {
+                int currentJoy = itemsLeft.GetJoyLeft();
+                itemsLeft.SetJoyLeft(currentJoy + 25);
+                Debug.Log($"[PURCHASE] Current Joy: {itemsLeft.GetJoyLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 31.25f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Joy.");
+            }
+        }
+        else if (cleanedItemName.Equals("Surf"))
+        {
+            if (currentCurrency >= 31.25f)
+            {
+                int currentSurf = itemsLeft.GetSurfLeft();
+                itemsLeft.SetSurfLeft(currentSurf + 25);
+                Debug.Log($"[PURCHASE] Current Surf: {itemsLeft.GetSurfLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 31.25f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Surf.");
+            }
+        }
+        else if (cleanedItemName.Equals("Payless Xtra Big"))
+        {
+            if (currentCurrency >= 54f)
+            {
+                int currentPaylessXtraBig = itemsLeft.GetPaylessXtraBigLeft();
+                itemsLeft.SetPaylessXtraBigLeft(currentPaylessXtraBig + 12);
+                Debug.Log($"[PURCHASE] Current Payless Xtrabig: {itemsLeft.GetPaylessXtraBigLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 54f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Payless Xtra Big.");
+            }
+        }
+        else if (cleanedItemName.Equals("Lucky Me"))
+        {
+            if (currentCurrency >= 84f)
+            {
+                int currentLuckyMe = itemsLeft.GetLuckyMeLeft();
+                itemsLeft.SetLuckyMeLeft(currentLuckyMe + 24);
+                Debug.Log($"[PURCHASE] Current Lucky Me: {itemsLeft.GetLuckyMeLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 84f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Lucky Me.");
+            }
+        }
+        else if (cleanedItemName.Equals("Cup Noodle"))
+        {
+            if (currentCurrency >= 108f)
+            {
+                int currentCupNoodle = itemsLeft.GetCupNoodleLeft();
+                itemsLeft.SetCupNoodleLeft(currentCupNoodle + 12);
+                Debug.Log($"[PURCHASE] Current Cup Noodle: {itemsLeft.GetCupNoodleLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 108f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Cup Noodle.");
+            }
+        }
+        else if (cleanedItemName.Equals("Colgate"))
+        {
+            if (currentCurrency >= 48f)
+            {
+                int currentColgate = itemsLeft.GetColgateLeft();
+                itemsLeft.SetColgateLeft(currentColgate + 24);
+                Debug.Log($"[PURCHASE] Current Colgate: {itemsLeft.GetColgateLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 48f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Colgate.");
+            }
+        }
+        else if (cleanedItemName.Equals("Rexona"))
+        {
+            if (currentCurrency >= 144f)
+            {
+                int currentRexona = itemsLeft.GetRexonaLeft();
+                itemsLeft.SetRexonaLeft(currentRexona + 12);
+                Debug.Log($"[PURCHASE] Current Rexona: {itemsLeft.GetRexonaLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 144f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Rexona.");
+            }
+        }
+        else if (cleanedItemName.Equals("Sunsilk"))
+        {
+            if (currentCurrency >= 30f)
+            {
+                int currentSunsilk = itemsLeft.GetSunsilkLeft();
+                itemsLeft.SetSunsilkLeft(currentSunsilk + 24);
+                Debug.Log($"[PURCHASE] Current Sunsilk: {itemsLeft.GetSunsilkLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 30f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Sunsilk.");
+            }
+        }
+        else if (cleanedItemName.Equals("Chippy"))
+        {
+            if (currentCurrency >= 96f)
+            {
+                int currentChippy = itemsLeft.GetChippyLeft();
+                itemsLeft.SetChippyLeft(currentChippy + 24);
+                Debug.Log($"[PURCHASE] Current Chippy: {itemsLeft.GetChippyLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 96f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Chippy.");
+            }
+        }
+        else if (cleanedItemName.Equals("Nova"))
+        {
+            if (currentCurrency >= 96f)
+            {
+                int currentNova = itemsLeft.GetNovaLeft();
+                itemsLeft.SetNovaLeft(currentNova + 24);
+                Debug.Log($"[PURCHASE] Current Nova: {itemsLeft.GetNovaLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 96f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Nova.");
+            }
+        }
+        else if (cleanedItemName.Equals("Piattos"))
+        {
+            if (currentCurrency >= 96f)
+            {
+                int currentPiattos = itemsLeft.GetPiattosLeft();
+                itemsLeft.SetPiattosLeft(currentPiattos + 24);
+                Debug.Log($"[PURCHASE] Current Piattos: {itemsLeft.GetPiattosLeft()}");
+                playerCurrency.SetCurrentCurrency(currentCurrency - 96f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Piattos.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"[PURCHASE] Unknown item: {cleanedItemName}");
         }
     }
 }
