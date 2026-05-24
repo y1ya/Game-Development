@@ -25,53 +25,23 @@ public class ItemsLeft : MonoBehaviour
 
     void Start()
     {
-        goyaCandyLeft = 15;
-        mentosLeft = 15;
-        whiteRabbitLeft = 15;
-        riceLeft = 15;
-        soySauceLeft = 10;
-        vinegarLeft = 10;
-        joyLeft = 20;
-        surfLeft = 20;
-        paylessXtraBigLeft = 15;
-        luckyMeLeft = 15;
-        cupNoodleLeft = 15;
-        colgateLeft = 10;
-        rexonaLeft = 10;
-        sunsilkLeft = 10;
-        chippyLeft = 20;
-        novaLeft = 20;
-        piattosLeft = 20;
-        cokeLeft = 10;
-        pepsiLeft = 10;
-        royalLeft = 10;
-        zestoAppleLeft = 10;
-        zestoGrapeLeft = 10;
-        zestoOrangeLeft = 10;
+        goyaCandyLeft = 15; mentosLeft = 15; whiteRabbitLeft = 15;
+        riceLeft = 10; soySauceLeft = 10; vinegarLeft = 10;
+        joyLeft = 20; surfLeft = 20;
+        paylessXtraBigLeft = 15; luckyMeLeft = 15; cupNoodleLeft = 15;
+        colgateLeft = 10; rexonaLeft = 10; sunsilkLeft = 10;
+        chippyLeft = 20; novaLeft = 20; piattosLeft = 20;
+        cokeLeft = 10; pepsiLeft = 10; royalLeft = 10;
+        zestoAppleLeft = 10; zestoGrapeLeft = 10; zestoOrangeLeft = 10;
 
-        UpdateGoyaCandyLeftText();
-        UpdateMentosLeftText();
-        UpdateWhiteRabbitLeftText();
-        UpdateRiceLeftText();
-        UpdateSoySauceLeftText();
-        UpdateVinegarLeftText();
-        UpdateSurfLeftText();
-        UpdateJoyLeftText();
-        UpdatePaylessXtraBigLeftText();
-        UpdateLuckyMeLeftText();
-        UpdateCupNoodleLeftText();
-        UpdateColgateLeftText();
-        UpdateRexonaLeftText();
-        UpdateSunsilkLeftText();
-        UpdateChippyLeftText();
-        UpdateNovaLeftText();
-        UpdatePiattosLeftText();
-        UpdateCokeLeftText();
-        UpdatePepsiLeftText();
-        UpdateRoyalLeftText();
-        UpdateZestoAppleLeftText();
-        UpdateZestoGrapeLeftText();
-        UpdateZestoOrangeLeftText();
+        UpdateGoyaCandyLeftText(); UpdateMentosLeftText(); UpdateWhiteRabbitLeftText();
+        UpdateRiceLeftText(); UpdateSoySauceLeftText(); UpdateVinegarLeftText();
+        UpdateSurfLeftText(); UpdateJoyLeftText(); 
+        UpdatePaylessXtraBigLeftText(); UpdateLuckyMeLeftText(); UpdateCupNoodleLeftText(); 
+        UpdateColgateLeftText(); UpdateRexonaLeftText(); UpdateSunsilkLeftText();
+        UpdateChippyLeftText(); UpdateNovaLeftText(); UpdatePiattosLeftText(); 
+        UpdateCokeLeftText(); UpdatePepsiLeftText(); UpdateRoyalLeftText(); 
+        UpdateZestoAppleLeftText(); UpdateZestoGrapeLeftText();UpdateZestoOrangeLeftText();
     }
     public void DecreaseGoyaCandy()
     {

@@ -4075,8 +4075,9 @@ GameObject:
   m_Component:
   - component: {fileID: 284351482}
   - component: {fileID: 284351481}
-  - component: {fileID: 284351487}
   - component: {fileID: 284351488}
+  - component: {fileID: 284351490}
+  - component: {fileID: 284351487}
   - component: {fileID: 284351489}
   m_Layer: 0
   m_Name: Logic Manager
@@ -4176,6 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d235d0424d7b945b299bd479c7c849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PurchaseScript
+  minMaxItemsDisplay: {fileID: 284351490}
   shopBuyItems: {fileID: 1561664081}
   purchaseButton: {fileID: 2019467690}
   goyaCandyItem: {fileID: 1925081868}
@@ -4221,6 +4223,32 @@ MonoBehaviour:
   bottomShelfObjects: {fileID: 843522951}
   closedRefrigerator: {fileID: 21300000, guid: 4f10c5d983529984bb61bd4cf75eff88, type: 3}
   openRefrigerator: {fileID: 21300000, guid: 5b9e37fb1af7fad4fba89a110257a347, type: 3}
+--- !u!114 &284351490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284351480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b2e9873f30c4847ab491c476477b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaxItemsDisplay
+  maxItemsCandies: 15
+  minItemsCandies: 3
+  maxItemsDrinks: 10
+  minItemsDrinks: 3
+  maxItemsHouseHoldBasics: 20
+  minItemsHouseHoldBasics: 5
+  maxItemsInstantNoodles: 15
+  minItemsInstantNoodles: 3
+  maxItemsPantryStaples: 10
+  minItemsPantryStaples: 3
+  maxItemsPersonalCare: 10
+  minItemsPersonalCare: 3
+  maxItemsSnacks: 20
+  minItemsSnacks: 3
 --- !u!1 &290691158
 GameObject:
   m_ObjectHideFlags: 0
@@ -7466,7 +7494,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 68815455df88a4e44bd6a5ac397346a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.1254902}
@@ -12216,7 +12244,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 68815455df88a4e44bd6a5ac397346a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.1254902}
@@ -14967,7 +14995,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 5ca56e7750bec2140abd09f4aeec8392, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
