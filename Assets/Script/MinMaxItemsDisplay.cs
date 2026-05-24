@@ -224,4 +224,42 @@ public class MinMaxItemsDisplay : MonoBehaviour
                 break;
         }
     }
+
+    public bool CheckMinimumRequirement(string item, int currentLeftItem)
+    {
+        return item switch
+        {
+            "Goya Candy" => currentLeftItem <= minItemsCandies,
+            "Mentos" => currentLeftItem <= minItemsCandies,
+            "White Rabbit" => currentLeftItem <= minItemsCandies,
+
+            "Coke" => currentLeftItem <= minItemsDrinks,
+            "Pepsi" => currentLeftItem <= minItemsDrinks,
+            "Royal" => currentLeftItem <= minItemsDrinks,
+            "Zesto Apple" => currentLeftItem <= minItemsDrinks,
+            "Zesto Grape" => currentLeftItem <= minItemsDrinks,
+            "Zesto Orange" => currentLeftItem <= minItemsDrinks,
+
+            "Joy" => currentLeftItem <= minItemsHouseHoldBasics,
+            "Surf" => currentLeftItem <= minItemsHouseHoldBasics,
+            
+            "Payless Xtra Big" => currentLeftItem <= minItemsInstantNoodles,
+            "Lucky Me" => currentLeftItem <= minItemsInstantNoodles,
+            "Cup Noodle" => currentLeftItem <= minItemsInstantNoodles,
+            
+            "Rice" => currentLeftItem <= minItemsPantryStaples,
+            "Soy Sauce" => currentLeftItem <= minItemsPantryStaples,
+            "Vinegar" => currentLeftItem <= minItemsPantryStaples,
+            
+            "Colgate" => currentLeftItem <= minItemsPersonalCare,
+            "Rexona" => currentLeftItem <= minItemsPersonalCare,
+            "Sunsilk" => currentLeftItem <= minItemsPersonalCare,
+            
+            "Chippy" => currentLeftItem <= minItemsSnacks,
+            "Nova" => currentLeftItem <= minItemsSnacks,
+            "Piattos" => currentLeftItem <= minItemsSnacks,
+
+            _ => false
+        };
+    }
 }
