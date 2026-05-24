@@ -4,30 +4,24 @@ using UnityEngine.UI;
 public class ItemsLeft : MonoBehaviour
 {
     private int goyaCandyLeft, mentosLeft, whiteRabbitLeft;
-
     private int riceLeft, soySauceLeft, vinegarLeft;
-
     private int joyLeft, surfLeft;
-
     private int paylessXtraBigLeft, luckyMeLeft, cupNoodleLeft;
-
     private int colgateLeft, rexonaLeft, sunsilkLeft;
-
     private int chippyLeft, novaLeft, piattosLeft;
+    private int cokeLeft, pepsiLeft, royalLeft;
+    private int zestoAppleLeft, zestoGrapeLeft, zestoOrangeLeft;
 
     public GameObject joyItem, surfItem;
 
     public Text goyaCandyLeftText, mentosLeftText, whiteRabbitLeftText;
-
     public Text riceLeftText, soySauceLeftText, vinegarLeftText;
-
     public Text joyLeftText, surfLeftText;
-
     public Text paylessXtraBigLeftText, luckyMeLeftText, cupNoodleLeftText;
-
     public Text colgateLeftText, rexonaLeftText, sunsilkLeftText;
-
     public Text chippyLeftText, novaLeftText, piattosLeftText;
+    public Text cokeLeftText, spriteLeftText, royalLeftText;
+    public Text zestoAppleLeftText, zestoGrapeLeftText, zestoOrangeLeftText; 
 
     void Start()
     {
@@ -48,6 +42,12 @@ public class ItemsLeft : MonoBehaviour
         chippyLeft = 10;
         novaLeft = 10;
         piattosLeft = 10;
+        cokeLeft = 10;
+        pepsiLeft = 10;
+        royalLeft = 10;
+        zestoAppleLeft = 10;
+        zestoGrapeLeft = 10;
+        zestoOrangeLeft = 10;
 
         UpdateGoyaCandyLeftText();
         UpdateMentosLeftText();
@@ -66,6 +66,12 @@ public class ItemsLeft : MonoBehaviour
         UpdateChippyLeftText();
         UpdateNovaLeftText();
         UpdatePiattosLeftText();
+        UpdateCokeLeftText();
+        UpdatePepsiLeftText();
+        UpdateRoyalLeftText();
+        UpdateZestoAppleLeftText();
+        UpdateZestoGrapeLeftText();
+        UpdateZestoOrangeLeftText();
     }
     public void DecreaseGoyaCandy()
     {
@@ -206,6 +212,54 @@ public class ItemsLeft : MonoBehaviour
         }
         UpdatePiattosLeftText();
     }
+    public void DecreaseCoke()
+    {
+        if (cokeLeft > 0)
+        {
+            cokeLeft--;
+        }
+        UpdateCokeLeftText();
+    }
+    public void DecreasePepsi()
+    {
+        if (pepsiLeft > 0)
+        {
+            pepsiLeft--;
+        }
+        UpdatePepsiLeftText();
+    }
+    public void DecreaseRoyal()
+    {
+        if (royalLeft > 0)
+        {
+            royalLeft--;
+        }
+        UpdateRoyalLeftText();
+    }
+    public void DecreaseZestoApple()
+    {
+        if (zestoAppleLeft > 0)
+        {
+            zestoAppleLeft--;
+        }
+        UpdateZestoAppleLeftText();
+    }
+    public void DecreaseZestoGrape()
+    {
+        if (zestoGrapeLeft > 0)
+        {
+            zestoGrapeLeft--;
+        }
+        UpdateZestoGrapeLeftText();
+    }
+    public void DecreaseZestoOrange()
+    {
+        if (zestoOrangeLeft > 0)
+        {
+            zestoOrangeLeft--;
+        }
+        UpdateZestoOrangeLeftText();
+    }
     public void DecreaseItem(string item)
     {
         if (item.Equals("Goya Candy"))
@@ -242,6 +296,18 @@ public class ItemsLeft : MonoBehaviour
         { DecreaseNova(); }
         else if (item.Equals("Piattos"))
         { DecreasePiattos(); }
+        else if (item.Equals("Coke"))
+        { DecreaseCoke(); }
+        else if (item.Equals("Pepsi"))
+        { DecreasePepsi(); }
+        else if (item.Equals("Royal"))
+        { DecreaseRoyal(); }
+        else if (item.Equals("Zesto Apple"))
+        { DecreaseZestoApple(); }
+        else if (item.Equals("Zesto Grape"))
+        { DecreaseZestoGrape(); }
+        else if (item.Equals("Zesto Orange"))
+        { DecreaseZestoOrange(); }
     }
 
     private void UpdateGoyaCandyLeftText()
@@ -329,6 +395,36 @@ public class ItemsLeft : MonoBehaviour
         piattosLeftText.text = $"{piattosLeft}";
         Debug.Log($"[ITEMSLEFT] Piattos left: {piattosLeft}");
     }
+    private void UpdateCokeLeftText()
+    {
+        cokeLeftText.text = $"{cokeLeft}";
+        Debug.Log($"[ITEMSLEFT] Coke left: {cokeLeft}");
+    }
+    private void UpdatePepsiLeftText()
+    {
+        spriteLeftText.text = $"{pepsiLeft}";
+        Debug.Log($"[ITEMSLEFT] Pepsi left: {pepsiLeft}");
+    }
+    private void UpdateRoyalLeftText()
+    {
+        royalLeftText.text = $"{royalLeft}";
+        Debug.Log($"[ITEMSLEFT] Royal left: {royalLeft}");
+    }
+    private void UpdateZestoAppleLeftText()
+    {
+        zestoAppleLeftText.text = $"{zestoAppleLeft}";
+        Debug.Log($"[ITEMSLEFT] Zesto Apple left: {zestoAppleLeft}");
+    }
+    private void UpdateZestoGrapeLeftText()
+    {
+        zestoGrapeLeftText.text = $"{zestoGrapeLeft}";
+        Debug.Log($"[ITEMSLEFT] Zesto Grape left: {zestoGrapeLeft}");
+    }
+    private void UpdateZestoOrangeLeftText()
+    {
+        zestoOrangeLeftText.text = $"{zestoOrangeLeft}";
+        Debug.Log($"[ITEMSLEFT] Zesto Orange left: {zestoOrangeLeft}");
+    }
 
     public void SetGoyaCandyLeft(int goyaCandyLeft)
     {
@@ -415,6 +511,36 @@ public class ItemsLeft : MonoBehaviour
         this.piattosLeft = piattosLeft;
         UpdatePiattosLeftText();
     }
+    public void SetCokeLeft(int cokeLeft)
+    {
+        this.cokeLeft = cokeLeft;
+        UpdateCokeLeftText();
+    }
+    public void SetPepsiLeft(int pepsiLeft)
+    {
+        this.pepsiLeft = pepsiLeft;
+        UpdatePepsiLeftText();
+    }
+    public void SetRoyalLeft(int royalLeft)
+    {
+        this.royalLeft = royalLeft;
+        UpdateRoyalLeftText();
+    }
+    public void SetZestoAppleLeft(int zestoAppleLeft)
+    {
+        this.zestoAppleLeft = zestoAppleLeft;
+        UpdateZestoAppleLeftText();
+    }
+    public void SetZestoGrapeLeft(int zestoGrapeLeft)
+    {
+        this.zestoGrapeLeft = zestoGrapeLeft;
+        UpdateZestoGrapeLeftText();
+    }
+    public void SetZestoOrangeLeft(int zestoOrangeLeft)
+    {
+        this.zestoOrangeLeft = zestoOrangeLeft;
+        UpdateZestoOrangeLeftText();
+    }
 
     public int GetGoyaCandyLeft()
     { return goyaCandyLeft; }
@@ -450,4 +576,16 @@ public class ItemsLeft : MonoBehaviour
     { return novaLeft; }
     public int GetPiattosLeft() 
     { return piattosLeft; }
+    public int GetCokeLeft() 
+    { return cokeLeft; }
+    public int GetPepsiLeft() 
+    { return pepsiLeft; }
+    public int GetRoyalLeft() 
+    { return royalLeft; }
+    public int GetZestoAppleLeft() 
+    { return zestoAppleLeft; }
+    public int GetZestoGrapeLeft() 
+    { return zestoGrapeLeft; }
+    public int GetZestoOrangeLeft() 
+    { return zestoOrangeLeft; }
 }

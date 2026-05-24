@@ -76,6 +76,12 @@ public class OrderScript : MonoBehaviour
             14 = Chippy
             15 = Nova
             16 = Piattos
+            17 = Coke
+            18 = Pepsi
+            19 = Royal
+            20 = Zesto Apple
+            21 = Zesto Grape
+            22 = Zesto Orange
             */
 
             if (whatItemRoll == 0)
@@ -186,6 +192,42 @@ public class OrderScript : MonoBehaviour
                 Debug.Log("[ORDER] Item: Piattos");
                 itemName.Add("Piattos");
                 item1.GetComponent<SpriteRenderer>().sprite = items[16];
+            }
+            else if (whatItemRoll == 17)
+            {
+                Debug.Log("[ORDER] Item: Coke");
+                itemName.Add("Coke");
+                item1.GetComponent<SpriteRenderer>().sprite = items[17];
+            }
+            else if (whatItemRoll == 18)
+            {
+                Debug.Log("[ORDER] Item: Pepsi");
+                itemName.Add("Pepsi");
+                item1.GetComponent<SpriteRenderer>().sprite = items[18];
+            }
+            else if (whatItemRoll == 19)
+            {
+                Debug.Log("[ORDER] Item: Royal");
+                itemName.Add("Royal");
+                item1.GetComponent<SpriteRenderer>().sprite = items[19];
+            }
+            else if (whatItemRoll == 20)
+            {
+                Debug.Log("[ORDER] Item: Zesto Apple");
+                itemName.Add("Zesto Apple");
+                item1.GetComponent<SpriteRenderer>().sprite = items[20];
+            }
+            else if (whatItemRoll == 21)
+            {
+                Debug.Log("[ORDER] Item: Zesto Grape");
+                itemName.Add("Zesto Grape");
+                item1.GetComponent<SpriteRenderer>().sprite = items[21];
+            }
+            else if (whatItemRoll == 22)
+            {
+                Debug.Log("[ORDER] Item: Zesto Orange");
+                itemName.Add("Zesto Orange");
+                item1.GetComponent<SpriteRenderer>().sprite = items[22];
             }
 
             NormalizeSpriteScale(item1, items[whatItemRoll], item1OriginalScale);
@@ -1173,6 +1215,320 @@ public class OrderScript : MonoBehaviour
                 }
             }
 
+        }
+        else if (itemName == "Coke")
+        {             //get current position of Coke in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Coke quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Coke quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Coke order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Coke quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Coke quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Pepsi")
+        {
+            //get current position of Pepsi in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Pepsi quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Pepsi quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Pepsi order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Pepsi quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Pepsi quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Royal")
+        {
+            //get current position of Royal in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Royal quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Royal quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Royal order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Royal quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Royal quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Zesto Apple")
+        {
+            //get current position of Zesto Apple in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Zesto Apple quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Zesto Apple quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Zesto Apple order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Zesto Apple quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Zesto Apple quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Zesto Grape")
+        {
+            //get current position of Zesto Grape in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Zesto Grape quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Zesto Grape quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Zesto Grape order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Zesto Grape quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Zesto Grape quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+        }
+        else if (itemName == "Zesto Orange")
+        {
+            //get current position of Zesto Orange in itemName/itemQuantities list
+            int index = this.itemName.IndexOf(itemName);
+            int quantity = itemQuantities[index];
+            if (quantity > 0)
+            {
+                quantity -= itemToGive;
+                itemQuantities[index] = quantity;
+                if (manyItems == 1)
+                {
+                    oneItemRequest.text = $"{quantity}";
+                    Debug.Log($"[ORDER] Decreasing the One Item Req quantity by {itemToGive} for one item request.");
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Zesto Orange quantity. New quantity: {quantity}");
+                    }
+                    else
+                    {
+                        item2QuantityText.text = $"{quantity}";
+                        Debug.Log($"[ORDER] Decreased Zesto Orange quantity. New quantity: {quantity}");
+                    }
+                }
+            }
+            if (quantity == 0)
+            {
+                if (manyItems == 1)
+                {
+                    Debug.Log("[ORDER] Zesto Orange order complete!");
+                    oneItemRequest.enabled = false;
+                }
+                else
+                {
+                    if (index == 0)
+                    {
+                        item1.SetActive(false);
+                        item1QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Zesto Orange quantity. New quantity: {quantity}");
+                    }
+                    else if (index == 1)
+                    {
+                        item2.SetActive(false);
+                        item2QuantityText.enabled = false;
+                        Debug.Log($"[ORDER] Decreased Zesto Orange quantity. New quantity: {quantity}");
+                    }
+                }
+            }
         }
 
         if (itemQuantities.TrueForAll(q => q == 0))

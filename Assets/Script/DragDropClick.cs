@@ -22,7 +22,9 @@ public class DragDropClick : MonoBehaviour
         joyObject, surfObject,
         paylessXtraBigObject, luckyMeObject, cupNoodleObject,
         colgateObject, rexonaObject, sunsilkObject,
-        chippyObject, novaObject, piattosObject;
+        chippyObject, novaObject, piattosObject,
+        cokeObject, pepsiObject, royalObject,
+        zestoAppleObject, zestoGrapeObject, zestoOrangeObject;
 
     public GameObject goyaJarObject, mentosJarObject,
         whiteRabbitJarObject;
@@ -33,6 +35,7 @@ public class DragDropClick : MonoBehaviour
     public OrderScript orderScript;
     public ItemsLeft itemsLeft;
     public ItemsInCart itemsInCart;
+    public RefrigeratorScript refrigeratorScript;
 
     private float mouseHoldTime;
     public float holdThreshold;
@@ -170,9 +173,43 @@ public class DragDropClick : MonoBehaviour
                         draggedObject = Instantiate(piattosObject, mouseWorldPos, Quaternion.identity);
                         draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
+                    else if (clickObject.name == "Coke")
+                    {
+                        draggedObject = Instantiate(cokeObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                    }
+                    else if (clickObject.name == "Pepsi")
+                    {
+                        draggedObject = Instantiate(pepsiObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                    }
+                    else if (clickObject.name == "Royal")
+                    {
+                        draggedObject = Instantiate(royalObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                    }
+                    else if (clickObject.name == "Zesto Apple")
+                    {
+                        draggedObject = Instantiate(zestoAppleObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                    }
+                    else if (clickObject.name == "Zesto Grape")
+                    {
+                        draggedObject = Instantiate(zestoGrapeObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                    }
+                    else if (clickObject.name == "Zesto Orange")
+                    {
+                        draggedObject = Instantiate(zestoOrangeObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                    }
                     draggedObject.SetActive(false);
 
                     Debug.Log("[MOUSEDOWN] Started dragging clone of: " + clickObject.name);
+                }
+                else if (clickObject.CompareTag("Refrigerator"))
+                {
+                    refrigeratorScript.ToggleRefrigerator();
                 }
             }
 
@@ -375,6 +412,36 @@ public class DragDropClick : MonoBehaviour
                         itemsInCart.AddItem("Piattos");
                         itemsLeft.DecreasePiattos();
                     }
+                    else if (clickObject.name.Equals("Coke"))
+                    {
+                        itemsInCart.AddItem("Coke");
+                        itemsLeft.DecreaseCoke();
+                    }
+                    else if (clickObject.name.Equals("Pepsi"))
+                    {
+                        itemsInCart.AddItem("Pepsi");
+                        itemsLeft.DecreasePepsi();
+                    }
+                    else if (clickObject.name.Equals("Royal"))
+                    {
+                        itemsInCart.AddItem("Royal");
+                        itemsLeft.DecreaseRoyal();
+                    }
+                    else if (clickObject.name.Equals("Zesto Apple"))
+                    {
+                        itemsInCart.AddItem("Zesto Apple");
+                        itemsLeft.DecreaseZestoApple();
+                    }
+                    else if (clickObject.name.Equals("Zesto Grape"))
+                    {
+                        itemsInCart.AddItem("Zesto Grape");
+                        itemsLeft.DecreaseZestoGrape();
+                    }
+                    else if (clickObject.name.Equals("Zesto Orange"))
+                    {
+                        itemsInCart.AddItem("Zesto Orange");
+                        itemsLeft.DecreaseZestoOrange();
+                    }
 
                     // If the click was on the cart, give items to cat
                     if (clickObject.CompareTag("Cart"))
@@ -414,6 +481,12 @@ public class DragDropClick : MonoBehaviour
         int chippyLeft = itemsLeft.GetChippyLeft();
         int novaLeft = itemsLeft.GetNovaLeft();
         int piattosLeft = itemsLeft.GetPiattosLeft();
+        int cokeLeft = itemsLeft.GetCokeLeft();
+        int pepsiLeft = itemsLeft.GetPepsiLeft();
+        int royalLeft = itemsLeft.GetRoyalLeft();
+        int zestoAppleLeft = itemsLeft.GetZestoAppleLeft();
+        int zestoGrapeLeft = itemsLeft.GetZestoGrapeLeft();
+        int zestoOrangeLeft = itemsLeft.GetZestoOrangeLeft();
 
         Debug.Log($"[CHECKITEMSLEFT] Goya Candy Left: {goyaCandyLeft}");
         Debug.Log($"[CHECKITEMSLEFT] Mentos Left: {mentosLeft}");
@@ -432,6 +505,12 @@ public class DragDropClick : MonoBehaviour
         Debug.Log($"[CHECKITEMSLEFT] Chippy Left: {chippyLeft}");
         Debug.Log($"[CHECKITEMSLEFT] Nova Left: {novaLeft}");
         Debug.Log($"[CHECKITEMSLEFT] Piattos Left: {piattosLeft}");
+        Debug.Log($"[CHECKITEMSLEFT] Coke Left: {cokeLeft}");
+        Debug.Log($"[CHECKITEMSLEFT] Pepsi Left: {pepsiLeft}");
+        Debug.Log($"[CHECKITEMSLEFT] Royal Left: {royalLeft}");
+        Debug.Log($"[CHECKITEMSLEFT] Zesto Apple Left: {zestoAppleLeft}");
+        Debug.Log($"[CHECKITEMSLEFT] Zesto Grape Left: {zestoGrapeLeft}");
+        Debug.Log($"[CHECKITEMSLEFT] Zesto Orange Left: {zestoOrangeLeft}");
 
         if (goyaCandyLeft == 0)
         { goyaJarObject.SetActive(false); }
@@ -528,6 +607,30 @@ public class DragDropClick : MonoBehaviour
         if (piattosLeft == 0)
         { piattosObject.SetActive(false); }
         else { piattosObject.SetActive(true); }
+
+        if (cokeLeft == 0)
+        { cokeObject.SetActive(false); }
+        else { cokeObject.SetActive(true); }
+
+        if (pepsiLeft == 0)
+        { pepsiObject.SetActive(false); }
+        else { pepsiObject.SetActive(true); }
+
+        if (royalLeft == 0)
+        { royalObject.SetActive(false); }
+        else { royalObject.SetActive(true); }
+
+        if (zestoAppleLeft == 0)
+        { zestoAppleObject.SetActive(false); }
+        else { zestoAppleObject.SetActive(true); }
+
+        if (zestoGrapeLeft == 0)
+        { zestoGrapeObject.SetActive(false); }
+        else { zestoGrapeObject.SetActive(true); }
+
+        if (zestoOrangeLeft == 0)
+        { zestoOrangeObject.SetActive(false); }
+        else { zestoOrangeObject.SetActive(true); }
     }
 
     private void GiveItemToCatFromCart()
@@ -556,6 +659,12 @@ public class DragDropClick : MonoBehaviour
             int totalChippy = itemsInCart.GetTotalChippy();
             int totalNova = itemsInCart.GetTotalNova();
             int totalPiattos = itemsInCart.GetTotalPiattos();
+            int totalCoke = itemsInCart.GetTotalCoke();
+            int totalPepsi = itemsInCart.GetTotalPepsi();
+            int totalRoyal = itemsInCart.GetTotalRoyal();
+            int totalZestoApple = itemsInCart.GetTotalZestoApple();
+            int totalZestoGrape = itemsInCart.GetTotalZestoGrape();
+            int totalZestoOrange = itemsInCart.GetTotalZestoOrange();
 
             if (itemsRequest.Contains("Goya Candy") && totalGoyaCandy > 0)
             {
@@ -674,6 +783,48 @@ public class DragDropClick : MonoBehaviour
                 int piattosToGive = Mathf.Min(totalPiattos, quantityItemRequest[itemsRequest.IndexOf("Piattos")]);
                 orderScript.DecreaseItemRequest("Piattos", piattosToGive);
                 totalItemsInCart -= piattosToGive;
+            }
+
+            if (itemsRequest.Contains("Coke") && totalCoke > 0)
+            {
+                int cokeToGive = Mathf.Min(totalCoke, quantityItemRequest[itemsRequest.IndexOf("Coke")]);
+                orderScript.DecreaseItemRequest("Coke", cokeToGive);
+                totalItemsInCart -= cokeToGive;
+            }
+
+            if (itemsRequest.Contains("Pepsi") && totalPepsi > 0)
+            {
+                int pepsiToGive = Mathf.Min(totalPepsi, quantityItemRequest[itemsRequest.IndexOf("Pepsi")]);
+                orderScript.DecreaseItemRequest("Pepsi", pepsiToGive);
+                totalItemsInCart -= pepsiToGive;
+            }
+
+            if (itemsRequest.Contains("Royal") && totalRoyal > 0)
+            {
+                int royalToGive = Mathf.Min(totalRoyal, quantityItemRequest[itemsRequest.IndexOf("Royal")]);
+                orderScript.DecreaseItemRequest("Royal", royalToGive);
+                totalItemsInCart -= royalToGive;
+            }
+
+            if (itemsRequest.Contains("Zesto Apple") && totalZestoApple > 0)
+            {
+                int zestoAppleToGive = Mathf.Min(totalZestoApple, quantityItemRequest[itemsRequest.IndexOf("Zesto Apple")]);
+                orderScript.DecreaseItemRequest("Zesto Apple", zestoAppleToGive);
+                totalItemsInCart -= zestoAppleToGive;
+            }
+
+            if (itemsRequest.Contains("Zesto Grape") && totalZestoGrape > 0)
+            {
+                int zestoGrapeToGive = Mathf.Min(totalZestoGrape, quantityItemRequest[itemsRequest.IndexOf("Zesto Grape")]);
+                orderScript.DecreaseItemRequest("Zesto Grape", zestoGrapeToGive);
+                totalItemsInCart -= zestoGrapeToGive;
+            }
+
+            if (itemsRequest.Contains("Zesto Orange") && totalZestoOrange > 0)
+            {
+                int zestoOrangeToGive = Mathf.Min(totalZestoOrange, quantityItemRequest[itemsRequest.IndexOf("Zesto Orange")]);
+                orderScript.DecreaseItemRequest("Zesto Orange", zestoOrangeToGive);
+                totalItemsInCart -= zestoOrangeToGive;
             }
         }
     }
