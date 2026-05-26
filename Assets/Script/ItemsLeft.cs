@@ -23,7 +23,7 @@ public class ItemsLeft : MonoBehaviour
     public Text paylessXtraBigLeftText, luckyMeLeftText, cupNoodleLeftText;
     public Text colgateLeftText, rexonaLeftText, sunsilkLeftText;
     public Text chippyLeftText, novaLeftText, piattosLeftText;
-    public Text cokeLeftText, spriteLeftText, royalLeftText;
+    public Text cokeLeftText, pepsiLeftText, royalLeftText;
     public Text zestoAppleLeftText, zestoGrapeLeftText, zestoOrangeLeftText; 
 
     void Start()
@@ -56,7 +56,7 @@ public class ItemsLeft : MonoBehaviour
             {
                 if (minMaxItemsDisplay.CheckMinimumRequirement("Goya Candy", goyaCandyLeft))
                 {
-                    restockScript.EnableRestockButton();
+                    restockScript.EnableRestockButton("Goya Candy");
                     goyaCandyLeftText.color = Color.red;
                 }
             }
@@ -73,7 +73,7 @@ public class ItemsLeft : MonoBehaviour
             {
                 if (minMaxItemsDisplay.CheckMinimumRequirement("Mentos", mentosLeft))
                 {
-                    restockScript.EnableRestockButton();
+                    restockScript.EnableRestockButton("Mentos");
                     mentosLeftText.color = Color.red;
                 }
             }
@@ -90,7 +90,7 @@ public class ItemsLeft : MonoBehaviour
             {
                 if (minMaxItemsDisplay.CheckMinimumRequirement("White Rabbit", whiteRabbitLeft))
                 {
-                    restockScript.EnableRestockButton();
+                    restockScript.EnableRestockButton("White Rabbit");
                     whiteRabbitLeftText.color = Color.red;
                 }
             }
@@ -107,7 +107,7 @@ public class ItemsLeft : MonoBehaviour
             {
                 if (minMaxItemsDisplay.CheckMinimumRequirement("Rice", riceLeft))
                 {
-                    restockScript.EnableRestockButton();
+                    restockScript.EnableRestockButton("Rice");
                     riceLeftText.color = Color.red;
                 }
             }
@@ -124,7 +124,7 @@ public class ItemsLeft : MonoBehaviour
             {
                 if (minMaxItemsDisplay.CheckMinimumRequirement("Soy Sauce", soySauceLeft))
                 {
-                    restockScript.EnableRestockButton();
+                    restockScript.EnableRestockButton("Soy Sauce");
                     soySauceLeftText.color = Color.red;
                 }
             }
@@ -141,7 +141,7 @@ public class ItemsLeft : MonoBehaviour
             {
                 if (minMaxItemsDisplay.CheckMinimumRequirement("Vinegar", vinegarLeft))
                 {
-                    restockScript.EnableRestockButton();
+                    restockScript.EnableRestockButton("Vinegar");
                     vinegarLeftText.color = Color.red;
                 }
             }
@@ -153,6 +153,15 @@ public class ItemsLeft : MonoBehaviour
         if (joyLeft > 0)
         {
             joyLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Joy") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Joy", joyLeft))
+                {
+                    restockScript.EnableRestockButton("Joy");
+                    joyLeftText.color = Color.red;
+                }
+            }
         }
         
         UpdateJoyLeftText();
@@ -162,6 +171,15 @@ public class ItemsLeft : MonoBehaviour
         if (surfLeft > 0)
         {
             surfLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Surf") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Surf", surfLeft))
+                {
+                    restockScript.EnableRestockButton("Surf");
+                    surfLeftText.color = Color.red;
+                }
+            }
         }
         
         UpdateSurfLeftText();
@@ -171,6 +189,15 @@ public class ItemsLeft : MonoBehaviour
         if (paylessXtraBigLeft > 0)
         {
             paylessXtraBigLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Payless Xtra Big") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Payless Xtra Big", paylessXtraBigLeft))
+                {
+                    restockScript.EnableRestockButton("Payless Xtra Big");
+                    paylessXtraBigLeftText.color = Color.red;
+                }
+            }
         }
         UpdatePaylessXtraBigLeftText();
     }
@@ -179,6 +206,15 @@ public class ItemsLeft : MonoBehaviour
         if (luckyMeLeft > 0)
         {
             luckyMeLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Lucky Me") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Lucky Me", luckyMeLeft))
+                {
+                    restockScript.EnableRestockButton("Lucky Me");
+                    luckyMeLeftText.color = Color.red;
+                }
+            }
         }
         UpdateLuckyMeLeftText();
     }
@@ -187,6 +223,15 @@ public class ItemsLeft : MonoBehaviour
         if (cupNoodleLeft > 0)
         {
             cupNoodleLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Cup Noodle") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Cup Noodle", cupNoodleLeft))
+                {
+                    restockScript.EnableRestockButton("Cup Noodle");
+                    cupNoodleLeftText.color = Color.red;
+                }
+            }
         }
         UpdateCupNoodleLeftText();
     }
@@ -195,6 +240,15 @@ public class ItemsLeft : MonoBehaviour
         if (colgateLeft > 0)
         {
             colgateLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Colgate") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Colgate", colgateLeft))
+                {
+                    restockScript.EnableRestockButton("Colgate");
+                    colgateLeftText.color = Color.red;
+                }
+            }
         }
         UpdateColgateLeftText();
     }
@@ -203,6 +257,15 @@ public class ItemsLeft : MonoBehaviour
         if (rexonaLeft > 0)
         {
             rexonaLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Rexona") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Rexona", rexonaLeft))
+                {
+                    restockScript.EnableRestockButton("Rexona");
+                    rexonaLeftText.color = Color.red;
+                }
+            }
         }
         UpdateRexonaLeftText();
     }
@@ -211,6 +274,15 @@ public class ItemsLeft : MonoBehaviour
         if (sunsilkLeft > 0)
         {
             sunsilkLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Sunsilk") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Sunsilk", sunsilkLeft))
+                {
+                    restockScript.EnableRestockButton("Sunsilk");
+                    sunsilkLeftText.color = Color.red;
+                }
+            }
         }
         UpdateSunsilkLeftText();
     }
@@ -219,6 +291,15 @@ public class ItemsLeft : MonoBehaviour
         if (chippyLeft > 0)
         {
             chippyLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Chippy") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Chippy", chippyLeft))
+                {
+                    restockScript.EnableRestockButton("Chippy");
+                    chippyLeftText.color = Color.red;
+                }
+            }
         }
         UpdateChippyLeftText();
     }
@@ -227,6 +308,15 @@ public class ItemsLeft : MonoBehaviour
         if (novaLeft > 0)
         {
             novaLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Nova") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Nova", novaLeft))
+                {
+                    restockScript.EnableRestockButton("Nova");
+                    novaLeftText.color = Color.red;
+                }
+            }
         }
         UpdateNovaLeftText();
     }
@@ -235,6 +325,15 @@ public class ItemsLeft : MonoBehaviour
         if (piattosLeft > 0)
         {
             piattosLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Piattos") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Piattos", piattosLeft))
+                {
+                    restockScript.EnableRestockButton("Piattos");
+                    piattosLeftText.color = Color.red;
+                }
+            }
         }
         UpdatePiattosLeftText();
     }
@@ -243,6 +342,15 @@ public class ItemsLeft : MonoBehaviour
         if (cokeLeft > 0)
         {
             cokeLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Coke") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Coke", cokeLeft))
+                {
+                    restockScript.EnableRestockButton("Coke");
+                    cokeLeftText.color = Color.red;
+                }
+            }
         }
         UpdateCokeLeftText();
     }
@@ -251,6 +359,15 @@ public class ItemsLeft : MonoBehaviour
         if (pepsiLeft > 0)
         {
             pepsiLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Pepsi") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Pepsi", pepsiLeft))
+                {
+                    restockScript.EnableRestockButton("Pepsi");
+                    pepsiLeftText.color = Color.red;
+                }
+            }
         }
         UpdatePepsiLeftText();
     }
@@ -259,6 +376,15 @@ public class ItemsLeft : MonoBehaviour
         if (royalLeft > 0)
         {
             royalLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Royal") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Royal", royalLeft))
+                {
+                    restockScript.EnableRestockButton("Royal");
+                    royalLeftText.color = Color.red;
+                }
+            }
         }
         UpdateRoyalLeftText();
     }
@@ -267,6 +393,15 @@ public class ItemsLeft : MonoBehaviour
         if (zestoAppleLeft > 0)
         {
             zestoAppleLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Zesto Apple") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Zesto Apple", zestoAppleLeft))
+                {
+                    restockScript.EnableRestockButton("Zesto Apple");
+                    zestoAppleLeftText.color = Color.red;
+                }
+            }
         }
         UpdateZestoAppleLeftText();
     }
@@ -275,6 +410,15 @@ public class ItemsLeft : MonoBehaviour
         if (zestoGrapeLeft > 0)
         {
             zestoGrapeLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Zesto Grape") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Zesto Grape", zestoGrapeLeft))
+                {
+                    restockScript.EnableRestockButton("Zesto Grape");
+                    zestoGrapeLeftText.color = Color.red;
+                }
+            }
         }
         UpdateZestoGrapeLeftText();
     }
@@ -283,6 +427,15 @@ public class ItemsLeft : MonoBehaviour
         if (zestoOrangeLeft > 0)
         {
             zestoOrangeLeft--;
+
+            if (minMaxItemsDisplay.GetInventoryItems("Zesto Orange") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Zesto Orange", zestoOrangeLeft))
+                {
+                    restockScript.EnableRestockButton("Zesto Orange");
+                    zestoOrangeLeftText.color = Color.red;
+                }
+            }
         }
         UpdateZestoOrangeLeftText();
     }
@@ -428,7 +581,7 @@ public class ItemsLeft : MonoBehaviour
     }
     private void UpdatePepsiLeftText()
     {
-        spriteLeftText.text = $"{pepsiLeft}";
+        pepsiLeftText.text = $"{pepsiLeft}";
         Debug.Log($"[ITEMSLEFT] Pepsi left: {pepsiLeft}");
     }
     private void UpdateRoyalLeftText()
@@ -566,6 +719,56 @@ public class ItemsLeft : MonoBehaviour
     {
         this.zestoOrangeLeft = zestoOrangeLeft;
         UpdateZestoOrangeLeftText();
+    }
+
+    public void SetItemNameLeft(string itemName, int quantityLeft)
+    {
+        if (itemName.Equals("Goya Candy"))
+        { SetGoyaCandyLeft(quantityLeft); }
+        else if (itemName.Equals("Mentos"))
+        { SetMentosLeft(quantityLeft); }
+        else if (itemName.Equals("White Rabbit"))
+        { SetWhiteRabbitLeft(quantityLeft); }
+        else if (itemName.Equals("Rice"))
+        { SetRiceLeft(quantityLeft); }
+        else if (itemName.Equals("Soy Sauce"))
+        { SetSoySauceLeft(quantityLeft); }
+        else if (itemName.Equals("Vinegar"))
+        { SetVinegarLeft(quantityLeft); }
+        else if (itemName.Equals("Joy"))
+        { SetJoyLeft(quantityLeft); }
+        else if (itemName.Equals("Surf"))
+        { SetSurfLeft(quantityLeft); }
+        else if (itemName.Equals("Payless Xtra Big"))
+        { SetPaylessXtraBigLeft(quantityLeft); }
+        else if (itemName.Equals("Lucky Me"))
+        { SetLuckyMeLeft(quantityLeft); }
+        else if (itemName.Equals("Cup Noodle"))
+        { SetCupNoodleLeft(quantityLeft); }
+        else if (itemName.Equals("Colgate"))
+        { SetColgateLeft(quantityLeft); }
+        else if (itemName.Equals("Rexona"))
+        { SetRexonaLeft(quantityLeft); }
+        else if (itemName.Equals("Sunsilk"))
+        { SetSunsilkLeft(quantityLeft); }
+        else if (itemName.Equals("Chippy"))
+        { SetChippyLeft(quantityLeft); }
+        else if (itemName.Equals("Nova"))
+        { SetNovaLeft(quantityLeft); }
+        else if (itemName.Equals("Piattos"))
+        { SetPiattosLeft(quantityLeft); }
+        else if (itemName.Equals("Coke"))
+        { SetCokeLeft(quantityLeft); }
+        else if (itemName.Equals("Pepsi"))
+        { SetPepsiLeft(quantityLeft); }
+        else if (itemName.Equals("Royal"))
+        { SetRoyalLeft(quantityLeft); }
+        else if (itemName.Equals("Zesto Apple"))
+        { SetZestoAppleLeft(quantityLeft); }
+        else if (itemName.Equals("Zesto Grape"))
+        { SetZestoGrapeLeft(quantityLeft); }
+        else if (itemName.Equals("Zesto Orange"))
+        { SetZestoOrangeLeft(quantityLeft); }
     }
 
     public int GetGoyaCandyLeft()

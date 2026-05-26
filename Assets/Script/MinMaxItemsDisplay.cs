@@ -23,35 +23,35 @@ public class MinMaxItemsDisplay : MonoBehaviour
     public int maxItemsSnacks = 20;
     public int minItemsSnacks = 3;
 
-    private int inventoryItemsGoyaCandy = 0;
-    private int inventoryItemsMentos = 0;
-    private int inventoryItemsWhiteRabbit = 0;
+    private int inventoryItemsGoyaCandy = 50;
+    private int inventoryItemsMentos = 50;
+    private int inventoryItemsWhiteRabbit = 50;
 
-    private int inventoryItemsCoke = 0;
-    private int inventoryItemsPepsi = 0;
-    private int inventoryItemsRoyal = 0;
-    private int inventoryItemsZestoApple = 0;
-    private int inventoryItemsZestoGrape = 0;
-    private int inventoryItemsZestoOrange = 0;
+    private int inventoryItemsCoke = 50;
+    private int inventoryItemsPepsi = 50;
+    private int inventoryItemsRoyal = 50;
+    private int inventoryItemsZestoApple = 50;
+    private int inventoryItemsZestoGrape = 50;
+    private int inventoryItemsZestoOrange = 50;
 
-    private int inventoryItemsJoy = 0;
-    private int inventoryItemsSurf = 0;
+    private int inventoryItemsJoy = 50;
+    private int inventoryItemsSurf = 50;
 
-    private int inventoryItemsPaylessXtraBig = 0;
-    private int inventoryItemsLuckyMe = 0;
-    private int inventoryItemsCupNoodle = 0;
+    private int inventoryItemsPaylessXtraBig = 50;
+    private int inventoryItemsLuckyMe = 50;
+    private int inventoryItemsCupNoodle = 50;
 
-    private int inventoryItemsRice = 0;
-    private int inventoryItemsSoySauce = 0;
-    private int inventoryItemsVinegar = 0;
+    private int inventoryItemsRice = 50;
+    private int inventoryItemsSoySauce = 50;
+    private int inventoryItemsVinegar = 50;
 
-    private int inventoryItemsColgate = 0;
-    private int inventoryItemsRexona = 0;
-    private int inventoryItemsSunsilk = 0;
+    private int inventoryItemsColgate = 50;
+    private int inventoryItemsRexona = 50;
+    private int inventoryItemsSunsilk = 50;
 
-    private int inventoryItemsChippy = 0;
-    private int inventoryItemsNova = 0;
-    private int inventoryItemsPiattos = 0;
+    private int inventoryItemsChippy = 50;
+    private int inventoryItemsNova = 50;
+    private int inventoryItemsPiattos = 50;
 
     public void SetInventoryItems(string category, string item,int items)
     {
