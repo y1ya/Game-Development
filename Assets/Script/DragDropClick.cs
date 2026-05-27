@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DragDropClick : MonoBehaviour
@@ -75,22 +76,28 @@ public class DragDropClick : MonoBehaviour
             {
                 clickObject = raycastHit2D.collider.gameObject;
 
+                if (!raycastHit2D.collider.enabled)
+                {
+                    clickObject = null;
+                    return;
+                }
+
                 if (clickObject.CompareTag("Draggable"))
                 {
                     mouseHoldTime = 0f;
                     isDragging = false;
 
-                    if (clickObject.name == "Goya Jar")
+                    if (clickObject.name == "Goya Candy")
                     {
                         draggedObject = Instantiate(origObjectGoyaCandy, mouseWorldPos, Quaternion.identity);
                         draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
-                    else if (clickObject.name == "Mentos Jar")
+                    else if (clickObject.name == "Mentos")
                     {
                         draggedObject = Instantiate(origObjectMentos, mouseWorldPos, Quaternion.identity);
                         draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
-                    else if (clickObject.name == "White Rabbit Jar")
+                    else if (clickObject.name == "White Rabbit")
                     {
                         draggedObject = Instantiate(origObjectWhiteRabbit, mouseWorldPos, Quaternion.identity);
                         draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
@@ -327,17 +334,17 @@ public class DragDropClick : MonoBehaviour
             {
                 if (clickObject != null)
                 {
-                    if (clickObject.name.Equals("Goya Jar"))
+                    if (clickObject.name.Equals("Goya Candy"))
                     {
                         itemsInCart.AddItem("Goya Candy");
                         itemsLeft.DecreaseGoyaCandy();
                     }
-                    else if (clickObject.name.Equals("Mentos Jar"))
+                    else if (clickObject.name.Equals("Mentos"))
                     {
                         itemsInCart.AddItem("Mentos");
                         itemsLeft.DecreaseMentos();
                     }
-                    else if (clickObject.name.Equals("White Rabbit Jar"))
+                    else if (clickObject.name.Equals("White Rabbit"))
                     {
                         itemsInCart.AddItem("White Rabbit");
                         itemsLeft.DecreaseWhiteRabbit();
@@ -461,7 +468,6 @@ public class DragDropClick : MonoBehaviour
             CheckItemsLeft();
         }
     }
-
     void CheckItemsLeft()
     {
         int goyaCandyLeft = itemsLeft.GetGoyaCandyLeft();
