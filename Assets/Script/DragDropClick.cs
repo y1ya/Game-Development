@@ -544,29 +544,60 @@ public class DragDropClick : MonoBehaviour
 
         if (joyLeft == 0)
         { joyObject.SetActive(false); }
-        else 
+        else
         {
-            if (joyLeft == 2)
-            {
-                joyObject.transform.GetChild(1).gameObject.SetActive(false);
-            }
+            if (joyLeft == 9)
+            { joyObject.transform.GetChild(8).gameObject.SetActive(false); }
+            else if (joyLeft == 8)
+            { joyObject.transform.GetChild(7).gameObject.SetActive(false); }
+            else if (joyLeft == 7)
+            { joyObject.transform.GetChild(6).gameObject.SetActive(false); }
+            else if (joyLeft == 6)
+            { joyObject.transform.GetChild(5).gameObject.SetActive(false); }
+            else if (joyLeft == 5)
+            { joyObject.transform.GetChild(4).gameObject.SetActive(false); }
+            else if (joyLeft == 4)
+            { joyObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (joyLeft == 3)
+            { joyObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (joyLeft == 2)
+            { joyObject.transform.GetChild(1).gameObject.SetActive(false); }
             else if (joyLeft == 1)
-            {
-                joyObject.transform.GetChild(0).gameObject.SetActive(false);
-            }
+            { joyObject.transform.GetChild(0).gameObject.SetActive(false); }
             else
             {
                 joyObject.SetActive(true);
                 joyObject.transform.GetChild(0).gameObject.SetActive(true);
                 joyObject.transform.GetChild(1).gameObject.SetActive(true);
+                joyObject.transform.GetChild(2).gameObject.SetActive(true);
+                joyObject.transform.GetChild(3).gameObject.SetActive(true);
+                joyObject.transform.GetChild(4).gameObject.SetActive(true);
+                joyObject.transform.GetChild(5).gameObject.SetActive(true);
+                joyObject.transform.GetChild(6).gameObject.SetActive(true);
+                joyObject.transform.GetChild(7).gameObject.SetActive(true);
+                joyObject.transform.GetChild(8).gameObject.SetActive(true);
             }
         }
 
         if (surfLeft == 0)
         { surfObject.SetActive(false); }
-        else 
+        else
         {
-            if (surfLeft == 2)
+            if (surfLeft == 9)
+            { surfObject.transform.GetChild(8).gameObject.SetActive(false); }
+            else if (surfLeft == 8)
+            { surfObject.transform.GetChild(7).gameObject.SetActive(false); }
+            else if (surfLeft == 7)
+            { surfObject.transform.GetChild(6).gameObject.SetActive(false); }
+            else if (surfLeft == 6)
+            { surfObject.transform.GetChild(5).gameObject.SetActive(false); }
+            else if (surfLeft == 5)
+            { surfObject.transform.GetChild(4).gameObject.SetActive(false); }
+            else if (surfLeft == 4)
+            { surfObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (surfLeft == 3)
+            { surfObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (surfLeft == 2)
             { surfObject.transform.GetChild(1).gameObject.SetActive(false); }
             else if (surfLeft == 1)
             { surfObject.transform.GetChild(0).gameObject.SetActive(false); }
@@ -575,68 +606,309 @@ public class DragDropClick : MonoBehaviour
                 surfObject.SetActive(true);
                 surfObject.transform.GetChild(0).gameObject.SetActive(true);
                 surfObject.transform.GetChild(1).gameObject.SetActive(true);
+                surfObject.transform.GetChild(2).gameObject.SetActive(true);
+                surfObject.transform.GetChild(3).gameObject.SetActive(true);
+                surfObject.transform.GetChild(4).gameObject.SetActive(true);
+                surfObject.transform.GetChild(5).gameObject.SetActive(true);
+                surfObject.transform.GetChild(6).gameObject.SetActive(true);
+                surfObject.transform.GetChild(7).gameObject.SetActive(true);
+                surfObject.transform.GetChild(8).gameObject.SetActive(true);
             }
         }
 
         if (paylessXtraBigLeft == 0)
         { paylessXtraBigObject.SetActive(false); }
-        else { paylessXtraBigObject.SetActive(true); }
+        else 
+        {
+            if (paylessXtraBigLeft == 4)
+            { paylessXtraBigObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (paylessXtraBigLeft == 3)
+            { paylessXtraBigObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (paylessXtraBigLeft == 2)
+            { paylessXtraBigObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (paylessXtraBigLeft == 1)
+            { paylessXtraBigObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                paylessXtraBigObject.SetActive(true);
+                paylessXtraBigObject.transform.GetChild(0).gameObject.SetActive(true);
+                paylessXtraBigObject.transform.GetChild(1).gameObject.SetActive(true);
+                paylessXtraBigObject.transform.GetChild(2).gameObject.SetActive(true);
+                paylessXtraBigObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (luckyMeLeft == 0)
         { luckyMeObject.SetActive(false); }
-        else { luckyMeObject.SetActive(true); }
+        else 
+        {
+            if (luckyMeLeft == 4)
+            { luckyMeObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (luckyMeLeft == 3)
+            { luckyMeObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (luckyMeLeft == 2)
+            { luckyMeObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (luckyMeLeft == 1)
+            { luckyMeObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                luckyMeObject.SetActive(true);
+                luckyMeObject.transform.GetChild(0).gameObject.SetActive(true);
+                luckyMeObject.transform.GetChild(1).gameObject.SetActive(true);
+                luckyMeObject.transform.GetChild(2).gameObject.SetActive(true);
+                luckyMeObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (cupNoodleLeft == 0)
         { cupNoodleObject.SetActive(false); }
-        else { cupNoodleObject.SetActive(true); }
+        else 
+        {
+            if (cupNoodleLeft == 4)
+            { cupNoodleObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (cupNoodleLeft == 3)
+            { cupNoodleObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (cupNoodleLeft == 2)
+            { cupNoodleObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (cupNoodleLeft == 1)
+            { cupNoodleObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                cupNoodleObject.SetActive(true);
+                cupNoodleObject.transform.GetChild(0).gameObject.SetActive(true);
+                cupNoodleObject.transform.GetChild(1).gameObject.SetActive(true);
+                cupNoodleObject.transform.GetChild(2).gameObject.SetActive(true);
+                cupNoodleObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (colgateLeft == 0)
         { colgateObject.SetActive(false); }
-        else { colgateObject.SetActive(true); }
+        else 
+        { 
+            if (colgateLeft == 4)
+            { colgateObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (colgateLeft == 3)
+            { colgateObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (colgateLeft == 2)
+            { colgateObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (colgateLeft == 1)
+            { colgateObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                colgateObject.SetActive(true);
+                colgateObject.transform.GetChild(0).gameObject.SetActive(true);
+                colgateObject.transform.GetChild(1).gameObject.SetActive(true);
+                colgateObject.transform.GetChild(2).gameObject.SetActive(true);
+                colgateObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (rexonaLeft == 0)
         { rexonaObject.SetActive(false); }
-        else { rexonaObject.SetActive(true); }
+        else 
+        { 
+            if (rexonaLeft == 4)
+            { rexonaObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (rexonaLeft == 3)
+            { rexonaObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (rexonaLeft == 2)
+            { rexonaObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (rexonaLeft == 1)
+            { rexonaObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                rexonaObject.SetActive(true);
+                rexonaObject.transform.GetChild(0).gameObject.SetActive(true);
+                rexonaObject.transform.GetChild(1).gameObject.SetActive(true);
+                rexonaObject.transform.GetChild(2).gameObject.SetActive(true);
+                rexonaObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (sunsilkLeft == 0)
         { sunsilkObject.SetActive(false); }
-        else { sunsilkObject.SetActive(true); }
+        else 
+        {
+            if (sunsilkLeft == 4)
+            { sunsilkObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (sunsilkLeft == 3)
+            { sunsilkObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (sunsilkLeft == 2)
+            { sunsilkObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (sunsilkLeft == 1)
+            { sunsilkObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                sunsilkObject.SetActive(true);
+                sunsilkObject.transform.GetChild(0).gameObject.SetActive(true);
+                sunsilkObject.transform.GetChild(1).gameObject.SetActive(true);
+                sunsilkObject.transform.GetChild(2).gameObject.SetActive(true);
+                sunsilkObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (chippyLeft == 0)
         { chippyObject.SetActive(false); }
-        else { chippyObject.SetActive(true); }
+        else 
+        {
+            if (chippyLeft == 4)
+            { chippyObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (chippyLeft == 3)
+            { chippyObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (chippyLeft == 2)
+            { chippyObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (chippyLeft == 1)
+            { chippyObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                chippyObject.SetActive(true);
+                chippyObject.transform.GetChild(0).gameObject.SetActive(true);
+                chippyObject.transform.GetChild(1).gameObject.SetActive(true);
+                chippyObject.transform.GetChild(2).gameObject.SetActive(true);
+                chippyObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (novaLeft == 0)
         { novaObject.SetActive(false); }
-        else { novaObject.SetActive(true); }
+        else 
+        { 
+            if (novaLeft == 4)
+            { novaObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (novaLeft == 3)
+            { novaObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (novaLeft == 2)
+            { novaObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (novaLeft == 1)
+            { novaObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                novaObject.SetActive(true);
+                novaObject.transform.GetChild(0).gameObject.SetActive(true);
+                novaObject.transform.GetChild(1).gameObject.SetActive(true);
+                novaObject.transform.GetChild(2).gameObject.SetActive(true);
+                novaObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (piattosLeft == 0)
         { piattosObject.SetActive(false); }
-        else { piattosObject.SetActive(true); }
+        else 
+        { 
+            if (piattosLeft == 4)
+            { piattosObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (piattosLeft == 3)
+            { piattosObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (piattosLeft == 2)
+            { piattosObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (piattosLeft == 1)
+            { piattosObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                piattosObject.SetActive(true);
+                piattosObject.transform.GetChild(0).gameObject.SetActive(true);
+                piattosObject.transform.GetChild(1).gameObject.SetActive(true);
+                piattosObject.transform.GetChild(2).gameObject.SetActive(true);
+                piattosObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
 
         if (cokeLeft == 0)
         { cokeObject.SetActive(false); }
-        else { cokeObject.SetActive(true); }
+        else
+        {
+            if (cokeLeft == 2)
+            { cokeObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (cokeLeft == 1)
+            { cokeObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                cokeObject.SetActive(true);
+                cokeObject.transform.GetChild(0).gameObject.SetActive(true);
+                cokeObject.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
 
         if (pepsiLeft == 0)
         { pepsiObject.SetActive(false); }
-        else { pepsiObject.SetActive(true); }
+        else
+        {
+            if (pepsiLeft == 2)
+            { pepsiObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (pepsiLeft == 1)
+            { pepsiObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                pepsiObject.SetActive(true);
+                pepsiObject.transform.GetChild(0).gameObject.SetActive(true);
+                pepsiObject.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
 
         if (royalLeft == 0)
         { royalObject.SetActive(false); }
-        else { royalObject.SetActive(true); }
+        else 
+        {
+            if (royalLeft == 2)
+            { royalObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (royalLeft == 1)
+            { royalObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                royalObject.SetActive(true);
+                royalObject.transform.GetChild(0).gameObject.SetActive(true);
+                royalObject.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
 
         if (zestoAppleLeft == 0)
         { zestoAppleObject.SetActive(false); }
-        else { zestoAppleObject.SetActive(true); }
+        else
+        {
+            if (zestoAppleLeft == 2)
+            { zestoAppleObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (zestoAppleLeft == 1)
+            { zestoAppleObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                zestoAppleObject.SetActive(true);
+                zestoAppleObject.transform.GetChild(0).gameObject.SetActive(true);
+                zestoAppleObject.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
 
         if (zestoGrapeLeft == 0)
         { zestoGrapeObject.SetActive(false); }
-        else { zestoGrapeObject.SetActive(true); }
+        else 
+        {
+            if (zestoGrapeLeft == 2)
+            { zestoGrapeObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (zestoGrapeLeft == 1)
+            { zestoGrapeObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                zestoGrapeObject.SetActive(true);
+                zestoGrapeObject.transform.GetChild(0).gameObject.SetActive(true);
+                zestoGrapeObject.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
 
         if (zestoOrangeLeft == 0)
         { zestoOrangeObject.SetActive(false); }
-        else { zestoOrangeObject.SetActive(true); }
+        else 
+        {
+            if (zestoOrangeLeft == 2)
+            { zestoOrangeObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (zestoOrangeLeft == 1)
+            { zestoOrangeObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                zestoOrangeObject.SetActive(true);
+                zestoOrangeObject.transform.GetChild(0).gameObject.SetActive(true);
+                zestoOrangeObject.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
     }
 
     private void GiveItemToCatFromCart()

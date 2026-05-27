@@ -117,6 +117,9 @@ public class MinMaxItemsDisplay : MonoBehaviour
                 else if (item == "Piattos")
                 { inventoryItemsPiattos += items; }
                 break;
+            default:
+                Debug.LogWarning($"Invalid category or item name. {item}");
+                break;
         }
     }
 
