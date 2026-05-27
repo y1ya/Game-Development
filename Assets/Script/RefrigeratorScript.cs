@@ -58,7 +58,7 @@ public class RefrigeratorScript : MonoBehaviour
 
                 if (childCollider != null)
                 {
-                    childCollider.enabled = true; // enable collider
+                    childCollider.enabled = true; 
                 }
             }
 
@@ -68,7 +68,7 @@ public class RefrigeratorScript : MonoBehaviour
                 BoxCollider2D childCollider = child.GetComponent<BoxCollider2D>();
                 if (childCollider != null)
                 {
-                    childCollider.enabled = true; // enable collider
+                    childCollider.enabled = true;
                 }
             }
 

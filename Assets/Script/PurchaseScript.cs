@@ -629,17 +629,15 @@ public class PurchaseScript : MonoBehaviour
 
                 maxDisplay = minMaxItemsDisplay.maxItemsDrinks;
 
-                if (currentRoyal + 24 > maxDisplay)
-                {
-                    itemsLeft.SetRoyalLeft(maxDisplay);
+                itemsLeft.SetRoyalLeft(maxDisplay);
                     
-                    itemsRemainingToMax = maxDisplay - currentRoyal;
-                    Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                itemsRemainingToMax = maxDisplay - currentRoyal;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
                     
-                    minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Royal", itemsRemainingToMax);
-                    Debug.Log($"[PURCHASE] Current Royal Inventory: {minMaxItemsDisplay.GetInventoryItems("Royal")}");
-                    Debug.Log($"[PURCHASE] Current Royal: {itemsLeft.GetRoyalLeft()} (Capped at max display)");
-                }
+                minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Royal", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Royal Inventory: {minMaxItemsDisplay.GetInventoryItems("Royal")}");
+                Debug.Log($"[PURCHASE] Current Royal: {itemsLeft.GetRoyalLeft()} (Capped at max display)");
+                
                 playerCurrency.SetCurrentCurrency(currentCurrency - 108f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
@@ -654,21 +652,19 @@ public class PurchaseScript : MonoBehaviour
             {
                 int currentZestoApple = itemsLeft.GetZestoAppleLeft();
 
-                itemsLeft.SetZestoAppleLeft(currentZestoApple + 10);
+                minMaxItemsDisplay.SetInventoryItems("Drinks", "Zesto Apple", 10);
 
                 maxDisplay = minMaxItemsDisplay.maxItemsDrinks;
 
-                if (currentZestoApple + 10 > maxDisplay)
-                {
-                    itemsLeft.SetZestoAppleLeft(maxDisplay);
+                itemsLeft.SetZestoAppleLeft(maxDisplay);
                     
-                    itemsRemainingToMax = maxDisplay - currentZestoApple;
-                    Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                itemsRemainingToMax = maxDisplay - currentZestoApple;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
                     
-                    minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Zesto Apple", itemsRemainingToMax);
-                    Debug.Log($"[PURCHASE] Current Zesto Apple Inventory: {minMaxItemsDisplay.GetInventoryItems("Zesto Apple")}");
-                    Debug.Log($"[PURCHASE] Current Zesto Apple: {itemsLeft.GetZestoAppleLeft()} (Capped at max display)");
-                }
+                minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Zesto Apple", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Zesto Apple Inventory: {minMaxItemsDisplay.GetInventoryItems("Zesto Apple")}");
+                Debug.Log($"[PURCHASE] Current Zesto Apple: {itemsLeft.GetZestoAppleLeft()} (Capped at max display)");
+                
                 playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
@@ -683,21 +679,19 @@ public class PurchaseScript : MonoBehaviour
             {
                 int currentZestoGrape = itemsLeft.GetZestoGrapeLeft();
 
-                itemsLeft.SetZestoGrapeLeft(currentZestoGrape + 10);
+                minMaxItemsDisplay.SetInventoryItems("Drinks", "Zesto Grape", 10);
 
                 maxDisplay = minMaxItemsDisplay.maxItemsDrinks;
-
-                if (currentZestoGrape + 10 > maxDisplay)
-                {
-                    itemsLeft.SetZestoGrapeLeft(maxDisplay);
+                
+                itemsLeft.SetZestoGrapeLeft(maxDisplay);
                     
-                    itemsRemainingToMax = maxDisplay - currentZestoGrape;
-                    Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                itemsRemainingToMax = maxDisplay - currentZestoGrape;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
                     
-                    minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Zesto Grape", itemsRemainingToMax);
-                    Debug.Log($"[PURCHASE] Current Zesto Grape Inventory: {minMaxItemsDisplay.GetInventoryItems("Zesto Grape")}");
-                    Debug.Log($"[PURCHASE] Current Zesto Grape: {itemsLeft.GetZestoGrapeLeft()} (Capped at max display)");
-                }
+                minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Zesto Grape", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Zesto Grape Inventory: {minMaxItemsDisplay.GetInventoryItems("Zesto Grape")}");
+                Debug.Log($"[PURCHASE] Current Zesto Grape: {itemsLeft.GetZestoGrapeLeft()} (Capped at max display)");
+                
                 playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
@@ -712,21 +706,19 @@ public class PurchaseScript : MonoBehaviour
             {
                 int currentZestoOrange = itemsLeft.GetZestoOrangeLeft();
 
-                itemsLeft.SetZestoOrangeLeft(currentZestoOrange + 10);
+                minMaxItemsDisplay.SetInventoryItems("Drinks", "Zesto Orange", 10);
 
                 maxDisplay = minMaxItemsDisplay.maxItemsDrinks;
 
-                if (currentZestoOrange + 10 > maxDisplay)
-                {
-                    itemsLeft.SetZestoOrangeLeft(maxDisplay);
+                itemsLeft.SetZestoOrangeLeft(maxDisplay);
                     
-                    itemsRemainingToMax = maxDisplay - currentZestoOrange;
-                    Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                itemsRemainingToMax = maxDisplay - currentZestoOrange;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
                     
-                    minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Zesto Orange", itemsRemainingToMax);
-                    Debug.Log($"[PURCHASE] Current Zesto Orange Inventory: {minMaxItemsDisplay.GetInventoryItems("Zesto Orange")}");
-                    Debug.Log($"[PURCHASE] Current Zesto Orange: {itemsLeft.GetZestoOrangeLeft()} (Capped at max display)");
-                }
+                minMaxItemsDisplay.DecreaseInventoryItems("Drinks", "Zesto Orange", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Zesto Orange Inventory: {minMaxItemsDisplay.GetInventoryItems("Zesto Orange")}");
+                Debug.Log($"[PURCHASE] Current Zesto Orange: {itemsLeft.GetZestoOrangeLeft()} (Capped at max display)");
+                
                 playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
