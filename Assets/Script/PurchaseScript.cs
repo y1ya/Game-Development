@@ -31,6 +31,14 @@ public class PurchaseScript : MonoBehaviour
     public Button zestoAppleItem;
     public Button zestoGrapeItem;
     public Button zestoOrangeItem;
+    public Button adoboItem;
+    public Button afritadaItem;
+    public Button flakesInOilItem;
+    public Button cheeseSpreadItem;
+    public Button nescafeItem;
+    public Button peanutButterItem;
+    public Button artisanItem;
+    public Button gardeniaItem;
 
     public ItemsLeft itemsLeft;
     public PlayerCurrency playerCurrency;
@@ -725,6 +733,225 @@ public class PurchaseScript : MonoBehaviour
             else
             {
                 Debug.Log("[PURCHASE] Not enough currency to purchase Zesto Orange.");
+            }
+        }
+        else if (cleanedItemName.Equals("Adobo"))
+        {
+            if (currentCurrency >= 150f)
+            {
+                int currentAdobo = itemsLeft.GetAdoboLeft();
+
+                minMaxItemsDisplay.SetInventoryItems("Canned Goods", "Adobo", 25);
+                
+                maxDisplay = minMaxItemsDisplay.maxItemsCannedGoods;
+                
+                itemsLeft.SetAdoboLeft(maxDisplay);
+                    
+                itemsRemainingToMax = maxDisplay - currentAdobo;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                    
+                minMaxItemsDisplay.DecreaseInventoryItems("Canned Goods", "Adobo", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Adobo Inventory: {minMaxItemsDisplay.GetInventoryItems("Adobo")}");
+                Debug.Log($"[PURCHASE] Current Adobo: {itemsLeft.GetAdoboLeft()} (Capped at max display)");
+
+                playerCurrency.SetCurrentCurrency(currentCurrency - 150f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Adobo.");
+            }
+        }
+        else if (cleanedItemName.Equals("Afritada"))
+        {
+            if (currentCurrency >= 150f)
+            {
+                int currentAfritada = itemsLeft.GetAfritadaLeft();
+                minMaxItemsDisplay.SetInventoryItems("Canned Goods", "Afritada", 25);
+                
+                maxDisplay = minMaxItemsDisplay.maxItemsCannedGoods;
+                
+                itemsLeft.SetAfritadaLeft(maxDisplay);
+                    
+                itemsRemainingToMax = maxDisplay - currentAfritada;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                    
+                minMaxItemsDisplay.DecreaseInventoryItems("Canned Goods", "Afritada", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Afritada Inventory: {minMaxItemsDisplay.GetInventoryItems("Afritada")}");
+                
+                Debug.Log($"[PURCHASE] Current Afritada: {itemsLeft.GetAfritadaLeft()} (Capped at max display)");
+                
+                playerCurrency.SetCurrentCurrency(currentCurrency - 150f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Afritada.");
+            }
+        }
+        else if (cleanedItemName.Equals("Flakes in Oil"))
+        {
+            if (currentCurrency >= 150f)
+            {
+                int currentFlakesInOil = itemsLeft.GetFlakesInOilLeft();
+                minMaxItemsDisplay.SetInventoryItems("Canned Goods", "Flakes in Oil", 25);
+                
+                maxDisplay = minMaxItemsDisplay.maxItemsCannedGoods;
+                
+                itemsLeft.SetFlakesInOilLeft(maxDisplay);
+                    
+                itemsRemainingToMax = maxDisplay - currentFlakesInOil;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                    
+                minMaxItemsDisplay.DecreaseInventoryItems("Canned Goods", "Flakes in Oil", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Flakes in Oil Inventory: {minMaxItemsDisplay.GetInventoryItems("Flakes in Oil")}");
+                
+                Debug.Log($"[PURCHASE] Current Flakes in Oil: {itemsLeft.GetFlakesInOilLeft()} (Capped at max display)");
+                
+                playerCurrency.SetCurrentCurrency(currentCurrency - 150f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Flakes in Oil.");
+            }
+        }
+        else if (cleanedItemName.Equals("Cheese Spread"))
+        {
+            if (currentCurrency >= 150f)
+            {
+                int currentCheeseSpread = itemsLeft.GetCheeseSpreadLeft();
+                minMaxItemsDisplay.SetInventoryItems("Spreads", "Cheese Spread", 25);
+                
+                maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
+                
+                itemsLeft.SetCheeseSpreadLeft(maxDisplay);
+                    
+                itemsRemainingToMax = maxDisplay - currentCheeseSpread;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                    
+                minMaxItemsDisplay.DecreaseInventoryItems("Spreads", "Cheese Spread", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Cheese Spread Inventory: {minMaxItemsDisplay.GetInventoryItems("Cheese Spread")}");
+                
+                Debug.Log($"[PURCHASE] Current Cheese Spread: {itemsLeft.GetCheeseSpreadLeft()} (Capped at max display)");
+                
+                playerCurrency.SetCurrentCurrency(currentCurrency - 150f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Cheese Spread.");
+            }
+        }
+        else if (cleanedItemName.Equals("Nescafe"))
+        {
+            if (currentCurrency >= 54f)
+            {
+                int currentNescafe = itemsLeft.GetNescafeLeft();
+               
+                minMaxItemsDisplay.SetInventoryItems("Spreads", "Nescafe", 12);
+                
+                maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
+                
+                itemsLeft.SetNescafeLeft(maxDisplay);
+                
+                itemsRemainingToMax = maxDisplay - currentNescafe;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                
+                minMaxItemsDisplay.DecreaseInventoryItems("Spreads", "Nescafe", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Nescafe Inventory: {minMaxItemsDisplay.GetInventoryItems("Nescafe")}");
+                
+                Debug.Log($"[PURCHASE] Current Nescafe: {itemsLeft.GetNescafeLeft()} (Capped at max display)");
+                
+                playerCurrency.SetCurrentCurrency(currentCurrency - 54f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Nescafe.");
+            }
+        }
+        else if (cleanedItemName.Equals("Peanut Butter"))
+        {
+            if (currentCurrency >= 120f)
+            {
+                int currentPeanutButter = itemsLeft.GetPeanutButterLeft();
+                minMaxItemsDisplay.SetInventoryItems("Spreads", "Peanut Butter", 15);
+
+                maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
+
+                itemsLeft.SetPeanutButterLeft(maxDisplay);
+
+                itemsRemainingToMax = maxDisplay - currentPeanutButter;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+
+                minMaxItemsDisplay.DecreaseInventoryItems("Spreads", "Peanut Butter", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Peanut Butter Inventory: {minMaxItemsDisplay.GetInventoryItems("Peanut Butter")}");
+
+                Debug.Log($"[PURCHASE] Current Peanut Butter: {itemsLeft.GetPeanutButterLeft()} (Capped at max display)");
+
+                playerCurrency.SetCurrentCurrency(currentCurrency - 120f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Peanut Butter.");
+            }
+        }
+        else if (cleanedItemName.Equals("Artisan"))
+        {
+            if (currentCurrency >= 500f)
+            {
+                int currentArtisan = itemsLeft.GetArtisanLeft();
+                
+                minMaxItemsDisplay.SetInventoryItems("Breads", "Artisan", 25);
+                
+                maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
+                
+                itemsLeft.SetArtisanLeft(maxDisplay);
+                
+                itemsRemainingToMax = maxDisplay - currentArtisan;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                
+                minMaxItemsDisplay.DecreaseInventoryItems("Breads", "Artisan", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Artisan Inventory: {minMaxItemsDisplay.GetInventoryItems("Artisan")}");
+                
+                Debug.Log($"[PURCHASE] Current Artisan: {itemsLeft.GetArtisanLeft()} (Capped at max display)");
+                
+                playerCurrency.SetCurrentCurrency(currentCurrency - 500f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Artisan.");
+            }
+        }
+        else if (cleanedItemName.Equals("Gardenia"))
+        {
+            if (currentCurrency >= 500f)
+            {
+                int currentGardenia = itemsLeft.GetGardeniaLeft();
+                
+                minMaxItemsDisplay.SetInventoryItems("Breads", "Gardenia", 25);
+                
+                maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
+                
+                itemsLeft.SetGardeniaLeft(maxDisplay);
+                
+                itemsRemainingToMax = maxDisplay - currentGardenia;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                
+                minMaxItemsDisplay.DecreaseInventoryItems("Breads", "Gardenia", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Gardenia Inventory: {minMaxItemsDisplay.GetInventoryItems("Gardenia")}");
+                
+                Debug.Log($"[PURCHASE] Current Gardenia: {itemsLeft.GetGardeniaLeft()} (Capped at max display)");
+                
+                playerCurrency.SetCurrentCurrency(currentCurrency - 500f);
+                Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
+            }
+            else
+            {
+                Debug.Log("[PURCHASE] Not enough currency to purchase Gardenia.");
             }
         }
         else

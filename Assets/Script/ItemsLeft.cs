@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ public class ItemsLeft : MonoBehaviour
     private int chippyLeft, novaLeft, piattosLeft;
     private int cokeLeft, pepsiLeft, royalLeft;
     private int zestoAppleLeft, zestoGrapeLeft, zestoOrangeLeft;
+    private int adoboLeft, afritadaLeft, flakesInOilLeft;
+    private int cheeseSpreadLeft, nescafeLeft, peanutButterLeft;
+    private int artisanLeft, gardeniaLeft;
 
     public GameObject joyItem, surfItem;
 
@@ -24,7 +28,10 @@ public class ItemsLeft : MonoBehaviour
     public Text colgateLeftText, rexonaLeftText, sunsilkLeftText;
     public Text chippyLeftText, novaLeftText, piattosLeftText;
     public Text cokeLeftText, pepsiLeftText, royalLeftText;
-    public Text zestoAppleLeftText, zestoGrapeLeftText, zestoOrangeLeftText; 
+    public Text zestoAppleLeftText, zestoGrapeLeftText, zestoOrangeLeftText;
+    public Text adoboLeftText, afritadaLeftText, flakesInOilLeftText;
+    public Text cheeseSpreadLeftText, nescafeLeftText, peanutButterLeftText;
+    public Text artisanLeftText, gardeniaLeftText;
 
     void Start()
     {
@@ -35,6 +42,9 @@ public class ItemsLeft : MonoBehaviour
         int maxPersonalCare = minMaxItemsDisplay.maxItemsPersonalCare;
         int maxSnacks = minMaxItemsDisplay.maxItemsSnacks;
         int maxDrinks = minMaxItemsDisplay.maxItemsDrinks;
+        int maxCannedGoods = minMaxItemsDisplay.maxItemsCannedGoods;
+        int maxSpreads = minMaxItemsDisplay.maxItemsSpreads;
+        int maxBreads = minMaxItemsDisplay.maxItemsBreads;
 
         goyaCandyLeft = maxCandies; mentosLeft = maxCandies; whiteRabbitLeft = maxCandies;
         riceLeft = maxPantryStaples; soySauceLeft = maxPantryStaples; vinegarLeft = maxPantryStaples;
@@ -44,6 +54,9 @@ public class ItemsLeft : MonoBehaviour
         chippyLeft = maxSnacks; novaLeft = maxSnacks; piattosLeft = maxSnacks;
         cokeLeft = maxDrinks; pepsiLeft = maxDrinks; royalLeft = maxDrinks;
         zestoAppleLeft = maxDrinks; zestoGrapeLeft = maxDrinks; zestoOrangeLeft = maxDrinks;
+        adoboLeft = maxCannedGoods; afritadaLeft = maxCannedGoods; flakesInOilLeft = maxCannedGoods;
+        cheeseSpreadLeft = maxSpreads; nescafeLeft = maxSpreads; peanutButterLeft = maxSpreads;
+        artisanLeft = maxBreads; gardeniaLeft = maxBreads;
 
         UpdateGoyaCandyLeftText(); UpdateMentosLeftText(); UpdateWhiteRabbitLeftText();
         UpdateRiceLeftText(); UpdateSoySauceLeftText(); UpdateVinegarLeftText();
@@ -53,6 +66,9 @@ public class ItemsLeft : MonoBehaviour
         UpdateChippyLeftText(); UpdateNovaLeftText(); UpdatePiattosLeftText(); 
         UpdateCokeLeftText(); UpdatePepsiLeftText(); UpdateRoyalLeftText(); 
         UpdateZestoAppleLeftText(); UpdateZestoGrapeLeftText();UpdateZestoOrangeLeftText();
+        UpdateAdoboLeftText(); UpdateAfritadaLeftText(); UpdateFlakesInOilLeftText();
+        UpdateCheeseSpreadLeftText(); UpdateNescafeLeftText(); UpdatePeanutButterLeftText();
+        UpdateArtisanLeftText(); UpdateGardeniaLeftText();
     }
     public void DecreaseGoyaCandy()
     {
@@ -447,6 +463,134 @@ public class ItemsLeft : MonoBehaviour
         }
         UpdateZestoOrangeLeftText();
     }
+    public void DecreaseAdobo()
+    {
+        if (adoboLeft > 0)
+        {
+            adoboLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Adobo") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Adobo", adoboLeft))
+                {
+                    restockScript.EnableRestockButton("Adobo");
+                    adoboLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdateAdoboLeftText();
+    }
+    public void DecreaseAfritada()
+    {
+        if (afritadaLeft > 0)
+        {
+            afritadaLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Afritada") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Afritada", afritadaLeft))
+                {
+                    restockScript.EnableRestockButton("Afritada");
+                    afritadaLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdateAfritadaLeftText();
+    }
+    public void DecreaseFlakesInOil()
+    {
+        if (flakesInOilLeft > 0)
+        {
+            flakesInOilLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Flakes in Oil") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Flakes in Oil", flakesInOilLeft))
+                {
+                    restockScript.EnableRestockButton("Flakes in Oil");
+                    flakesInOilLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdateFlakesInOilLeftText();
+    }
+    public void DecreaseCheeseSpread()
+    {
+        if (cheeseSpreadLeft > 0)
+        {
+            cheeseSpreadLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Cheese Spread") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Cheese Spread", cheeseSpreadLeft))
+                {
+                    restockScript.EnableRestockButton("Cheese Spread");
+                    cheeseSpreadLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdateCheeseSpreadLeftText();
+    }
+    public void DecreaseNescafe()
+    {
+        if (nescafeLeft > 0)
+        {
+            nescafeLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Nescafe") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Nescafe", nescafeLeft))
+                {
+                    restockScript.EnableRestockButton("Nescafe");
+                    nescafeLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdateNescafeLeftText();
+    }
+    public void DecreasePeanutButter()
+    {
+        if (peanutButterLeft > 0)
+        {
+            peanutButterLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Peanut Butter") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Peanut Butter", peanutButterLeft))
+                {
+                    restockScript.EnableRestockButton("Peanut Butter");
+                    peanutButterLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdatePeanutButterLeftText();
+    }
+    public void DecreaseArtisan()
+    {
+        if (artisanLeft > 0)
+        {
+            artisanLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Artisan") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Artisan", artisanLeft))
+                {
+                    restockScript.EnableRestockButton("Artisan");
+                    artisanLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdateArtisanLeftText();
+    }
+    public void DecreaseGardenia()
+    {
+        if (gardeniaLeft > 0)
+        {
+            gardeniaLeft--;
+            if (minMaxItemsDisplay.GetInventoryItems("Gardenia") > 0)
+            {
+                if (minMaxItemsDisplay.CheckMinimumRequirement("Gardenia", gardeniaLeft))
+                {
+                    restockScript.EnableRestockButton("Gardenia");
+                    gardeniaLeftText.color = Color.red;
+                }
+            }
+        }
+        UpdateGardeniaLeftText();
+    }
     public void DecreaseItem(string item)
     {
         if (item.Equals("Goya Candy"))
@@ -495,6 +639,22 @@ public class ItemsLeft : MonoBehaviour
         { DecreaseZestoGrape(); }
         else if (item.Equals("Zesto Orange"))
         { DecreaseZestoOrange(); }
+        else if (item.Equals("Adobo"))
+        { DecreaseAdobo(); }
+        else if (item.Equals("Afritada"))
+        { DecreaseAfritada(); }
+        else if (item.Equals("Flakes in Oil"))
+        { DecreaseFlakesInOil(); }
+        else if (item.Equals("Cheese Spread"))
+        { DecreaseCheeseSpread(); }
+        else if (item.Equals("Nescafe"))
+        { DecreaseNescafe(); }
+        else if (item.Equals("Peanut Butter"))
+        { DecreasePeanutButter(); }
+        else if (item.Equals("Artisan"))
+        { DecreaseArtisan(); }
+        else if (item.Equals("Gardenia"))
+        { DecreaseGardenia(); }
     }
 
     private void UpdateGoyaCandyLeftText()
@@ -612,6 +772,46 @@ public class ItemsLeft : MonoBehaviour
         zestoOrangeLeftText.text = $"{zestoOrangeLeft}";
         Debug.Log($"[ITEMSLEFT] Zesto Orange left: {zestoOrangeLeft}");
     }
+    private void UpdateAdoboLeftText()
+    {
+        adoboLeftText.text = $"{adoboLeft}";
+        Debug.Log($"[ITEMSLEFT] Adobo left: {adoboLeft}");
+    }
+    private void UpdateAfritadaLeftText()
+    {
+        afritadaLeftText.text = $"{afritadaLeft}";
+        Debug.Log($"[ITEMSLEFT] Afritada left: {afritadaLeft}");
+    }
+    private void UpdateFlakesInOilLeftText()
+    {
+        flakesInOilLeftText.text = $"{flakesInOilLeft}";
+        Debug.Log($"[ITEMSLEFT] Flakes in Oil left: {flakesInOilLeft}");
+    }
+    private void UpdateCheeseSpreadLeftText()
+    {
+        cheeseSpreadLeftText.text = $"{cheeseSpreadLeft}";
+        Debug.Log($"[ITEMSLEFT] Cheese Spread left: {cheeseSpreadLeft}");
+    }
+    private void UpdateNescafeLeftText()
+    {
+        nescafeLeftText.text = $"{nescafeLeft}";
+        Debug.Log($"[ITEMSLEFT] Nescafe left: {nescafeLeft}");
+    }
+    private void UpdatePeanutButterLeftText()
+    {
+        peanutButterLeftText.text = $"{peanutButterLeft}";
+        Debug.Log($"[ITEMSLEFT] Peanut Butter left: {peanutButterLeft}");
+    }
+    private void UpdateArtisanLeftText()
+    {
+        artisanLeftText.text = $"{artisanLeft}";
+        Debug.Log($"[ITEMSLEFT] Artisan left: {artisanLeft}");
+    }
+    private void UpdateGardeniaLeftText()
+    {
+        gardeniaLeftText.text = $"{gardeniaLeft}";
+        Debug.Log($"[ITEMSLEFT] Gardenia left: {gardeniaLeft}");
+    }
 
     public void SetGoyaCandyLeft(int goyaCandyLeft)
     {
@@ -728,6 +928,46 @@ public class ItemsLeft : MonoBehaviour
         this.zestoOrangeLeft = zestoOrangeLeft;
         UpdateZestoOrangeLeftText();
     }
+    public void SetAdoboLeft(int adoboLeft)
+    {
+        this.adoboLeft = adoboLeft;
+        UpdateAdoboLeftText();
+    }
+    public void SetAfritadaLeft(int afritadaLeft)
+    {
+        this.afritadaLeft = afritadaLeft;
+        UpdateAfritadaLeftText();
+    }
+    public void SetFlakesInOilLeft(int flakesInOilLeft)
+    {
+        this.flakesInOilLeft = flakesInOilLeft;
+        UpdateFlakesInOilLeftText();
+    }
+    public void SetCheeseSpreadLeft(int cheeseSpreadLeft)
+    {
+        this.cheeseSpreadLeft = cheeseSpreadLeft;
+        UpdateCheeseSpreadLeftText();
+    }
+    public void SetNescafeLeft(int nescafeLeft)
+    {
+        this.nescafeLeft = nescafeLeft;
+        UpdateNescafeLeftText();
+    }
+    public void SetPeanutButterLeft(int peanutButterLeft)
+    {
+        this.peanutButterLeft = peanutButterLeft;
+        UpdatePeanutButterLeftText();
+    }
+    public void SetArtisanLeft(int artisanLeft)
+    {
+        this.artisanLeft = artisanLeft;
+        UpdateArtisanLeftText();
+    }
+    public void SetGardeniaLeft(int gardeniaLeft)
+    {
+        this.gardeniaLeft = gardeniaLeft;
+        UpdateGardeniaLeftText();
+    }
 
     public void SetItemNameLeft(string itemName, int quantityLeft)
     {
@@ -777,6 +1017,22 @@ public class ItemsLeft : MonoBehaviour
         { SetZestoGrapeLeft(quantityLeft); }
         else if (itemName.Equals("Zesto Orange"))
         { SetZestoOrangeLeft(quantityLeft); }
+        else if (itemName.Equals("Adobo"))
+        { SetAdoboLeft(quantityLeft); }
+        else if (itemName.Equals("Afritada"))
+        { SetAfritadaLeft(quantityLeft); }
+        else if (itemName.Equals("Flakes in Oil"))
+        { SetFlakesInOilLeft(quantityLeft); }
+        else if (itemName.Equals("Cheese Spread"))
+        { SetCheeseSpreadLeft(quantityLeft); }
+        else if (itemName.Equals("Nescafe"))
+        { SetNescafeLeft(quantityLeft); }
+        else if (itemName.Equals("Peanut Butter"))
+        { SetPeanutButterLeft(quantityLeft); }
+        else if (itemName.Equals("Artisan"))
+        { SetArtisanLeft(quantityLeft); }
+        else if (itemName.Equals("Gardenia"))
+        { SetGardeniaLeft(quantityLeft); }
     }
 
     public int GetGoyaCandyLeft()
@@ -825,4 +1081,20 @@ public class ItemsLeft : MonoBehaviour
     { return zestoGrapeLeft; }
     public int GetZestoOrangeLeft() 
     { return zestoOrangeLeft; }
+    public int GetAdoboLeft() 
+    { return adoboLeft; }
+    public int GetAfritadaLeft() 
+    { return afritadaLeft; }
+    public int GetFlakesInOilLeft() 
+    { return flakesInOilLeft; }
+    public int GetCheeseSpreadLeft() 
+    { return cheeseSpreadLeft; }
+    public int GetNescafeLeft() 
+    { return nescafeLeft; }
+    public int GetPeanutButterLeft() 
+    { return peanutButterLeft; }
+    public int GetArtisanLeft() 
+    { return artisanLeft; }
+    public int GetGardeniaLeft() 
+    { return gardeniaLeft; }
 }

@@ -23,6 +23,15 @@ public class MinMaxItemsDisplay : MonoBehaviour
     public int maxItemsSnacks = 20;
     public int minItemsSnacks = 3;
 
+    public int maxItemsCannedGoods = 20;
+    public int minItemsCannedGoods = 3;
+
+    public int maxItemsSpreads = 15;
+    public int minItemsSpreads = 3;
+
+    public int maxItemsBreads = 10;
+    public int minItemsBreads = 3;
+
     private int inventoryItemsGoyaCandy = 0;
     private int inventoryItemsMentos = 0;
     private int inventoryItemsWhiteRabbit = 0;
@@ -52,6 +61,18 @@ public class MinMaxItemsDisplay : MonoBehaviour
     private int inventoryItemsChippy = 0;
     private int inventoryItemsNova = 0;
     private int inventoryItemsPiattos = 0;
+
+    private int inventoryItemsAdobo = 0;
+    private int inventoryItemsAfritada = 0;
+    private int inventoryItemsFlakesInOil = 0;
+
+    private int inventoryItemsCheeseSpread = 0;
+    private int inventoryItemsNescafe = 0;
+    private int inventoryItemsPeanutButter = 0;
+
+    private int inventoryItemsArtisan = 0;
+    private int inventoryItemsGardenia = 0;
+
 
     public void SetInventoryItems(string category, string item,int items)
     {
@@ -117,6 +138,28 @@ public class MinMaxItemsDisplay : MonoBehaviour
                 else if (item == "Piattos")
                 { inventoryItemsPiattos += items; }
                 break;
+            case "Canned Goods":
+                if (item == "Adobo")
+                { inventoryItemsAdobo += items; }
+                else if (item == "Afritada")
+                { inventoryItemsAfritada += items; }
+                else if (item == "Flakes in Oil")
+                { inventoryItemsFlakesInOil += items; }
+                break;
+            case "Spreads":
+                if (item == "Cheese Spread")
+                { inventoryItemsCheeseSpread += items; }
+                else if (item == "Nescafe")
+                { inventoryItemsNescafe += items; }
+                else if (item == "Peanut Butter")
+                { inventoryItemsPeanutButter += items; }
+                break;
+            case "Breads":
+                if (item == "Artisan")
+                { inventoryItemsArtisan += items; }
+                else if (item == "Gardenia")
+                { inventoryItemsGardenia += items; }
+                break;
             default:
                 Debug.LogWarning($"Invalid category or item name. {item}");
                 break;
@@ -156,6 +199,17 @@ public class MinMaxItemsDisplay : MonoBehaviour
             "Chippy" => inventoryItemsChippy,
             "Nova" => inventoryItemsNova,
             "Piattos" => inventoryItemsPiattos,
+
+            "Adobo" => inventoryItemsAdobo,
+            "Afritada" => inventoryItemsAfritada,
+            "Flakes in Oil" => inventoryItemsFlakesInOil,
+
+            "Cheese Spread" => inventoryItemsCheeseSpread,
+            "Nescafe" => inventoryItemsNescafe,
+            "Peanut Butter" => inventoryItemsPeanutButter,
+
+            "Artisan" => inventoryItemsArtisan,
+            "Gardenia" => inventoryItemsGardenia,
 
             _ => 0
         };
@@ -225,6 +279,31 @@ public class MinMaxItemsDisplay : MonoBehaviour
                 else if (item == "Piattos")
                 { inventoryItemsPiattos -= itemsDecreased; }
                 break;
+            case "Canned Goods":
+                if (item == "Adobo")
+                { inventoryItemsAdobo -= itemsDecreased; }
+                else if (item == "Afritada")
+                { inventoryItemsAfritada -= itemsDecreased; }
+                else if (item == "Flakes in Oil")
+                { inventoryItemsFlakesInOil -= itemsDecreased; }
+                break;
+            case "Spreads":
+                if (item == "Cheese Spread")
+                { inventoryItemsCheeseSpread -= itemsDecreased; }
+                else if (item == "Nescafe")
+                { inventoryItemsNescafe -= itemsDecreased; }
+                else if (item == "Peanut Butter")
+                { inventoryItemsPeanutButter -= itemsDecreased; }
+                break;
+            case "Breads":
+                if (item == "Artisan")
+                { inventoryItemsArtisan -= itemsDecreased; }
+                else if (item == "Gardenia")
+                { inventoryItemsGardenia -= itemsDecreased; }
+                break;
+            default:
+                Debug.LogWarning($"Invalid category or item name. {item}");
+                break;
         }
     }
 
@@ -261,6 +340,17 @@ public class MinMaxItemsDisplay : MonoBehaviour
             "Chippy" => currentLeftItem <= minItemsSnacks,
             "Nova" => currentLeftItem <= minItemsSnacks,
             "Piattos" => currentLeftItem <= minItemsSnacks,
+
+            "Adobo" => currentLeftItem <= minItemsCannedGoods,
+            "Afritada" => currentLeftItem <= minItemsCannedGoods,
+            "Flakes in Oil" => currentLeftItem <= minItemsCannedGoods,
+
+            "Cheese Spread" => currentLeftItem <= minItemsSpreads,
+            "Nescafe" => currentLeftItem <= minItemsSpreads,
+            "Peanut Butter" => currentLeftItem <= minItemsSpreads,
+
+            "Artisan" => currentLeftItem <= minItemsBreads,
+            "Gardenia" => currentLeftItem <= minItemsBreads,
 
             _ => false
         };

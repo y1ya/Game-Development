@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +26,10 @@ public class DragDropClick : MonoBehaviour
         colgateObject, rexonaObject, sunsilkObject,
         chippyObject, novaObject, piattosObject,
         cokeObject, pepsiObject, royalObject,
-        zestoAppleObject, zestoGrapeObject, zestoOrangeObject;
+        zestoAppleObject, zestoGrapeObject, zestoOrangeObject,
+        adoboObject, afritadaObject, flakesInOilObject,
+        cheeseSpreadObject, nescafeObject, peanutButterObject,
+        artisanObject, gardeniaObject;
 
     public GameObject goyaJarObject, mentosJarObject,
         whiteRabbitJarObject;
@@ -76,12 +80,6 @@ public class DragDropClick : MonoBehaviour
             {
                 clickObject = raycastHit2D.collider.gameObject;
 
-                if (!raycastHit2D.collider.enabled)
-                {
-                    clickObject = null;
-                    return;
-                }
-
                 if (clickObject.CompareTag("Draggable"))
                 {
                     mouseHoldTime = 0f;
@@ -90,32 +88,26 @@ public class DragDropClick : MonoBehaviour
                     if (clickObject.name == "Goya Candy")
                     {
                         draggedObject = Instantiate(origObjectGoyaCandy, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Mentos")
                     {
                         draggedObject = Instantiate(origObjectMentos, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "White Rabbit")
                     {
                         draggedObject = Instantiate(origObjectWhiteRabbit, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Rice")
                     {
                         draggedObject = Instantiate(riceObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Soy Sauce")
                     {
                         draggedObject = Instantiate(soySauceObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Vinegar")
                     {
                         draggedObject = Instantiate(vinegarObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Joy")
                     {
@@ -124,7 +116,6 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Surf")
                     {
@@ -133,83 +124,198 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Payless Xtra Big")
                     {
                         draggedObject = Instantiate(paylessXtraBigObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Lucky Me")
                     {
                         draggedObject = Instantiate(luckyMeObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Cup Noodle")
                     {
                         draggedObject = Instantiate(cupNoodleObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Colgate")
                     {
                         draggedObject = Instantiate(colgateObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Rexona")
                     {
                         draggedObject = Instantiate(rexonaObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Sunsilk")
                     {
                         draggedObject = Instantiate(sunsilkObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Chippy")
                     {
                         draggedObject = Instantiate(chippyObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Nova")
                     {
                         draggedObject = Instantiate(novaObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Piattos")
                     {
                         draggedObject = Instantiate(piattosObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Coke")
                     {
                         draggedObject = Instantiate(cokeObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Pepsi")
                     {
                         draggedObject = Instantiate(pepsiObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Royal")
                     {
                         draggedObject = Instantiate(royalObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Zesto Apple")
                     {
                         draggedObject = Instantiate(zestoAppleObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Zesto Grape")
                     {
                         draggedObject = Instantiate(zestoGrapeObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
                     else if (clickObject.name == "Zesto Orange")
                     {
                         draggedObject = Instantiate(zestoOrangeObject, mouseWorldPos, Quaternion.identity);
-                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
                     }
+                    else if (clickObject.name == "Adobo")
+                    {
+                        draggedObject = Instantiate(adoboObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else if (clickObject.name == "Afritada")
+                    {
+                        draggedObject = Instantiate(afritadaObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else if (clickObject.name == "Flakes in Oil")
+                    {
+                        draggedObject = Instantiate(flakesInOilObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else if (clickObject.name == "Cheese Spread")
+                    {
+                        draggedObject = Instantiate(cheeseSpreadObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else if (clickObject.name == "Nescafe")
+                    {
+                        draggedObject = Instantiate(nescafeObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else if (clickObject.name == "Peanut Butter")
+                    {
+                        draggedObject = Instantiate(peanutButterObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else if (clickObject.name == "Artisan")
+                    {
+                        draggedObject = Instantiate(artisanObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else if (clickObject.name == "Gardenia")
+                    {
+                        draggedObject = Instantiate(gardeniaObject, mouseWorldPos, Quaternion.identity);
+                        foreach (Transform child in draggedObject.transform)
+                        {
+                            Destroy(child.gameObject);
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("[MOUSEDOWN] Clicked on non-draggable object: " + clickObject.name);
+                    }
+
+                    draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
+
                     draggedObject.SetActive(false);
 
                     Debug.Log("[MOUSEDOWN] Started dragging clone of: " + clickObject.name);
@@ -248,6 +354,12 @@ public class DragDropClick : MonoBehaviour
             {
                 draggedObject.SetActive(true);
                 draggedObject.transform.position = mouseWorldPos;
+
+                SpriteRenderer spriteRenderer = draggedObject.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.sortingOrder = 100; // Higher than typical UI layers
+                }
 
                 Debug.Log($"[HOLDMOUSE] Hovering over: {(nextHoverObject != null ? nextHoverObject.name : "nothing")}");
 
@@ -449,6 +561,46 @@ public class DragDropClick : MonoBehaviour
                         itemsInCart.AddItem("Zesto Orange");
                         itemsLeft.DecreaseZestoOrange();
                     }
+                    else if (clickObject.name.Equals("Adobo"))
+                    {
+                        itemsInCart.AddItem("Adobo");
+                        itemsLeft.DecreaseAdobo();
+                    }
+                    else if (clickObject.name.Equals("Afritada"))
+                    {
+                        itemsInCart.AddItem("Afritada");
+                        itemsLeft.DecreaseAfritada();
+                    }
+                    else if (clickObject.name.Equals("Flakes in Oil"))
+                    {
+                        itemsInCart.AddItem("Flakes in Oil");
+                        itemsLeft.DecreaseFlakesInOil();
+                    }
+                    else if (clickObject.name.Equals("Cheese Spread"))
+                    {
+                        itemsInCart.AddItem("Cheese Spread");
+                        itemsLeft.DecreaseCheeseSpread();
+                    }
+                    else if (clickObject.name.Equals("Nescafe"))
+                    {
+                        itemsInCart.AddItem("Nescafe");
+                        itemsLeft.DecreaseNescafe();
+                    }
+                    else if (clickObject.name.Equals("Peanut Butter"))
+                    {
+                        itemsInCart.AddItem("Peanut Butter");
+                        itemsLeft.DecreasePeanutButter();
+                    }
+                    else if (clickObject.name.Equals("Artisan"))
+                    {
+                        itemsInCart.AddItem("Artisan");
+                        itemsLeft.DecreaseArtisan();
+                    }
+                    else if (clickObject.name.Equals("Gardenia"))
+                    {
+                        itemsInCart.AddItem("Gardenia");
+                        itemsLeft.DecreaseGardenia();
+                    }
 
                     // If the click was on the cart, give items to cat
                     if (clickObject.CompareTag("Cart"))
@@ -493,30 +645,14 @@ public class DragDropClick : MonoBehaviour
         int zestoAppleLeft = itemsLeft.GetZestoAppleLeft();
         int zestoGrapeLeft = itemsLeft.GetZestoGrapeLeft();
         int zestoOrangeLeft = itemsLeft.GetZestoOrangeLeft();
-
-        Debug.Log($"[CHECKITEMSLEFT] Goya Candy Left: {goyaCandyLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Mentos Left: {mentosLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] White Rabbit Left: {whiteRabbitLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Rice Left: {riceLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Soy Sauce Left: {soySauceLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Vinegar Left: {vinegarLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Joy Left: {joyLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Surf Left: {surfLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Payless Xtra Big Left: {paylessXtraBigLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Lucky Me Left: {luckyMeLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Cup Noodle Left: {cupNoodleLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Colgate Left: {colgateLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Rexona Left: {rexonaLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Sunsilk Left: {sunsilkLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Chippy Left: {chippyLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Nova Left: {novaLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Piattos Left: {piattosLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Coke Left: {cokeLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Pepsi Left: {pepsiLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Royal Left: {royalLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Zesto Apple Left: {zestoAppleLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Zesto Grape Left: {zestoGrapeLeft}");
-        Debug.Log($"[CHECKITEMSLEFT] Zesto Orange Left: {zestoOrangeLeft}");
+        int adoboLeft = itemsLeft.GetAdoboLeft();
+        int afritadaLeft = itemsLeft.GetAfritadaLeft();
+        int flakesInOilLeft = itemsLeft.GetFlakesInOilLeft();
+        int cheeseSpreadLeft = itemsLeft.GetCheeseSpreadLeft();
+        int nescafeLeft = itemsLeft.GetNescafeLeft();
+        int peanutButterLeft = itemsLeft.GetPeanutButterLeft();
+        int artisanLeft = itemsLeft.GetArtisanLeft();
+        int gardeniaLeft = itemsLeft.GetGardeniaLeft();
 
         if (goyaCandyLeft == 0)
         { goyaJarObject.SetActive(false); }
@@ -909,6 +1045,182 @@ public class DragDropClick : MonoBehaviour
                 zestoOrangeObject.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
+
+        if (adoboLeft == 0)
+        { adoboObject.SetActive(true); }
+        else
+        {
+            if (adoboLeft == 4)
+            { adoboObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (adoboLeft == 3)
+            { adoboObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (adoboLeft == 2)
+            { adoboObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (adoboLeft == 1)
+            { adoboObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                adoboObject.SetActive(true);
+                adoboObject.transform.GetChild(0).gameObject.SetActive(true);
+                adoboObject.transform.GetChild(1).gameObject.SetActive(true);
+                adoboObject.transform.GetChild(2).gameObject.SetActive(true);
+                adoboObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        if (afritadaLeft == 0)
+        { afritadaObject.SetActive(true); }
+        else
+        {
+            if (afritadaLeft == 4)
+            { afritadaObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (afritadaLeft == 3)
+            { afritadaObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (afritadaLeft == 2)
+            { afritadaObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (afritadaLeft == 1)
+            { afritadaObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                afritadaObject.SetActive(true);
+                afritadaObject.transform.GetChild(0).gameObject.SetActive(true);
+                afritadaObject.transform.GetChild(1).gameObject.SetActive(true);
+                afritadaObject.transform.GetChild(2).gameObject.SetActive(true);
+                afritadaObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        if (flakesInOilLeft == 0)
+        { flakesInOilObject.SetActive(true); }
+        else
+        {
+            if (flakesInOilLeft == 4)
+            { flakesInOilObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (flakesInOilLeft == 3)
+            { flakesInOilObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (flakesInOilLeft == 2)
+            { flakesInOilObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (flakesInOilLeft == 1)
+            { flakesInOilObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                flakesInOilObject.SetActive(true);
+                flakesInOilObject.transform.GetChild(0).gameObject.SetActive(true);
+                flakesInOilObject.transform.GetChild(1).gameObject.SetActive(true);
+                flakesInOilObject.transform.GetChild(2).gameObject.SetActive(true);
+                flakesInOilObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        if (cheeseSpreadLeft == 0)
+        { cheeseSpreadObject.SetActive(true); }
+        else
+        {
+            if (cheeseSpreadLeft == 4)
+            { cheeseSpreadObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (cheeseSpreadLeft == 3)
+            { cheeseSpreadObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (cheeseSpreadLeft == 2)
+            { cheeseSpreadObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (cheeseSpreadLeft == 1)
+            { cheeseSpreadObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                cheeseSpreadObject.SetActive(true);
+                cheeseSpreadObject.transform.GetChild(0).gameObject.SetActive(true);
+                cheeseSpreadObject.transform.GetChild(1).gameObject.SetActive(true);
+                cheeseSpreadObject.transform.GetChild(2).gameObject.SetActive(true);
+                cheeseSpreadObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        if (nescafeLeft == 0)
+        { nescafeObject.SetActive(true); }
+        else
+        {
+            if (nescafeLeft == 4)
+            { nescafeObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (nescafeLeft == 3)
+            { nescafeObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (nescafeLeft == 2)
+            { nescafeObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (nescafeLeft == 1)
+            { nescafeObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                nescafeObject.SetActive(true);
+                nescafeObject.transform.GetChild(0).gameObject.SetActive(true);
+                nescafeObject.transform.GetChild(1).gameObject.SetActive(true);
+                nescafeObject.transform.GetChild(2).gameObject.SetActive(true);
+                nescafeObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        if (peanutButterLeft == 0)
+        { peanutButterObject.SetActive(true); }
+        else
+        {
+            if (peanutButterLeft == 4)
+            { peanutButterObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (peanutButterLeft == 3)
+            { peanutButterObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (peanutButterLeft == 2)
+            { peanutButterObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (peanutButterLeft == 1)
+            { peanutButterObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                peanutButterObject.SetActive(true);
+                peanutButterObject.transform.GetChild(0).gameObject.SetActive(true);
+                peanutButterObject.transform.GetChild(1).gameObject.SetActive(true);
+                peanutButterObject.transform.GetChild(2).gameObject.SetActive(true);
+                peanutButterObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        if (artisanLeft == 0)
+        { artisanObject.SetActive(true); }
+        else
+        {
+            if (artisanLeft == 4)
+            { artisanObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (artisanLeft == 3)
+            { artisanObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (artisanLeft == 2)
+            { artisanObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (artisanLeft == 1)
+            { artisanObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                artisanObject.SetActive(true);
+                artisanObject.transform.GetChild(0).gameObject.SetActive(true);
+                artisanObject.transform.GetChild(1).gameObject.SetActive(true);
+                artisanObject.transform.GetChild(2).gameObject.SetActive(true);
+                artisanObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
+
+        if (gardeniaLeft == 0)
+        { gardeniaObject.SetActive(true); }
+        else
+        {
+            if (gardeniaLeft == 4)
+            { gardeniaObject.transform.GetChild(3).gameObject.SetActive(false); }
+            else if (gardeniaLeft == 3)
+            { gardeniaObject.transform.GetChild(2).gameObject.SetActive(false); }
+            else if (gardeniaLeft == 2)
+            { gardeniaObject.transform.GetChild(1).gameObject.SetActive(false); }
+            else if (gardeniaLeft == 1)
+            { gardeniaObject.transform.GetChild(0).gameObject.SetActive(false); }
+            else
+            {
+                gardeniaObject.SetActive(true);
+                gardeniaObject.transform.GetChild(0).gameObject.SetActive(true);
+                gardeniaObject.transform.GetChild(1).gameObject.SetActive(true);
+                gardeniaObject.transform.GetChild(2).gameObject.SetActive(true);
+                gardeniaObject.transform.GetChild(3).gameObject.SetActive(true);
+            }
+        }
     }
 
     private void GiveItemToCatFromCart()
@@ -943,6 +1255,14 @@ public class DragDropClick : MonoBehaviour
             int totalZestoApple = itemsInCart.GetTotalZestoApple();
             int totalZestoGrape = itemsInCart.GetTotalZestoGrape();
             int totalZestoOrange = itemsInCart.GetTotalZestoOrange();
+            int totalAdobo = itemsInCart.GetTotalAdobo();
+            int totalAfritada = itemsInCart.GetTotalAfritada();
+            int totalFlakesInOil = itemsInCart.GetTotalFlakesInOil();
+            int totalCheeseSpread = itemsInCart.GetTotalCheeseSpread();
+            int totalNescafe = itemsInCart.GetTotalNescafe();
+            int totalPeanutButter = itemsInCart.GetTotalPeanutButter();
+            int totalArtisan = itemsInCart.GetTotalArtisan();
+            int totalGardenia = itemsInCart.GetTotalGardenia();
 
             if (itemsRequest.Contains("Goya Candy") && totalGoyaCandy > 0)
             {
@@ -1103,6 +1423,62 @@ public class DragDropClick : MonoBehaviour
                 int zestoOrangeToGive = Mathf.Min(totalZestoOrange, quantityItemRequest[itemsRequest.IndexOf("Zesto Orange")]);
                 orderScript.DecreaseItemRequest("Zesto Orange", zestoOrangeToGive);
                 totalItemsInCart -= zestoOrangeToGive;
+            }
+
+            if (itemsRequest.Contains("Adobo") && totalAdobo > 0)
+            {
+                int adoboToGive = Mathf.Min(totalAdobo, quantityItemRequest[itemsRequest.IndexOf("Adobo")]);
+                orderScript.DecreaseItemRequest("Adobo", adoboToGive);
+                totalItemsInCart -= adoboToGive;
+            }
+
+            if (itemsRequest.Contains("Afritada") && totalAfritada > 0)
+            {
+                int afritadaToGive = Mathf.Min(totalAfritada, quantityItemRequest[itemsRequest.IndexOf("Afritada")]);
+                orderScript.DecreaseItemRequest("Afritada", afritadaToGive);
+                totalItemsInCart -= afritadaToGive;
+            }
+
+            if (itemsRequest.Contains("Flakes in Oil") && totalFlakesInOil > 0)
+            {
+                int flakesInOilToGive = Mathf.Min(totalFlakesInOil, quantityItemRequest[itemsRequest.IndexOf("Flakes in Oil")]);
+                orderScript.DecreaseItemRequest("Flakes in Oil", flakesInOilToGive);
+                totalItemsInCart -= flakesInOilToGive;
+            }
+
+            if (itemsRequest.Contains("Cheese Spread") && totalCheeseSpread > 0)
+            {
+                int cheeseSpreadToGive = Mathf.Min(totalCheeseSpread, quantityItemRequest[itemsRequest.IndexOf("Cheese Spread")]);
+                orderScript.DecreaseItemRequest("Cheese Spread", cheeseSpreadToGive);
+                totalItemsInCart -= cheeseSpreadToGive;
+            }
+
+            if (itemsRequest.Contains("Nescafe") && totalNescafe > 0)
+            {
+                int nescafeToGive = Mathf.Min(totalNescafe, quantityItemRequest[itemsRequest.IndexOf("Nescafe")]);
+                orderScript.DecreaseItemRequest("Nescafe", nescafeToGive);
+                totalItemsInCart -= nescafeToGive;
+            }
+
+            if (itemsRequest.Contains("Peanut Butter") && totalPeanutButter > 0)
+            {
+                int peanutButterToGive = Mathf.Min(totalPeanutButter, quantityItemRequest[itemsRequest.IndexOf("Peanut Butter")]);
+                orderScript.DecreaseItemRequest("Peanut Butter", peanutButterToGive);
+                totalItemsInCart -= peanutButterToGive;
+            }
+
+            if (itemsRequest.Contains("Artisan") && totalArtisan > 0)
+            {
+                int artisanToGive = Mathf.Min(totalArtisan, quantityItemRequest[itemsRequest.IndexOf("Artisan")]);
+                orderScript.DecreaseItemRequest("Artisan", artisanToGive);
+                totalItemsInCart -= artisanToGive;
+            }
+
+            if (itemsRequest.Contains("Gardenia") && totalGardenia > 0)
+            {
+                int gardeniaToGive = Mathf.Min(totalGardenia, quantityItemRequest[itemsRequest.IndexOf("Gardenia")]);
+                orderScript.DecreaseItemRequest("Gardenia", gardeniaToGive);
+                totalItemsInCart -= gardeniaToGive;
             }
         }
     }

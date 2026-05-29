@@ -13,6 +13,9 @@ public class RestockScript : MonoBehaviour
     public GameObject restockChippy, restockNova, restockPiattos;
     public GameObject restockSurf, restockJoy;
     public GameObject restockCoke, restockPepsi, restockRoyal, restockZestoApple, restockZestoGrape, restockZestoOrange;
+    public GameObject restockAdobo, restockAfritada, restockFlakesInOil;
+    public GameObject restockCheeseSpread, restockNescafe, restockPeanutButter;
+    public GameObject restockArtisan, restockGardenia;
 
     public void RestockButton(GameObject buttonChild)
     {
@@ -188,182 +191,306 @@ public class RestockScript : MonoBehaviour
         else if (parentTransform.name.ToString().Equals("Sunsilk"))
         {
             Debug.Log("[RESTOCK] Restocking Sunsilk items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Sunsilk");
             Debug.Log("[RESTOCK] Current Sunsilk inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetSunsilkLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsPersonalCare;
-            
+
             RestockItems("Sunsilk", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.sunsilkLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Chippy"))
         {
             Debug.Log("[RESTOCK] Restocking Chippy items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Chippy");
             Debug.Log("[RESTOCK] Current Chippy inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetChippyLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsSnacks;
-            
+
             RestockItems("Chippy", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.chippyLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Nova"))
         {
             Debug.Log("[RESTOCK] Restocking Nova items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Nova");
             Debug.Log("[RESTOCK] Current Nova inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetNovaLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsSnacks;
-            
+
             RestockItems("Nova", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.novaLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Piattos"))
         {
             Debug.Log("[RESTOCK] Restocking Piattos items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Piattos");
             Debug.Log("[RESTOCK] Current Piattos inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetPiattosLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsSnacks;
-            
+
             RestockItems("Piattos", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.piattosLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Surf"))
         {
             Debug.Log("[RESTOCK] Restocking Surf items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Surf");
             Debug.Log("[RESTOCK] Current Surf inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetSurfLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsPantryStaples;
-            
+
             RestockItems("Surf", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.surfLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Joy"))
         {
             Debug.Log("[RESTOCK] Restocking Joy items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Joy");
             Debug.Log("[RESTOCK] Current Joy inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetJoyLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsPantryStaples;
-            
+
             RestockItems("Joy", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.joyLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Coke"))
         {
             Debug.Log("[RESTOCK] Restocking Coke items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Coke");
             Debug.Log("[RESTOCK] Current Coke inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetCokeLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsDrinks;
-            
+
             RestockItems("Coke", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.cokeLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Pepsi"))
         {
             Debug.Log("[RESTOCK] Restocking Pepsi items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Pepsi");
             Debug.Log("[RESTOCK] Current Pepsi inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetPepsiLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsDrinks;
-            
+
             RestockItems("Pepsi", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.pepsiLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Royal"))
         {
             Debug.Log("[RESTOCK] Restocking Royal items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Royal");
             Debug.Log("[RESTOCK] Current Royal inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetRoyalLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsDrinks;
-            
+
             RestockItems("Royal", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.royalLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Zesto Apple"))
         {
             Debug.Log("[RESTOCK] Restocking Zesto Apple items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Zesto Apple");
             Debug.Log("[RESTOCK] Current Zesto Apple inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetZestoAppleLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsDrinks;
-            
+
             RestockItems("Zesto Apple", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.zestoAppleLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Zesto Grape"))
         {
             Debug.Log("[RESTOCK] Restocking Zesto Grape items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Zesto Grape");
             Debug.Log("[RESTOCK] Current Zesto Grape inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetZestoGrapeLeft();
-            
+
             maxItems = minMaxItemsDisplay.maxItemsDrinks;
-            
+
             RestockItems("Zesto Grape", inventoryLeft, leftItems, maxItems, parentTransform);
-            
+
             itemsLeft.zestoGrapeLeftText.color = Color.white;
         }
         else if (parentTransform.name.ToString().Equals("Zesto Orange"))
         {
             Debug.Log("[RESTOCK] Restocking Zesto Orange items.");
-            
+
             inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Zesto Orange");
             Debug.Log("[RESTOCK] Current Zesto Orange inventory: " + inventoryLeft);
-            
+
             leftItems = itemsLeft.GetZestoOrangeLeft();
+
+            maxItems = minMaxItemsDisplay.maxItemsDrinks;
+
+            RestockItems("Zesto Orange", inventoryLeft, leftItems, maxItems, parentTransform);
+
+            itemsLeft.zestoOrangeLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Adobo"))
+        {
+            Debug.Log("[RESTOCK] Restocking Adobo items.");
+
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Adobo");
+            Debug.Log("[RESTOCK] Current Adobo inventory: " + inventoryLeft);
+
+            leftItems = itemsLeft.GetAdoboLeft();
+
+            maxItems = minMaxItemsDisplay.maxItemsCannedGoods;
+
+            RestockItems("Adobo", inventoryLeft, leftItems, maxItems, parentTransform);
+
+            itemsLeft.adoboLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Afritada"))
+        {
+            Debug.Log("[RESTOCK] Restocking Afritada items.");
+
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Afritada");
+            Debug.Log("[RESTOCK] Current Afritada inventory: " + inventoryLeft);
+
+            leftItems = itemsLeft.GetAfritadaLeft();
+
+            maxItems = minMaxItemsDisplay.maxItemsCannedGoods;
+
+            RestockItems("Afritada", inventoryLeft, leftItems, maxItems, parentTransform);
+
+            itemsLeft.afritadaLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Flakes in Oil"))
+        {
+            Debug.Log("[RESTOCK] Restocking Flakes in Oil items.");
+
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Flakes in Oil");
+            Debug.Log("[RESTOCK] Current Flakes in Oil inventory: " + inventoryLeft);
+
+            leftItems = itemsLeft.GetFlakesInOilLeft();
+
+            maxItems = minMaxItemsDisplay.maxItemsCannedGoods;
+
+            RestockItems("Flakes in Oil", inventoryLeft, leftItems, maxItems, parentTransform);
+
+            itemsLeft.flakesInOilLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Cheese Spread"))
+        {
+            Debug.Log("[RESTOCK] Restocking Cheese Spread items.");
+
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Cheese Spread");
+            Debug.Log("[RESTOCK] Current Cheese Spread inventory: " + inventoryLeft);
+
+            leftItems = itemsLeft.GetCheeseSpreadLeft();
+
+            maxItems = minMaxItemsDisplay.maxItemsSpreads;
+
+            RestockItems("Cheese Spread", inventoryLeft, leftItems, maxItems, parentTransform);
+
+            itemsLeft.cheeseSpreadLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Nescafe"))
+        {
+            Debug.Log("[RESTOCK] Restocking Nescafe items.");
+            
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Nescafe");
+            Debug.Log("[RESTOCK] Current Nescafe inventory: " + inventoryLeft);
+            
+            leftItems = itemsLeft.GetNescafeLeft();
             
             maxItems = minMaxItemsDisplay.maxItemsDrinks;
             
-            RestockItems("Zesto Orange", inventoryLeft, leftItems, maxItems, parentTransform);
+            RestockItems("Nescafe", inventoryLeft, leftItems, maxItems, parentTransform);
             
-            itemsLeft.zestoOrangeLeftText.color = Color.white;
+            itemsLeft.nescafeLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Peanut Butter"))
+        {
+            Debug.Log("[RESTOCK] Restocking Peanut Butter items.");
+            
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Peanut Butter");
+            Debug.Log("[RESTOCK] Current Peanut Butter inventory: " + inventoryLeft);
+            
+            leftItems = itemsLeft.GetPeanutButterLeft();
+            
+            maxItems = minMaxItemsDisplay.maxItemsSpreads;
+            
+            RestockItems("Peanut Butter", inventoryLeft, leftItems, maxItems, parentTransform);
+            
+            itemsLeft.peanutButterLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Artisan"))
+        {
+            Debug.Log("[RESTOCK] Restocking Artisan items.");
+            
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Artisan");
+            Debug.Log("[RESTOCK] Current Artisan inventory: " + inventoryLeft);
+            
+            leftItems = itemsLeft.GetArtisanLeft();
+            
+            maxItems = minMaxItemsDisplay.maxItemsSnacks;
+            
+            RestockItems("Artisan", inventoryLeft, leftItems, maxItems, parentTransform);
+            
+            itemsLeft.artisanLeftText.color = Color.white;
+        }
+        else if (parentTransform.name.ToString().Equals("Gardenia"))
+        {
+            Debug.Log("[RESTOCK] Restocking Gardenia items.");
+            
+            inventoryLeft = minMaxItemsDisplay.GetInventoryItems("Gardenia");
+            Debug.Log("[RESTOCK] Current Gardenia inventory: " + inventoryLeft);
+            
+            leftItems = itemsLeft.GetGardeniaLeft();
+            
+            maxItems = minMaxItemsDisplay.maxItemsSnacks;
+            
+            RestockItems("Gardenia", inventoryLeft, leftItems, maxItems, parentTransform);
+            
+            itemsLeft.gardeniaLeftText.color = Color.white;
+        }
+        else
+        {
+            Debug.LogWarning($"[RESTOCK] No matching item found for parent transform name: {parentTransform.name}. Restock action not performed.");
         }
     }
 
@@ -490,6 +617,38 @@ public class RestockScript : MonoBehaviour
                 break;
             case "Zesto Orange":
                 childButton = restockZestoOrange.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Adobo":
+                childButton = restockAdobo.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Afritada":
+                childButton = restockAfritada.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Flakes in Oil":
+                childButton = restockFlakesInOil.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Cheese Spread":
+                childButton = restockCheeseSpread.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Nescafe":
+                childButton = restockNescafe.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Peanut Butter":
+                childButton = restockPeanutButter.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Artisan":
+                childButton = restockArtisan.transform.GetChild(0);
+                childButton.gameObject.SetActive(true);
+                break;
+            case "Gardenia":
+                childButton = restockGardenia.transform.GetChild(0);
                 childButton.gameObject.SetActive(true);
                 break;
             default:
