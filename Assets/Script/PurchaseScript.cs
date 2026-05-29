@@ -34,7 +34,7 @@ public class PurchaseScript : MonoBehaviour
 
         if (cleanedItemName.Equals("Goya Candy"))
         {
-            if (currentCurrency >= 62.50f)
+            if (currentCurrency >= 108f)
             {
                 int currentGoyaCandy = itemsLeft.GetGoyaCandyLeft();
                 Debug.Log($"[PURCHASE] Current Candy before purchase: {currentGoyaCandy}");
@@ -57,7 +57,7 @@ public class PurchaseScript : MonoBehaviour
                     Debug.Log($"[PURCHASE] Current Candy: {itemsLeft.GetGoyaCandyLeft()} (Capped at max display)");
                 }
 
-                playerCurrency.SetCurrentCurrency(currentCurrency - 62.50f);
+                playerCurrency.SetCurrentCurrency(currentCurrency - 108f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
@@ -214,28 +214,24 @@ public class PurchaseScript : MonoBehaviour
         }
         else if (cleanedItemName.Equals("Joy"))
         {
-            if (currentCurrency >= 31.25f)
+            if (currentCurrency >= 62.50f)
             {
                 int currentJoy = itemsLeft.GetJoyLeft();
-                //itemsLeft.SetJoyLeft(currentJoy + 25);
-                //Debug.Log($"[PURCHASE] Current Joy: {itemsLeft.GetJoyLeft()}");
 
-                minMaxItemsDisplay.SetInventoryItems("HouseHold Basics", "Joy", 25);
+                minMaxItemsDisplay.SetInventoryItems("HouseHold Basics", "Joy", 50);
 
                 maxDisplay = minMaxItemsDisplay.maxItemsHouseHoldBasics;
 
-                if (currentJoy + 25 > maxDisplay)
-                {
-                    itemsLeft.SetJoyLeft(maxDisplay);
+                itemsLeft.SetJoyLeft(maxDisplay);
 
-                    itemsRemainingToMax = maxDisplay - currentJoy;
-                    Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                itemsRemainingToMax = maxDisplay - currentJoy;
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
 
-                    minMaxItemsDisplay.DecreaseInventoryItems("HouseHold Basics", "Joy", itemsRemainingToMax);
-                    Debug.Log($"[PURCHASE] Current Joy Inventory: {minMaxItemsDisplay.GetInventoryItems("Joy")}");
-                    Debug.Log($"[PURCHASE] Current Joy: {itemsLeft.GetJoyLeft()} (Capped at max display)");
-                }
-                playerCurrency.SetCurrentCurrency(currentCurrency - 31.25f);
+                minMaxItemsDisplay.DecreaseInventoryItems("HouseHold Basics", "Joy", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Current Joy Inventory: {minMaxItemsDisplay.GetInventoryItems("Joy")}");
+                Debug.Log($"[PURCHASE] Current Joy: {itemsLeft.GetJoyLeft()} (Capped at max display)");
+                
+                playerCurrency.SetCurrentCurrency(currentCurrency - 62.50f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
@@ -245,11 +241,11 @@ public class PurchaseScript : MonoBehaviour
         }
         else if (cleanedItemName.Equals("Surf"))
         {
-            if (currentCurrency >= 31.25f)
+            if (currentCurrency >= 62.50f)
             {
                 int currentSurf = itemsLeft.GetSurfLeft();
 
-                minMaxItemsDisplay.SetInventoryItems("HouseHold Basics", "Surf", 25);
+                minMaxItemsDisplay.SetInventoryItems("HouseHold Basics", "Surf", 50);
 
                 maxDisplay = minMaxItemsDisplay.maxItemsHouseHoldBasics;
 
@@ -264,7 +260,7 @@ public class PurchaseScript : MonoBehaviour
                     Debug.Log($"[PURCHASE] Current Surf Inventory: {minMaxItemsDisplay.GetInventoryItems("Surf")}");
                     Debug.Log($"[PURCHASE] Current Surf: {itemsLeft.GetSurfLeft()} (Capped at max display)");
                 }
-                playerCurrency.SetCurrentCurrency(currentCurrency - 31.25f);
+                playerCurrency.SetCurrentCurrency(currentCurrency - 62.50f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
@@ -278,7 +274,7 @@ public class PurchaseScript : MonoBehaviour
             {
                 int currentPaylessXtraBig = itemsLeft.GetPaylessXtraBigLeft();
 
-                minMaxItemsDisplay.SetInventoryItems("Instant Noodles", "Payless Xtra Big", 24);
+                minMaxItemsDisplay.SetInventoryItems("Instant Noodles", "Payless Xtra Big", 12);
 
                 int maxDisplayPaylessXtraBig = minMaxItemsDisplay.maxItemsInstantNoodles;
 
@@ -782,10 +778,10 @@ public class PurchaseScript : MonoBehaviour
         }
         else if (cleanedItemName.Equals("Cheese Spread"))
         {
-            if (currentCurrency >= 150f)
+            if (currentCurrency >= 200f)
             {
                 int currentCheeseSpread = itemsLeft.GetCheeseSpreadLeft();
-                minMaxItemsDisplay.SetInventoryItems("Spreads", "Cheese Spread", 25);
+                minMaxItemsDisplay.SetInventoryItems("Spreads", "Cheese Spread", 20);
                 
                 maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
                 
@@ -799,7 +795,7 @@ public class PurchaseScript : MonoBehaviour
                 
                 Debug.Log($"[PURCHASE] Current Cheese Spread: {itemsLeft.GetCheeseSpreadLeft()} (Capped at max display)");
                 
-                playerCurrency.SetCurrentCurrency(currentCurrency - 150f);
+                playerCurrency.SetCurrentCurrency(currentCurrency - 200f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
@@ -809,11 +805,11 @@ public class PurchaseScript : MonoBehaviour
         }
         else if (cleanedItemName.Equals("Nescafe"))
         {
-            if (currentCurrency >= 54f)
+            if (currentCurrency >= 200f)
             {
                 int currentNescafe = itemsLeft.GetNescafeLeft();
                
-                minMaxItemsDisplay.SetInventoryItems("Spreads", "Nescafe", 12);
+                minMaxItemsDisplay.SetInventoryItems("Spreads", "Nescafe", 20);
                 
                 maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
                 
@@ -827,7 +823,7 @@ public class PurchaseScript : MonoBehaviour
                 
                 Debug.Log($"[PURCHASE] Current Nescafe: {itemsLeft.GetNescafeLeft()} (Capped at max display)");
                 
-                playerCurrency.SetCurrentCurrency(currentCurrency - 54f);
+                playerCurrency.SetCurrentCurrency(currentCurrency - 200f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
@@ -837,10 +833,10 @@ public class PurchaseScript : MonoBehaviour
         }
         else if (cleanedItemName.Equals("Peanut Butter"))
         {
-            if (currentCurrency >= 120f)
+            if (currentCurrency >= 200f)
             {
                 int currentPeanutButter = itemsLeft.GetPeanutButterLeft();
-                minMaxItemsDisplay.SetInventoryItems("Spreads", "Peanut Butter", 15);
+                minMaxItemsDisplay.SetInventoryItems("Spreads", "Peanut Butter", 20);
 
                 maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
 
@@ -854,7 +850,7 @@ public class PurchaseScript : MonoBehaviour
 
                 Debug.Log($"[PURCHASE] Current Peanut Butter: {itemsLeft.GetPeanutButterLeft()} (Capped at max display)");
 
-                playerCurrency.SetCurrentCurrency(currentCurrency - 120f);
+                playerCurrency.SetCurrentCurrency(currentCurrency - 200f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
             }
             else
