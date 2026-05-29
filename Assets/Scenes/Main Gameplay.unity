@@ -27176,7 +27176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1561664082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27284,6 +27284,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e4d254965dbaa4d4dbab7e746a4e9394, type: 3}
   - {fileID: 21300000, guid: 9800a8e7ec854d94d847e4dbd9ab0301, type: 3}
   - {fileID: 21300000, guid: 2644b31890b554440953e1c3d8676d82, type: 3}
+  - {fileID: 21300000, guid: ed02b3a41eca240448b406d9a98e4b2d, type: 3}
+  - {fileID: 21300000, guid: 1cc91c5cf65b29249aebf1c22fd050e9, type: 3}
+  - {fileID: 21300000, guid: 885a066918ce7be43800328df17d7b4d, type: 3}
+  - {fileID: 21300000, guid: 40e0253a5866cbe47a855cd9c5bd6cb5, type: 3}
+  - {fileID: 21300000, guid: 47c74a3324224a148af9a64dab815b7f, type: 3}
 --- !u!222 &1561664087
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36540,7 +36545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2044687648
 RectTransform:
   m_ObjectHideFlags: 0
