@@ -88,26 +88,32 @@ public class DragDropClick : MonoBehaviour
                     if (clickObject.name == "Goya Candy")
                     {
                         draggedObject = Instantiate(origObjectGoyaCandy, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Mentos")
                     {
                         draggedObject = Instantiate(origObjectMentos, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "White Rabbit")
                     {
                         draggedObject = Instantiate(origObjectWhiteRabbit, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Rice")
                     {
                         draggedObject = Instantiate(riceObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Soy Sauce")
                     {
                         draggedObject = Instantiate(soySauceObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Vinegar")
                     {
                         draggedObject = Instantiate(vinegarObject, mouseWorldPos, Quaternion.identity);
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Joy")
                     {
@@ -116,6 +122,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Surf")
                     {
@@ -124,6 +131,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Payless Xtra Big")
                     {
@@ -132,6 +140,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Lucky Me")
                     {
@@ -140,6 +149,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Cup Noodle")
                     {
@@ -148,6 +158,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Colgate")
                     {
@@ -156,6 +167,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Rexona")
                     {
@@ -164,6 +176,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Sunsilk")
                     {
@@ -172,6 +185,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Chippy")
                     {
@@ -180,6 +194,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Nova")
                     {
@@ -188,6 +203,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Piattos")
                     {
@@ -196,6 +212,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Coke")
                     {
@@ -204,6 +221,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Pepsi")
                     {
@@ -212,6 +230,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Royal")
                     {
@@ -220,6 +239,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Zesto Apple")
                     {
@@ -228,6 +248,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Zesto Grape")
                     {
@@ -236,6 +257,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Zesto Orange")
                     {
@@ -244,6 +266,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
                     }
                     else if (clickObject.name == "Adobo")
                     {
@@ -252,6 +275,7 @@ public class DragDropClick : MonoBehaviour
                         {
                             Destroy(child.gameObject);
                         }
+                        draggedObject.transform.localScale = new Vector3(0.20f, 0.20f, 0.20f);
                     }
                     else if (clickObject.name == "Afritada")
                     {
@@ -313,8 +337,6 @@ public class DragDropClick : MonoBehaviour
                     {
                         Debug.LogWarning("[MOUSEDOWN] Clicked on non-draggable object: " + clickObject.name);
                     }
-
-                    draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
 
                     draggedObject.SetActive(false);
 
