@@ -7,39 +7,6 @@ public class PurchaseScript : MonoBehaviour
 
     public GameObject shopBuyItems;
     public GameObject purchaseButton;
-
-    public Button goyaCandyItem;
-    public Button mentosItem;
-    public Button whiteRabbitItem;
-    public Button riceItem;
-    public Button soySauceItem;
-    public Button vinegarItem;
-    public Button surfItem;
-    public Button joyItem;
-    public Button paylessXtraBigItem;
-    public Button luckyMeItem;
-    public Button cupNoodleItem;
-    public Button colgateItem;
-    public Button rexonaItem;
-    public Button sunsilkItem;
-    public Button chippyItem;
-    public Button novaItem;
-    public Button piattos;
-    public Button cokeItem;
-    public Button pepsiItem;
-    public Button royalItem;
-    public Button zestoAppleItem;
-    public Button zestoGrapeItem;
-    public Button zestoOrangeItem;
-    public Button adoboItem;
-    public Button afritadaItem;
-    public Button flakesInOilItem;
-    public Button cheeseSpreadItem;
-    public Button nescafeItem;
-    public Button peanutButterItem;
-    public Button artisanItem;
-    public Button gardeniaItem;
-
     public ItemsLeft itemsLeft;
     public PlayerCurrency playerCurrency;
 
@@ -136,23 +103,20 @@ public class PurchaseScript : MonoBehaviour
             {
                 int currentWhiteRabbit = itemsLeft.GetWhiteRabbitLeft();
 
-                minMaxItemsDisplay.SetInventoryItems("Candies", "White Rabbit", 10);
-                Debug.Log($"[PURCHASE] Added 10 White Rabbit to inventory. Current White Rabbit Inventory: {minMaxItemsDisplay.GetInventoryItems("White Rabbit")}");
+                minMaxItemsDisplay.SetInventoryItems("Candies", "White Rabbit", 100);
+                Debug.Log($"[PURCHASE] Added 100 White Rabbit to inventory. Current White Rabbit Inventory: {minMaxItemsDisplay.GetInventoryItems("White Rabbit")}");
 
                 maxDisplay = minMaxItemsDisplay.maxItemsCandies;
 
-                if (currentWhiteRabbit + 10 > maxDisplay)
-                {
-                    itemsLeft.SetWhiteRabbitLeft(maxDisplay);
+                itemsLeft.SetWhiteRabbitLeft(maxDisplay);
 
-                    itemsRemainingToMax = maxDisplay - currentWhiteRabbit;
+                itemsRemainingToMax = maxDisplay - currentWhiteRabbit;
 
-                    Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
-                    minMaxItemsDisplay.DecreaseInventoryItems("Candies", "White Rabbit", itemsRemainingToMax);
+                Debug.Log($"[PURCHASE] Items exceeding before max: {itemsRemainingToMax}");
+                minMaxItemsDisplay.DecreaseInventoryItems("Candies", "White Rabbit", itemsRemainingToMax);
 
-                    Debug.Log($"[PURCHASE] Current White Rabbit Inventory: {minMaxItemsDisplay.GetInventoryItems("White Rabbit")}");
-                    Debug.Log($"[PURCHASE] Current White Rabbit: {itemsLeft.GetWhiteRabbitLeft()} (Capped at max display)");
-                }
+                Debug.Log($"[PURCHASE] Current White Rabbit Inventory: {minMaxItemsDisplay.GetInventoryItems("White Rabbit")}");
+                Debug.Log($"[PURCHASE] Current White Rabbit: {itemsLeft.GetWhiteRabbitLeft()} (Capped at max display)");
 
                 playerCurrency.SetCurrentCurrency(currentCurrency - 20f);
                 Debug.Log($"[PURCHASE] Currency after purchase: {playerCurrency.GetCurrentCurrency()}");
