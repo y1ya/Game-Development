@@ -11,6 +11,12 @@ public class DisablingUI : MonoBehaviour
     public GameObject textItemLeft;
     public GameObject textTotalItems;
 
+    public GameObject topRightItems;
+    public GameObject bottomRightItems;
+
+    public GameObject shelfItems1;
+    public GameObject shelfItems2;
+
     public GameObject items;
     public GameObject hoverObjects;
     public GameObject cart;
@@ -24,6 +30,12 @@ public class DisablingUI : MonoBehaviour
         textItemLeft.SetActive(false);
         textTotalItems.SetActive(false);
 
+        topRightItems.SetActive(false);
+        bottomRightItems.SetActive(false);
+
+        shelfItems1.SetActive(false);
+        shelfItems2.SetActive(false);
+
         items.SetActive(false);
         hoverObjects.SetActive(false);
         cart.SetActive(false);
@@ -35,6 +47,12 @@ public class DisablingUI : MonoBehaviour
         textItemRequestsAndScore.SetActive(true);
         textItemLeft.SetActive(true);
         textTotalItems.SetActive(true);
+
+        topRightItems.SetActive(true);
+        bottomRightItems.SetActive(true);
+
+        shelfItems1.SetActive(true);
+        shelfItems2.SetActive(true);
 
         items.SetActive(true);
         hoverObjects.SetActive(true);

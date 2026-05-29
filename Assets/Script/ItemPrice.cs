@@ -25,6 +25,14 @@ public class ItemPrice : MonoBehaviour
     public float zestoApplePrice = 3.00f;
     public float zestoGrapePrice = 3.00f;
     public float zestoOrangePrice = 4.00f;
+    public float adoboPrice = 7.00f;
+    public float afritadaPrice = 7.00f;
+    public float flakesInOil = 7.00f;
+    public float cheeseSpreadPrice = 15.00f;
+    public float nescafePrice = 15.00f;
+    public float peanutButterPrice = 15.00f;
+    public float artisanPrice = 25.00f;
+    public float gardeniaPrice = 25.00f;
 
     private float totalPrice = 0f;
 
@@ -78,6 +86,22 @@ public class ItemPrice : MonoBehaviour
                 return zestoGrapePrice;
             case "zesto orange":
                 return zestoOrangePrice;
+            case "adobo":
+                return adoboPrice;
+            case "afritada":
+                return afritadaPrice;
+            case "flakes in oil":
+                return flakesInOil;
+            case "cheese spread":
+                return cheeseSpreadPrice;
+            case "nescafe":
+                return nescafePrice;
+            case "peanut butter":
+                return peanutButterPrice;
+            case "artisan":
+                return artisanPrice;
+            case "gardenia":
+                return gardeniaPrice;
             default:
                 Debug.LogWarning("Unknown item: " + itemName);
                 return 0f;

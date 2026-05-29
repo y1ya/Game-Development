@@ -31,6 +31,14 @@ public class ItemsInCart : MonoBehaviour
     private int totalZestoApple = 0;
     private int totalZestoGrape = 0;
     private int totalZestoOrange = 0;
+    private int totalAdobo = 0;
+    private int totalAfritada = 0;
+    private int totalFlakesInOil = 0;
+    private int totalCheeseSpread = 0;
+    private int totalNescafe = 0;
+    private int totalPeanutButter = 0;
+    private int totalArtisan = 0;
+    private int totalGardenia = 0;
 
     public Text totalGoyaCandyText, totalMentosText, totalWhiteRabbitText,
         totalRiceText, totalSoySauceText, totalVinegarText,
@@ -39,7 +47,10 @@ public class ItemsInCart : MonoBehaviour
         totalColgateText, totalRexonaText, totalSunsilkText,
         totalChippyText, totalNovaText, totalPiattosText,
         totalCokeText, totalPepsiText, totalRoyalText,
-        totalZestoAppleText, totalZestoGrapeText, totalZestoOrangeText;
+        totalZestoAppleText, totalZestoGrapeText, totalZestoOrangeText,
+        totalAdoboText, totalAfritadaText, totalFlakesInOilText,
+        totalCheeseSpreadText, totalNescafeText, totalPeanutButerText,
+        totalArtisanText, totalGardeniaText;
 
     private List<string> cartItems = new List<string>();
 
@@ -95,6 +106,22 @@ public class ItemsInCart : MonoBehaviour
         { totalZestoGrape++; Debug.Log($"Added Zesto Grape to Cart"); }
         else if (ItemName.Equals("Zesto Orange"))
         { totalZestoOrange++; Debug.Log($"Added Zesto Orange to Cart"); }
+        else if (ItemName.Equals("Adobo"))
+        { totalAdobo++; Debug.Log($"Added Adobo to Cart"); }
+        else if (ItemName.Equals("Afritada"))
+        { totalAfritada++; Debug.Log($"Added Afritada to Cart"); }
+        else if (ItemName.Equals("Flakes in Oil"))
+        { totalFlakesInOil++; Debug.Log($"Added Flakes in Oil to Cart"); }
+        else if (ItemName.Equals("Cheese Spread"))
+        { totalCheeseSpread++; Debug.Log($"Added Cheese Spread to Cart"); }
+        else if (ItemName.Equals("Nescafe"))
+        { totalNescafe++; Debug.Log($"Added Nescafe to Cart"); }
+        else if (ItemName.Equals("Peanut Butter"))
+        { totalPeanutButter++; Debug.Log($"Added Peanut Butter to Cart"); }
+        else if (ItemName.Equals("Artisan"))
+        { totalArtisan++; Debug.Log($"Added Artisan to Cart"); }
+        else if (ItemName.Equals("Gardenia"))
+        { totalGardenia++; Debug.Log($"Added Gardenia to Cart"); }
 
         AddItemsInCart();
     }
@@ -199,6 +226,38 @@ public class ItemsInCart : MonoBehaviour
             if (totalZestoOrange > 0)
             { totalZestoOrangeText.enabled = true; }
             else { totalZestoOrangeText.enabled = false; }
+
+            if (totalAdobo > 0)
+            { totalAdoboText.enabled = true; }
+            else { totalAdoboText.enabled = false; }
+
+            if (totalAfritada > 0)
+            { totalAfritadaText.enabled = true; }
+            else { totalAfritadaText.enabled = false; }
+
+            if (totalFlakesInOil > 0)
+            { totalFlakesInOilText.enabled = true; }
+            else { totalFlakesInOilText.enabled = false; }
+
+            if (totalCheeseSpread > 0)
+            { totalCheeseSpreadText.enabled = true; }
+            else { totalCheeseSpreadText.enabled = false; }
+
+            if (totalNescafe > 0)
+            { totalNescafeText.enabled = true; }
+            else { totalNescafeText.enabled = false; }
+
+            if (totalPeanutButter > 0)
+            { totalPeanutButerText.enabled = true; }
+            else { totalPeanutButerText.enabled = false; }
+
+            if (totalArtisan > 0)
+            { totalArtisanText.enabled = true; }
+            else { totalArtisanText.enabled = false; }
+
+            if (totalGardenia > 0)
+            { totalGardeniaText.enabled = true; }
+            else { totalGardeniaText.enabled = false; }
         }
 
         totalItemsText.text = $"Total Items: {totalItems}";
@@ -225,6 +284,14 @@ public class ItemsInCart : MonoBehaviour
         totalZestoAppleText.text = $"Zesto Apple: {totalZestoApple}";
         totalZestoGrapeText.text = $"Zesto Grape: {totalZestoGrape}";
         totalZestoOrangeText.text = $"Zesto Orange: {totalZestoOrange}";
+        totalAdoboText.text = $"Adobo: {totalAdobo}";
+        totalAfritadaText.text = $"Afritada: {totalAfritada}";
+        totalFlakesInOilText.text = $"Flakes in Oil: {totalFlakesInOil}";
+        totalCheeseSpreadText.text = $"Cheese Spread: {totalCheeseSpread}";
+        totalNescafeText.text = $"Nescafe: {totalNescafe}";
+        totalPeanutButerText.text = $"Peanut Butter: {totalPeanutButter}";
+        totalArtisanText.text = $"Artisan: {totalArtisan}";
+        totalGardeniaText.text = $"Gardenia: {totalGardenia}";
     }
 
     public void ClearCart()
@@ -248,6 +315,12 @@ public class ItemsInCart : MonoBehaviour
         totalCoke = 0; totalPepsi = 0; totalRoyal = 0;
 
         totalZestoApple = 0; totalZestoGrape = 0; totalZestoOrange = 0;
+
+        totalAdobo = 0; totalAfritada = 0; totalFlakesInOil = 0;
+
+        totalCheeseSpread = 0; totalNescafe = 0; totalPeanutButter = 0;
+
+        totalArtisan = 0; totalGardenia = 0;
 
         UpdateTotalText();
     }
@@ -303,4 +376,20 @@ public class ItemsInCart : MonoBehaviour
     { return totalZestoGrape; }
     public int GetTotalZestoOrange() 
     { return totalZestoOrange; }
+    public int GetTotalAdobo() 
+    { return totalAdobo; }
+    public int GetTotalAfritada() 
+    { return totalAfritada; }
+    public int GetTotalFlakesInOil() 
+    { return totalFlakesInOil; }
+    public int GetTotalCheeseSpread() 
+    { return totalCheeseSpread; }
+    public int GetTotalNescafe() 
+    { return totalNescafe; }
+    public int GetTotalPeanutButter() 
+    { return totalPeanutButter; }
+    public int GetTotalArtisan() 
+    { return totalArtisan; }
+    public int GetTotalGardenia() 
+    { return totalGardenia; }
 }
