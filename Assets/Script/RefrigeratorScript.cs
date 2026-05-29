@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RefrigeratorScript : MonoBehaviour
 {
@@ -45,6 +46,9 @@ public class RefrigeratorScript : MonoBehaviour
                 }
             }
 
+            bottomShelfObjects.SetActive(false);
+            topShelfObjects.SetActive(false);
+
             isOpen = false;
         }
         else
@@ -60,6 +64,8 @@ public class RefrigeratorScript : MonoBehaviour
                 {
                     childCollider.enabled = true; 
                 }
+
+                child.gameObject.SetActive(true);
             }
 
             for (int i = 0; i < bottomShelfObjects.transform.childCount; i++)
@@ -71,6 +77,8 @@ public class RefrigeratorScript : MonoBehaviour
                     childCollider.enabled = true;
                 }
             }
+            topShelfObjects.SetActive(true);
+            bottomShelfObjects.SetActive(true);
 
             isOpen = true;
         }

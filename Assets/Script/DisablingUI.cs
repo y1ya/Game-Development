@@ -9,7 +9,6 @@ public class DisablingUI : MonoBehaviour
     public GameObject textItemRequestsAndScore;
     public GameObject textCustomerItemReqst;
     public GameObject textItemLeft;
-    public GameObject textTotalItems;
 
     public GameObject topRightItems;
     public GameObject bottomRightItems;
@@ -23,14 +22,12 @@ public class DisablingUI : MonoBehaviour
     public GameObject hoverObjects;
     public GameObject cart;
 
-    public GameObject totalItems;
     public GameObject riceLeftItem, soySauceLeftItem, vinegarLeftItem;
     public void DisableBelowUI()
     {
         textCustomerItemReqst.SetActive(false);
         textItemRequestsAndScore.SetActive(false);
         textItemLeft.SetActive(false);
-        textTotalItems.SetActive(false);
 
         topRightItems.SetActive(false);
         bottomRightItems.SetActive(false);
@@ -50,7 +47,6 @@ public class DisablingUI : MonoBehaviour
         textCustomerItemReqst.SetActive(true);
         textItemRequestsAndScore.SetActive(true);
         textItemLeft.SetActive(true);
-        textTotalItems.SetActive(true);
 
         topRightItems.SetActive(true);
         bottomRightItems.SetActive(true);
@@ -67,7 +63,6 @@ public class DisablingUI : MonoBehaviour
 
     public void DisableWhileCalcu()
     {
-        totalItems.SetActive(false);
         riceLeftItem.SetActive(false);
         soySauceLeftItem.SetActive(false);
         vinegarLeftItem.SetActive(false);
@@ -75,7 +70,6 @@ public class DisablingUI : MonoBehaviour
 
     public void EnableWhileCalcu()
     {
-        totalItems.SetActive(true);
         riceLeftItem.SetActive(true);
         soySauceLeftItem.SetActive(true);
         vinegarLeftItem.SetActive(true);
