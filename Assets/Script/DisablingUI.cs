@@ -14,6 +14,8 @@ public class DisablingUI : MonoBehaviour
     public GameObject topRightItems;
     public GameObject bottomRightItems;
 
+    public GameObject playerScore;
+
     public GameObject shelfItems1;
     public GameObject shelfItems2;
 
@@ -33,6 +35,8 @@ public class DisablingUI : MonoBehaviour
         topRightItems.SetActive(false);
         bottomRightItems.SetActive(false);
 
+        playerScore.SetActive(false);
+
         shelfItems1.SetActive(false);
         shelfItems2.SetActive(false);
 
@@ -50,6 +54,8 @@ public class DisablingUI : MonoBehaviour
 
         topRightItems.SetActive(true);
         bottomRightItems.SetActive(true);
+
+        playerScore.SetActive(true);
 
         shelfItems1.SetActive(true);
         shelfItems2.SetActive(true);

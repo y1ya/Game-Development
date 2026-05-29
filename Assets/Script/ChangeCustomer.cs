@@ -71,8 +71,8 @@ public class ChangeCustomers : MonoBehaviour
 
     public void SetTextScore()
     {
-        textScore.text = $"Customers Served: {rotation.ToString()}";
-        Debug.Log($"[CHANGECUSTOMER] Updated score text: Customers Served: {rotation}");
+        textScore.text = $"{rotation.ToString()}";
+        Debug.Log($"[CHANGECUSTOMER] Updated score text: {rotation}");
     }
 
     private bool isCustomerDone(string name)
