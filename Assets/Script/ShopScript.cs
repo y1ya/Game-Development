@@ -55,29 +55,30 @@ public class ShopScript : MonoBehaviour
         else if (name.Equals("Breads"))
         {
             settingPanels.GetComponent<Image>().sprite = categoryPanels[5];
-            //EnableChildButton(5);
+            EnableChildButton(5);
         }
         else if (name.Equals("Spreads"))
         {
             settingPanels.GetComponent<Image>().sprite = categoryPanels[6];
-            EnableChildButton(5);
+            EnableChildButton(6);
         }
         else if (name.Equals("Canned Goods"))
         {
             settingPanels.GetComponent<Image>().sprite = categoryPanels[7];
-            EnableChildButton(6);
+            EnableChildButton(7);
         }
         else if (name.Equals("Personal Care"))
         {
             settingPanels.GetComponent<Image>().sprite = categoryPanels[8];
-            EnableChildButton(7);
+            EnableChildButton(8);
         }
         else if (name.Equals("Household Basics"))
         {
             settingPanels.GetComponent<Image>().sprite = categoryPanels[9];
-            EnableChildButton(8);
+            EnableChildButton(9);
         }
-            Debug.Log($"[ShopScript] ChangePanel: Button is Clicked {name}");
+
+        Debug.Log($"[ShopScript] ChangePanel: Button is Clicked {name}");
     }
 
     private void EnableChildButton(int childIndex)

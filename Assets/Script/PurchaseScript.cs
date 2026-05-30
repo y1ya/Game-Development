@@ -892,7 +892,7 @@ public class PurchaseScript : MonoBehaviour
             {
                 int currentGardenia = itemsLeft.GetGardeniaLeft();
                 
-                minMaxItemsDisplay.SetInventoryItems("Breads", "Gardenia", 25);
+                minMaxItemsDisplay.SetInventoryItems("Breads", "Gardenia", 12);
                 
                 maxDisplay = minMaxItemsDisplay.maxItemsSpreads;
                 
