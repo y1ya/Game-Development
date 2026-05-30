@@ -10,6 +10,8 @@ public class ChangeCustomers : MonoBehaviour
     public GameObject currentCustomer;
     public GameObject restartButton;
 
+    public Text targetCustomersText;
+
     public Sprite[] lineupCustomers;
 
     public Text textScore;
@@ -22,6 +24,10 @@ public class ChangeCustomers : MonoBehaviour
     private void Start()
     {
         countCustomers = lineupCustomers.Length;
+
+        maxCustomers = limitCustomers.GetMaxCustomers();
+        targetCustomersText.text = $"Target Customers: {maxCustomers.ToString()}";
+
 
         Debug.Log($"[CHANGECUSTOMER] Total number of customers in lineup: {countCustomers}");
     }
