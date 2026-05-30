@@ -40,6 +40,8 @@ public class DragDropClick : MonoBehaviour
     public Texture2D defaultCursor;
     public Texture2D dragCursor;
 
+    public GameObject[] objectsToDisable;
+
     public OrderScript orderScript;
     public ItemsLeft itemsLeft;
     public NEWItemInCartScript itemsInCart;
@@ -274,6 +276,21 @@ public class DragDropClick : MonoBehaviour
         {
             itemsListUI.SetActive(!itemsListUI.activeSelf);
             Debug.Log($"[CART] Items list toggled: {itemsListUI.activeSelf}");
+
+            foreach (GameObject obj in objectsToDisable)
+            {
+                Collider2D col2D = obj.GetComponent<Collider2D>();
+                if (col2D != null) col2D.enabled = false;
+            }
+
+            if (itemsListUI.activeSelf == false)
+            {
+                foreach (GameObject obj in objectsToDisable)
+                {
+                    Collider2D col2D = obj.GetComponent<Collider2D>();
+                    if (col2D != null) col2D.enabled = true;
+                }
+            }
         }
     }
 
@@ -418,6 +435,7 @@ public class DragDropClick : MonoBehaviour
                 Debug.Log("[CART] Dragged cart to cat - giving all items...");
                 GiveItemToCatFromCart();
                 itemsInCart.ClearCart();
+                ToggleCartDisplay();
             }
             // Drag item to cat to give single item
             else if (draggedObject != null && nextHoverObject != null && nextHoverObject.CompareTag("GiveOrder") && !isCartDrag)

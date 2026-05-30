@@ -5920,6 +5920,15 @@ MonoBehaviour:
   whiteRabbitJarObject: {fileID: 633397185}
   defaultCursor: {fileID: 2800000, guid: 851f18f1082faea44ab23fbfb085d503, type: 3}
   dragCursor: {fileID: 2800000, guid: 5309d031ad8983842ba0f0235fc80537, type: 3}
+  objectsToDisable:
+  - {fileID: 987730896}
+  - {fileID: 499485914}
+  - {fileID: 633397185}
+  - {fileID: 372187995}
+  - {fileID: 2118113757}
+  - {fileID: 1089683190}
+  - {fileID: 1783703124}
+  - {fileID: 1913398890}
   orderScript: {fileID: 196513654}
   itemsLeft: {fileID: 2053033508}
   itemsInCart: {fileID: 312269649}
