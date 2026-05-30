@@ -4200,6 +4200,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187615724}
   m_CullTransparentMesh: 1
+--- !u!1 &195125725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 195125726}
+  - component: {fileID: 195125728}
+  - component: {fileID: 195125727}
+  m_Layer: 5
+  m_Name: Finished Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &195125726
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195125725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1273753878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 591.21, y: 301.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &195125727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195125725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 84b5e4a9d50726f41a03d09c9cdf91f5, type: 3}
+    m_FontSize: 117
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 117
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.5
+  m_Text: Well Done!!!
+--- !u!222 &195125728
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195125725}
+  m_CullTransparentMesh: 1
 --- !u!1 &196513652
 GameObject:
   m_ObjectHideFlags: 0
@@ -24601,6 +24680,7 @@ RectTransform:
   - {fileID: 22255430}
   - {fileID: 186166074}
   - {fileID: 1527741489}
+  - {fileID: 195125726}
   m_Father: {fileID: 2012701921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -27885,11 +27965,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeCustomers
   limitCustomers: {fileID: 1418303961}
+  orderScript: {fileID: 196513654}
   currentCustomer: {fileID: 802106832}
   restartButton: {fileID: 894980267}
+  itemRequest: {fileID: 1250635609}
   targetCustomersText: {fileID: 1527741490}
   fillImage: {fileID: 385128678}
   customerProgress: {fileID: 1938893277}
+  wellDoneText: {fileID: 195125725}
   lineupCustomers:
   - {fileID: 21300000, guid: c731af23eadaf5c459c1c165cae5698f, type: 3}
   - {fileID: 21300000, guid: 1897dfc94e17f0c4eb65dc7bdb6506c5, type: 3}

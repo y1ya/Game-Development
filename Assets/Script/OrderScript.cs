@@ -1869,10 +1869,11 @@ public class OrderScript : MonoBehaviour
         }
     }
 
-    private void NormalizeSpriteScale(GameObject itemGameObject, Sprite sprite, Vector3 originalScale)
+    public void DisableOrderText()
     {
-        if (sprite != null)
-        { itemGameObject.transform.localScale = originalScale; }
+        oneItemRequest.enabled = false;
+        item1QuantityText.enabled = false;
+        item2QuantityText.enabled = false;
     }
     public void ClearItemsList()
     {

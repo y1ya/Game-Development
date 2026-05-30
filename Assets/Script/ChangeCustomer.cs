@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class ChangeCustomers : MonoBehaviour
 {
     public LimitingCustomers limitCustomers;
+    public OrderScript orderScript;
 
     public GameObject currentCustomer;
     public GameObject restartButton;
+    public GameObject itemRequest;
 
     public Text targetCustomersText;
 
     public Image fillImage;
     public Slider customerProgress;
+
+    public GameObject wellDoneText;
 
     public Sprite[] lineupCustomers;
 
@@ -61,6 +65,11 @@ public class ChangeCustomers : MonoBehaviour
             restartButton.SetActive(true);
 
             Debug.Log($"[CHANGECUSTOMER] Player Win");
+
+            wellDoneText.SetActive(true);
+
+            itemRequest.SetActive(false);
+
             return;
         }
         else { Debug.Log($"[CHANGECUSTOMER] Is winning? Score: {rotation} "); }
