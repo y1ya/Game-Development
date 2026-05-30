@@ -9,7 +9,7 @@ public class LimitingCustomers : MonoBehaviour
 
     private void Awake()
     {
-        int maxCustomerCount = changeCustomers.lineupCustomers.Length - 8;
+        int maxCustomerCount = changeCustomers.lineupCustomers.Length;
 
         int randomMaxCustomers = Random.Range(1, maxCustomerCount);
 

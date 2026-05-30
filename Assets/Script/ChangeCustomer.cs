@@ -12,6 +12,9 @@ public class ChangeCustomers : MonoBehaviour
 
     public Text targetCustomersText;
 
+    public Image fillImage;
+    public Slider customerProgress;
+
     public Sprite[] lineupCustomers;
 
     public Text textScore;
@@ -23,11 +26,16 @@ public class ChangeCustomers : MonoBehaviour
 
     private void Start()
     {
+        customerProgress.interactable = false;
+
         countCustomers = lineupCustomers.Length;
 
         maxCustomers = limitCustomers.GetMaxCustomers();
         targetCustomersText.text = $"Target Customers: {maxCustomers.ToString()}";
 
+        customerProgress.minValue = 0;
+        customerProgress.maxValue = maxCustomers;
+        customerProgress.value = 0;
 
         Debug.Log($"[CHANGECUSTOMER] Total number of customers in lineup: {countCustomers}");
     }
@@ -36,7 +44,16 @@ public class ChangeCustomers : MonoBehaviour
         rotation += 1;
         SetTextScore();
 
-        maxCustomers = limitCustomers.GetMaxCustomers();
+        customerProgress.value = rotation;
+
+        float fillPercent = customerProgress.value / customerProgress.maxValue;
+
+        if (fillPercent < 0.33f)
+            fillImage.color = Color.green;
+        else if (fillPercent < 0.66f)
+            fillImage.color = Color.yellow;
+        else
+            fillImage.color = Color.red;
 
         if (rotation == maxCustomers)
         {
