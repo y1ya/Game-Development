@@ -8,6 +8,9 @@ public class RestartGameScript : MonoBehaviour
     public void RestartGame()
     { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
 
+    public void QuitGame()
+    { SceneManager.LoadScene("Title Screen"); }
+
     public void ShowRestartButton()
     { restartButton.SetActive(true); }
 }
