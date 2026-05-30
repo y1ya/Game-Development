@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DragDropClick : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class DragDropClick : MonoBehaviour
         cheeseSpreadObject, nescafeObject, peanutButterObject,
         artisanObject, gardeniaObject;
 
+    public GameObject itemsListUI;
+
     public GameObject goyaJarObject, mentosJarObject,
         whiteRabbitJarObject;
 
@@ -39,7 +42,7 @@ public class DragDropClick : MonoBehaviour
 
     public OrderScript orderScript;
     public ItemsLeft itemsLeft;
-    public ItemsInCart itemsInCart;
+    public NEWItemInCartScript itemsInCart;
     public RefrigeratorScript refrigeratorScript;
 
     private float mouseHoldTime;
@@ -49,11 +52,229 @@ public class DragDropClick : MonoBehaviour
     private List<string> itemsRequest;
     private List<int> quantityItemRequest;
 
+    private Dictionary<string, (GameObject prefab, Vector3 scale, bool hasChildren)> itemPrefabMap;
+    private Dictionary<string, System.Action> itemDecreaseMap;
+    
+    private Vector3 originalCartPosition; // Store original cart position for returning
+
+    // Popup text settings
+
+    public Text itemAdded;
+    public Canvas uiCanvas;
+    public Font popupFont;
+    public int popupFontSize = 24;
+    public Color popupTextColor = Color.white;
+    public float popupDuration = 1.5f;
+    public float popupFloatHeight = 100f;
+
+    private Coroutine popupCoroutine;
+
     void Start()
     {
         Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
-
+        InitializeItemPrefabMap();
+        InitializeItemDecreaseMap();
         GetItemListRequestAndQuantity();
+    }
+
+    private void InitializeItemPrefabMap()
+    {
+        itemPrefabMap = new Dictionary<string, (GameObject, Vector3, bool)>
+        {
+            { "Goya Candy", (origObjectGoyaCandy, new Vector3(0.08f, 0.08f, 0f), false) },
+            { "Mentos", (origObjectMentos, new Vector3(0.08f, 0.08f, 0f), false) },
+            { "White Rabbit", (origObjectWhiteRabbit, new Vector3(0.08f, 0.08f, 0f), false) },
+            { "Rice", (riceObject, new Vector3(0.08f, 0.08f, 0f), false) },
+            { "Soy Sauce", (soySauceObject, new Vector3(0.08f, 0.08f, 0f), false) },
+            { "Vinegar", (vinegarObject, new Vector3(0.08f, 0.08f, 0f), false) },
+            { "Joy", (joyObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Surf", (surfObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Payless Xtra Big", (paylessXtraBigObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Lucky Me", (luckyMeObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Cup Noodle", (cupNoodleObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Colgate", (colgateObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Rexona", (rexonaObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Sunsilk", (sunsilkObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Chippy", (chippyObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Nova", (novaObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Piattos", (piattosObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Coke", (cokeObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Pepsi", (pepsiObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Royal", (royalObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Zesto Apple", (zestoAppleObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Zesto Grape", (zestoGrapeObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Zesto Orange", (zestoOrangeObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Adobo", (adoboObject, new Vector3(0.20f, 0.20f, 0.20f), true) },
+            { "Afritada", (afritadaObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Flakes in Oil", (flakesInOilObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Cheese Spread", (cheeseSpreadObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Nescafe", (nescafeObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Peanut Butter", (peanutButterObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Artisan", (artisanObject, new Vector3(0.08f, 0.08f, 0f), true) },
+            { "Gardenia", (gardeniaObject, new Vector3(0.08f, 0.08f, 0f), true) }
+        };
+    }
+
+    private void InitializeItemDecreaseMap()
+    {
+        itemDecreaseMap = new Dictionary<string, System.Action>
+        {
+            { "Goya Candy", () => itemsLeft.DecreaseGoyaCandy() },
+            { "Mentos", () => itemsLeft.DecreaseMentos() },
+            { "White Rabbit", () => itemsLeft.DecreaseWhiteRabbit() },
+            { "Rice", () => itemsLeft.DecreaseRice() },
+            { "Soy Sauce", () => itemsLeft.DecreaseSoySauce() },
+            { "Vinegar", () => itemsLeft.DecreaseVinegar() },
+            { "Joy", () => itemsLeft.DecreaseJoy() },
+            { "Surf", () => itemsLeft.DecreaseSurf() },
+            { "Payless Xtra Big", () => itemsLeft.DecreasePaylessXtraBig() },
+            { "Lucky Me", () => itemsLeft.DecreaseLuckyMe() },
+            { "Cup Noodle", () => itemsLeft.DecreaseCupNoodle() },
+            { "Colgate", () => itemsLeft.DecreaseColgate() },
+            { "Rexona", () => itemsLeft.DecreaseRexona() },
+            { "Sunsilk", () => itemsLeft.DecreaseSunsilk() },
+            { "Chippy", () => itemsLeft.DecreaseChippy() },
+            { "Nova", () => itemsLeft.DecreaseNova() },
+            { "Piattos", () => itemsLeft.DecreasePiattos() },
+            { "Coke", () => itemsLeft.DecreaseCoke() },
+            { "Pepsi", () => itemsLeft.DecreasePepsi() },
+            { "Royal", () => itemsLeft.DecreaseRoyal() },
+            { "Zesto Apple", () => itemsLeft.DecreaseZestoApple() },
+            { "Zesto Grape", () => itemsLeft.DecreaseZestoGrape() },
+            { "Zesto Orange", () => itemsLeft.DecreaseZestoOrange() },
+            { "Adobo", () => itemsLeft.DecreaseAdobo() },
+            { "Afritada", () => itemsLeft.DecreaseAfritada() },
+            { "Flakes in Oil", () => itemsLeft.DecreaseFlakesInOil() },
+            { "Cheese Spread", () => itemsLeft.DecreaseCheeseSpread() },
+            { "Nescafe", () => itemsLeft.DecreaseNescafe() },
+            { "Peanut Butter", () => itemsLeft.DecreasePeanutButter() },
+            { "Artisan", () => itemsLeft.DecreaseArtisan() },
+            { "Gardenia", () => itemsLeft.DecreaseGardenia() }
+        };
+    }
+
+    private GameObject InstantiateDraggedObject(string itemName, Vector3 position)
+    {
+        // Special case for cart - instantiate a clone for dragging
+        if (itemName.Equals("Cart") || itemName.Contains("Cart"))
+        {
+            Debug.Log("[MOUSEDOWN] Dragging cart clone...");
+            GameObject cartClone = Instantiate(clickObject, position, Quaternion.identity);
+            cartClone.name = "Cart";
+            cartClone.tag = "Cart";
+            return cartClone;
+        }
+
+        if (!itemPrefabMap.TryGetValue(itemName, out var itemData))
+        {
+            Debug.LogWarning($"[MOUSEDOWN] Unknown item: {itemName}");
+            return null;
+        }
+
+        GameObject prefab = itemData.prefab;
+        Vector3 scale = itemData.scale;
+        bool hasChildren = itemData.hasChildren;
+
+        GameObject draggedObj = Instantiate(prefab, position, Quaternion.identity);
+        draggedObj.transform.localScale = scale;
+
+        if (hasChildren)
+        {
+            foreach (Transform child in draggedObj.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        return draggedObj;
+    }
+
+    private void AddItemToCartAndDecrease(string itemName)
+    {
+        itemsInCart.AddItem(itemName);
+        
+        if (itemDecreaseMap.TryGetValue(itemName, out var decreaseAction))
+        {
+            decreaseAction();
+        }
+
+        // Show popup text when item is added
+        ShowAddToCartPopup(itemName);
+    }
+
+    private void ShowAddToCartPopup(string itemName)
+    {
+        // Don't show popup for refrigerator or other non-cart items
+        if (itemAdded == null || itemName.Equals("Refrigerator") || itemName.Contains("Refrigerator"))
+            return;
+
+        if (popupCoroutine != null)
+        {
+            StopCoroutine(popupCoroutine);
+        }
+
+        // Get current quantity of this item in cart
+        List<string> cartItems = itemsInCart.GetCartItems();
+        int itemCount = cartItems.Count(item => item == itemName);
+
+        itemAdded.text = itemName + " Added x" + itemCount;
+
+        // Position the popup at the mouse location
+        RectTransform rectTransform = itemAdded.GetComponent<RectTransform>();
+
+        // Convert screen space to canvas space
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            itemAdded.canvas.GetComponent<RectTransform>(),
+            Input.mousePosition,
+            itemAdded.canvas.worldCamera,
+            out Vector2 canvasPosition
+        );
+
+        rectTransform.anchoredPosition = canvasPosition;
+
+        // Make sure the text is visible
+        itemAdded.gameObject.SetActive(true);
+        itemAdded.color = new Color(itemAdded.color.r, itemAdded.color.g, itemAdded.color.b, 1f);
+
+        // Start coroutine to animate and destroy
+        popupCoroutine = StartCoroutine(AnimatePopup(rectTransform));
+    }
+
+    private IEnumerator AnimatePopup(RectTransform rectTransform)
+    {
+        Vector2 startPos = rectTransform.anchoredPosition;
+        Vector2 endPos = startPos + Vector2.up * popupFloatHeight;
+        float elapsedTime = 0f;
+
+        // Reset color to full opacity before starting animation
+        itemAdded.color = new Color(itemAdded.color.r, itemAdded.color.g, itemAdded.color.b, 1f);
+        Color endColor = new Color(itemAdded.color.r, itemAdded.color.g, itemAdded.color.b, 0f);
+
+        while (elapsedTime < popupDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / popupDuration;
+
+            // Move up
+            rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, progress);
+
+            // Fade out
+            itemAdded.color = Color.Lerp(new Color(itemAdded.color.r, itemAdded.color.g, itemAdded.color.b, 1f), endColor, progress);
+
+            yield return null;
+        }
+
+        // Just ensure it's fully transparent, keep it active for next use
+        itemAdded.color = new Color(itemAdded.color.r, itemAdded.color.g, itemAdded.color.b, 0f);
+    }
+
+    private void ToggleCartDisplay()
+    {
+        if (itemsListUI != null)
+        {
+            itemsListUI.SetActive(!itemsListUI.activeSelf);
+            Debug.Log($"[CART] Items list toggled: {itemsListUI.activeSelf}");
+        }
     }
 
     // Update is called once per frame
@@ -80,245 +301,22 @@ public class DragDropClick : MonoBehaviour
             {
                 clickObject = raycastHit2D.collider.gameObject;
 
-                if (clickObject.CompareTag("Draggable"))
+                if (clickObject.CompareTag("Draggable") || clickObject.CompareTag("Cart"))
                 {
                     mouseHoldTime = 0f;
                     isDragging = false;
 
-                    if (clickObject.name == "Goya Candy")
+                    draggedObject = InstantiateDraggedObject(clickObject.name, mouseWorldPos);
+                    
+                    if (draggedObject != null)
                     {
-                        draggedObject = Instantiate(origObjectGoyaCandy, mouseWorldPos, Quaternion.identity);
-                    }
-                    else if (clickObject.name == "Mentos")
-                    {
-                        draggedObject = Instantiate(origObjectMentos, mouseWorldPos, Quaternion.identity);
-                    }
-                    else if (clickObject.name == "White Rabbit")
-                    {
-                        draggedObject = Instantiate(origObjectWhiteRabbit, mouseWorldPos, Quaternion.identity);
-                    }
-                    else if (clickObject.name == "Rice")
-                    {
-                        draggedObject = Instantiate(riceObject, mouseWorldPos, Quaternion.identity);
-                    }
-                    else if (clickObject.name == "Soy Sauce")
-                    {
-                        draggedObject = Instantiate(soySauceObject, mouseWorldPos, Quaternion.identity);
-                    }
-                    else if (clickObject.name == "Vinegar")
-                    {
-                        draggedObject = Instantiate(vinegarObject, mouseWorldPos, Quaternion.identity);
-                    }
-                    else if (clickObject.name == "Joy")
-                    {
-                        draggedObject = Instantiate(joyObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Surf")
-                    {
-                        draggedObject = Instantiate(surfObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Payless Xtra Big")
-                    {
-                        draggedObject = Instantiate(paylessXtraBigObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Lucky Me")
-                    {
-                        draggedObject = Instantiate(luckyMeObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Cup Noodle")
-                    {
-                        draggedObject = Instantiate(cupNoodleObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Colgate")
-                    {
-                        draggedObject = Instantiate(colgateObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Rexona")
-                    {
-                        draggedObject = Instantiate(rexonaObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Sunsilk")
-                    {
-                        draggedObject = Instantiate(sunsilkObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Chippy")
-                    {
-                        draggedObject = Instantiate(chippyObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Nova")
-                    {
-                        draggedObject = Instantiate(novaObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Piattos")
-                    {
-                        draggedObject = Instantiate(piattosObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Coke")
-                    {
-                        draggedObject = Instantiate(cokeObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Pepsi")
-                    {
-                        draggedObject = Instantiate(pepsiObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Royal")
-                    {
-                        draggedObject = Instantiate(royalObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Zesto Apple")
-                    {
-                        draggedObject = Instantiate(zestoAppleObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Zesto Grape")
-                    {
-                        draggedObject = Instantiate(zestoGrapeObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Zesto Orange")
-                    {
-                        draggedObject = Instantiate(zestoOrangeObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Adobo")
-                    {
-                        draggedObject = Instantiate(adoboObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Afritada")
-                    {
-                        draggedObject = Instantiate(afritadaObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Flakes in Oil")
-                    {
-                        draggedObject = Instantiate(flakesInOilObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Cheese Spread")
-                    {
-                        draggedObject = Instantiate(cheeseSpreadObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Nescafe")
-                    {
-                        draggedObject = Instantiate(nescafeObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Peanut Butter")
-                    {
-                        draggedObject = Instantiate(peanutButterObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Artisan")
-                    {
-                        draggedObject = Instantiate(artisanObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
-                    }
-                    else if (clickObject.name == "Gardenia")
-                    {
-                        draggedObject = Instantiate(gardeniaObject, mouseWorldPos, Quaternion.identity);
-                        foreach (Transform child in draggedObject.transform)
-                        {
-                            Destroy(child.gameObject);
-                        }
+                        draggedObject.SetActive(false);
+                        Debug.Log("[MOUSEDOWN] Started dragging clone of: " + clickObject.name);
                     }
                     else
                     {
-                        Debug.LogWarning("[MOUSEDOWN] Clicked on non-draggable object: " + clickObject.name);
+                        Debug.LogWarning("[MOUSEDOWN] Failed to instantiate object: " + clickObject.name);
                     }
-
-                    draggedObject.transform.localScale = new Vector3(0.08f, 0.08f, 0f);
-
-                    draggedObject.SetActive(false);
-
-                    Debug.Log("[MOUSEDOWN] Started dragging clone of: " + clickObject.name);
                 }
                 else if (clickObject.CompareTag("Refrigerator"))
                 {
@@ -412,8 +410,17 @@ public class DragDropClick : MonoBehaviour
         // Mouse released
         if (Input.GetMouseButtonUp(0))
         {
-            // Order to the cat if dropped on the cat
-            if (draggedObject != null && nextHoverObject != null && nextHoverObject.CompareTag("GiveOrder"))
+            bool isCartDrag = draggedObject != null && draggedObject.CompareTag("Cart");
+
+            // Drag cart to GiveOrder (cat) to give items
+            if (isCartDrag && nextHoverObject != null && nextHoverObject.CompareTag("GiveOrder"))
+            {
+                Debug.Log("[CART] Dragged cart to cat - giving all items...");
+                GiveItemToCatFromCart();
+                itemsInCart.ClearCart();
+            }
+            // Drag item to cat to give single item
+            else if (draggedObject != null && nextHoverObject != null && nextHoverObject.CompareTag("GiveOrder") && !isCartDrag)
             {
                 ChangeSprite cs = nextHoverObject.GetComponent<ChangeSprite>();
                 if (cs != null)
@@ -441,177 +448,30 @@ public class DragDropClick : MonoBehaviour
                 }
             }
 
-            // If it was a click (not a drag), add item to cart
+            // If it was a click (not a drag), handle cart click
             if (!isDragging && (mouseHoldTime < holdThreshold))
             {
                 if (clickObject != null)
                 {
-                    if (clickObject.name.Equals("Goya Candy"))
-                    {
-                        itemsInCart.AddItem("Goya Candy");
-                        itemsLeft.DecreaseGoyaCandy();
-                    }
-                    else if (clickObject.name.Equals("Mentos"))
-                    {
-                        itemsInCart.AddItem("Mentos");
-                        itemsLeft.DecreaseMentos();
-                    }
-                    else if (clickObject.name.Equals("White Rabbit"))
-                    {
-                        itemsInCart.AddItem("White Rabbit");
-                        itemsLeft.DecreaseWhiteRabbit();
-                    }
-                    else if (clickObject.name.Equals("Rice"))
-                    {
-                        itemsInCart.AddItem("Rice");
-                        itemsLeft.DecreaseRice();
-                    }
-                    else if (clickObject.name.Equals("Soy Sauce"))
-                    {
-                        itemsInCart.AddItem("Soy Sauce");
-                        itemsLeft.DecreaseSoySauce();
-                    }
-                    else if (clickObject.name.Equals("Vinegar"))
-                    {
-                        itemsInCart.AddItem("Vinegar");
-                        itemsLeft.DecreaseVinegar();
-                    }
-                    else if (clickObject.name.Equals("Joy"))
-                    {
-                        itemsInCart.AddItem("Joy");
-                        itemsLeft.DecreaseJoy();
-                    }
-                    else if (clickObject.name.Equals("Surf"))
-                    {
-                        itemsInCart.AddItem("Surf");
-                        itemsLeft.DecreaseSurf();
-                    }
-                    else if (clickObject.name.Equals("Payless Xtra Big"))
-                    {
-                        itemsInCart.AddItem("Payless Xtra Big");
-                        itemsLeft.DecreasePaylessXtraBig();
-                    }
-                    else if (clickObject.name.Equals("Lucky Me"))
-                    {
-                        itemsInCart.AddItem("Lucky Me");
-                        itemsLeft.DecreaseLuckyMe();
-                    }
-                    else if (clickObject.name.Equals("Cup Noodle"))
-                    {
-                        itemsInCart.AddItem("Cup Noodle");
-                        itemsLeft.DecreaseCupNoodle();
-                    }
-                    else if (clickObject.name.Equals("Colgate"))
-                    {
-                        itemsInCart.AddItem("Colgate");
-                        itemsLeft.DecreaseColgate();
-                    }
-                    else if (clickObject.name.Equals("Rexona"))
-                    {
-                        itemsInCart.AddItem("Rexona");
-                        itemsLeft.DecreaseRexona();
-                    }
-                    else if (clickObject.name.Equals("Sunsilk"))
-                    {
-                        itemsInCart.AddItem("Sunsilk");
-                        itemsLeft.DecreaseSunsilk();
-                    }
-                    else if (clickObject.name.Equals("Chippy"))
-                    {
-                        itemsInCart.AddItem("Chippy");
-                        itemsLeft.DecreaseChippy();
-                    }
-                    else if (clickObject.name.Equals("Nova"))
-                    {
-                        itemsInCart.AddItem("Nova");
-                        itemsLeft.DecreaseNova();
-                    }
-                    else if (clickObject.name.Equals("Piattos"))
-                    {
-                        itemsInCart.AddItem("Piattos");
-                        itemsLeft.DecreasePiattos();
-                    }
-                    else if (clickObject.name.Equals("Coke"))
-                    {
-                        itemsInCart.AddItem("Coke");
-                        itemsLeft.DecreaseCoke();
-                    }
-                    else if (clickObject.name.Equals("Pepsi"))
-                    {
-                        itemsInCart.AddItem("Pepsi");
-                        itemsLeft.DecreasePepsi();
-                    }
-                    else if (clickObject.name.Equals("Royal"))
-                    {
-                        itemsInCart.AddItem("Royal");
-                        itemsLeft.DecreaseRoyal();
-                    }
-                    else if (clickObject.name.Equals("Zesto Apple"))
-                    {
-                        itemsInCart.AddItem("Zesto Apple");
-                        itemsLeft.DecreaseZestoApple();
-                    }
-                    else if (clickObject.name.Equals("Zesto Grape"))
-                    {
-                        itemsInCart.AddItem("Zesto Grape");
-                        itemsLeft.DecreaseZestoGrape();
-                    }
-                    else if (clickObject.name.Equals("Zesto Orange"))
-                    {
-                        itemsInCart.AddItem("Zesto Orange");
-                        itemsLeft.DecreaseZestoOrange();
-                    }
-                    else if (clickObject.name.Equals("Adobo"))
-                    {
-                        itemsInCart.AddItem("Adobo");
-                        itemsLeft.DecreaseAdobo();
-                    }
-                    else if (clickObject.name.Equals("Afritada"))
-                    {
-                        itemsInCart.AddItem("Afritada");
-                        itemsLeft.DecreaseAfritada();
-                    }
-                    else if (clickObject.name.Equals("Flakes in Oil"))
-                    {
-                        itemsInCart.AddItem("Flakes in Oil");
-                        itemsLeft.DecreaseFlakesInOil();
-                    }
-                    else if (clickObject.name.Equals("Cheese Spread"))
-                    {
-                        itemsInCart.AddItem("Cheese Spread");
-                        itemsLeft.DecreaseCheeseSpread();
-                    }
-                    else if (clickObject.name.Equals("Nescafe"))
-                    {
-                        itemsInCart.AddItem("Nescafe");
-                        itemsLeft.DecreaseNescafe();
-                    }
-                    else if (clickObject.name.Equals("Peanut Butter"))
-                    {
-                        itemsInCart.AddItem("Peanut Butter");
-                        itemsLeft.DecreasePeanutButter();
-                    }
-                    else if (clickObject.name.Equals("Artisan"))
-                    {
-                        itemsInCart.AddItem("Artisan");
-                        itemsLeft.DecreaseArtisan();
-                    }
-                    else if (clickObject.name.Equals("Gardenia"))
-                    {
-                        itemsInCart.AddItem("Gardenia");
-                        itemsLeft.DecreaseGardenia();
-                    }
-
-                    // If the click was on the cart, give items to cat
+                    // Click on cart to toggle items list visibility
                     if (clickObject.CompareTag("Cart"))
                     {
-                        GiveItemToCatFromCart();
-                        itemsInCart.ClearCart();
+                        ToggleCartDisplay();
+                    }
+                    else if (clickObject.CompareTag("Draggable"))
+                    {
+                        // Click on item to add to cart
+                        AddItemToCartAndDecrease(clickObject.name);
                     }
                 }
             }
 
-            Destroy(draggedObject);
+            // Destroy dragged object (including cart clone)
+            if (draggedObject != null)
+            {
+                Destroy(draggedObject);
+            }
+            
             draggedObject = null;
             clickObject = null;
 
@@ -1225,260 +1085,38 @@ public class DragDropClick : MonoBehaviour
 
     private void GiveItemToCatFromCart()
     {
-        int totalItemsInCart = itemsInCart.GetTotalItems();
-
         List<string> cartItems = itemsInCart.GetCartItems();
 
-        if (cartItems.Any(item => itemsRequest.Contains(item)))
+        if (!cartItems.Any(item => itemsRequest.Contains(item)))
+            return;
+
+        Debug.Log("[CART] Giving items to cat from cart...");
+
+        var itemCounts = new Dictionary<string, int>();
+        foreach (var item in cartItems)
         {
-            Debug.Log("[CART] Giving items to cat from cart...");
-            int totalGoyaCandy = itemsInCart.GetTotalGoyaCandy();
-            int totalMentos = itemsInCart.GetTotalMentos();
-            int totalWhiteRabbit = itemsInCart.GetTotalWhiteRabbit();
-            int totalRice = itemsInCart.GetTotalRice();
-            int totalSoySauce = itemsInCart.GetTotalSoySauce();
-            int totalVinegar = itemsInCart.GetTotalVinegar();
-            int totalJoy = itemsInCart.GetTotalJoy();
-            int totalSurf = itemsInCart.GetTotalSurf();
-            int totalPaylessXtraBig = itemsInCart.GetTotalPaylessXtraBig();
-            int totalLuckyMe = itemsInCart.GetTotalLuckyMe();
-            int totalCupNoodle = itemsInCart.GetTotalCupNoodle();
-            int totalColgate = itemsInCart.GetTotalColgate();
-            int totalRexona = itemsInCart.GetTotalRexona();
-            int totalSunsilk = itemsInCart.GetTotalSunsilk();
-            int totalChippy = itemsInCart.GetTotalChippy();
-            int totalNova = itemsInCart.GetTotalNova();
-            int totalPiattos = itemsInCart.GetTotalPiattos();
-            int totalCoke = itemsInCart.GetTotalCoke();
-            int totalPepsi = itemsInCart.GetTotalPepsi();
-            int totalRoyal = itemsInCart.GetTotalRoyal();
-            int totalZestoApple = itemsInCart.GetTotalZestoApple();
-            int totalZestoGrape = itemsInCart.GetTotalZestoGrape();
-            int totalZestoOrange = itemsInCart.GetTotalZestoOrange();
-            int totalAdobo = itemsInCart.GetTotalAdobo();
-            int totalAfritada = itemsInCart.GetTotalAfritada();
-            int totalFlakesInOil = itemsInCart.GetTotalFlakesInOil();
-            int totalCheeseSpread = itemsInCart.GetTotalCheeseSpread();
-            int totalNescafe = itemsInCart.GetTotalNescafe();
-            int totalPeanutButter = itemsInCart.GetTotalPeanutButter();
-            int totalArtisan = itemsInCart.GetTotalArtisan();
-            int totalGardenia = itemsInCart.GetTotalGardenia();
+            if (itemCounts.ContainsKey(item))
+                itemCounts[item]++;
+            else
+                itemCounts[item] = 1;
+        }
 
-            if (itemsRequest.Contains("Goya Candy") && totalGoyaCandy > 0)
-            {
-                int goyaCandyToGive = Mathf.Min(totalGoyaCandy, quantityItemRequest[itemsRequest.IndexOf("Goya Candy")]);
-                orderScript.DecreaseItemRequest("Goya Candy", goyaCandyToGive);
-                totalItemsInCart -= goyaCandyToGive;
-            }
+        foreach (var itemEntry in itemCounts)
+        {
+            string itemName = itemEntry.Key;
+            int quantity = itemEntry.Value;
 
-            if (itemsRequest.Contains("Mentos") && totalMentos > 0)
+            if (itemsRequest.Contains(itemName))
             {
-                int mentosToGive = Mathf.Min(totalMentos, quantityItemRequest[itemsRequest.IndexOf("Mentos")]);
-                orderScript.DecreaseItemRequest("Mentos", mentosToGive);
-                totalItemsInCart -= mentosToGive;
-            }
+                int indexOf = itemsRequest.IndexOf(itemName);
+                int requestedQuantity = quantityItemRequest[indexOf];
+                int quantityToGive = Mathf.Min(quantity, requestedQuantity);
 
-            if (itemsRequest.Contains("White Rabbit") && totalWhiteRabbit > 0)
-            {
-                int whiteRabbitToGive = Mathf.Min(totalWhiteRabbit, quantityItemRequest[itemsRequest.IndexOf("White Rabbit")]);
-                orderScript.DecreaseItemRequest("White Rabbit", whiteRabbitToGive);
-                totalItemsInCart -= whiteRabbitToGive;
-            }
-
-            if (itemsRequest.Contains("Rice") && totalRice > 0)
-            {
-                int riceToGive = Mathf.Min(totalRice, quantityItemRequest[itemsRequest.IndexOf("Rice")]);
-                orderScript.DecreaseItemRequest("Rice", riceToGive);
-                totalItemsInCart -= riceToGive;
-            }
-
-            if (itemsRequest.Contains("Soy Sauce") && totalSoySauce > 0)
-            {
-                int soySauceToGive = Mathf.Min(totalSoySauce, quantityItemRequest[itemsRequest.IndexOf("Soy Sauce")]);
-                orderScript.DecreaseItemRequest("Soy Sauce", soySauceToGive);
-                totalItemsInCart -= soySauceToGive;
-            }
-
-            if (itemsRequest.Contains("Vinegar") && totalVinegar > 0)
-            {
-                int vinegarToGive = Mathf.Min(totalVinegar, quantityItemRequest[itemsRequest.IndexOf("Vinegar")]);
-                orderScript.DecreaseItemRequest("Vinegar", vinegarToGive);
-                totalItemsInCart -= vinegarToGive;
-            }
-
-            if (itemsRequest.Contains("Joy") && totalJoy > 0)
-            {
-                int joyToGive = Mathf.Min(totalJoy, quantityItemRequest[itemsRequest.IndexOf("Joy")]);
-                orderScript.DecreaseItemRequest("Joy", joyToGive);
-                totalItemsInCart -= joyToGive;
-            }
-
-            if (itemsRequest.Contains("Surf") && totalSurf > 0)
-            {
-                int surfToGive = Mathf.Min(totalSurf, quantityItemRequest[itemsRequest.IndexOf("Surf")]);
-                orderScript.DecreaseItemRequest("Surf", surfToGive);
-                totalItemsInCart -= surfToGive;
-            }
-
-            if (itemsRequest.Contains("Payless Xtra Big") && totalPaylessXtraBig > 0)
-            {
-                int paylessXtraBigToGive = Mathf.Min(totalPaylessXtraBig, quantityItemRequest[itemsRequest.IndexOf("Payless Xtra Big")]);
-                orderScript.DecreaseItemRequest("Payless Xtra Big", paylessXtraBigToGive);
-                totalItemsInCart -= paylessXtraBigToGive;
-            }
-
-            if (itemsRequest.Contains("Lucky Me") && totalLuckyMe > 0)
-            {
-                int luckyMeToGive = Mathf.Min(totalLuckyMe, quantityItemRequest[itemsRequest.IndexOf("Lucky Me")]);
-                orderScript.DecreaseItemRequest("Lucky Me", luckyMeToGive);
-                totalItemsInCart -= luckyMeToGive;
-            }
-
-            if (itemsRequest.Contains("Cup Noodle") && totalCupNoodle > 0)
-            {
-                int cupNoodleToGive = Mathf.Min(totalCupNoodle, quantityItemRequest[itemsRequest.IndexOf("Cup Noodle")]);
-                orderScript.DecreaseItemRequest("Cup Noodle", cupNoodleToGive);
-                totalItemsInCart -= cupNoodleToGive;
-            }
-
-            if (itemsRequest.Contains("Colgate") && totalColgate > 0)
-            {
-                int colgateToGive = Mathf.Min(totalColgate, quantityItemRequest[itemsRequest.IndexOf("Colgate")]);
-                orderScript.DecreaseItemRequest("Colgate", colgateToGive);
-                totalItemsInCart -= colgateToGive;
-            }
-
-            if (itemsRequest.Contains("Rexona") && totalRexona > 0)
-            {
-                int rexonaToGive = Mathf.Min(totalRexona, quantityItemRequest[itemsRequest.IndexOf("Rexona")]);
-                orderScript.DecreaseItemRequest("Rexona", rexonaToGive);
-                totalItemsInCart -= rexonaToGive;
-            }
-
-            if (itemsRequest.Contains("Sunsilk") && totalSunsilk > 0)
-            {
-                int sunsilkToGive = Mathf.Min(totalSunsilk, quantityItemRequest[itemsRequest.IndexOf("Sunsilk")]);
-                orderScript.DecreaseItemRequest("Sunsilk", sunsilkToGive);
-                totalItemsInCart -= sunsilkToGive;
-            }
-
-            if (itemsRequest.Contains("Chippy") && totalChippy > 0)
-            {
-                int chippyToGive = Mathf.Min(totalChippy, quantityItemRequest[itemsRequest.IndexOf("Chippy")]);
-                orderScript.DecreaseItemRequest("Chippy", chippyToGive);
-                totalItemsInCart -= chippyToGive;
-            }
-
-            if (itemsRequest.Contains("Nova") && totalNova > 0)
-            {
-                int novaToGive = Mathf.Min(totalNova, quantityItemRequest[itemsRequest.IndexOf("Nova")]);
-                orderScript.DecreaseItemRequest("Nova", novaToGive);
-                totalItemsInCart -= novaToGive;
-            }
-
-            if (itemsRequest.Contains("Piattos") && totalPiattos > 0)
-            {
-                int piattosToGive = Mathf.Min(totalPiattos, quantityItemRequest[itemsRequest.IndexOf("Piattos")]);
-                orderScript.DecreaseItemRequest("Piattos", piattosToGive);
-                totalItemsInCart -= piattosToGive;
-            }
-
-            if (itemsRequest.Contains("Coke") && totalCoke > 0)
-            {
-                int cokeToGive = Mathf.Min(totalCoke, quantityItemRequest[itemsRequest.IndexOf("Coke")]);
-                orderScript.DecreaseItemRequest("Coke", cokeToGive);
-                totalItemsInCart -= cokeToGive;
-            }
-
-            if (itemsRequest.Contains("Pepsi") && totalPepsi > 0)
-            {
-                int pepsiToGive = Mathf.Min(totalPepsi, quantityItemRequest[itemsRequest.IndexOf("Pepsi")]);
-                orderScript.DecreaseItemRequest("Pepsi", pepsiToGive);
-                totalItemsInCart -= pepsiToGive;
-            }
-
-            if (itemsRequest.Contains("Royal") && totalRoyal > 0)
-            {
-                int royalToGive = Mathf.Min(totalRoyal, quantityItemRequest[itemsRequest.IndexOf("Royal")]);
-                orderScript.DecreaseItemRequest("Royal", royalToGive);
-                totalItemsInCart -= royalToGive;
-            }
-
-            if (itemsRequest.Contains("Zesto Apple") && totalZestoApple > 0)
-            {
-                int zestoAppleToGive = Mathf.Min(totalZestoApple, quantityItemRequest[itemsRequest.IndexOf("Zesto Apple")]);
-                orderScript.DecreaseItemRequest("Zesto Apple", zestoAppleToGive);
-                totalItemsInCart -= zestoAppleToGive;
-            }
-
-            if (itemsRequest.Contains("Zesto Grape") && totalZestoGrape > 0)
-            {
-                int zestoGrapeToGive = Mathf.Min(totalZestoGrape, quantityItemRequest[itemsRequest.IndexOf("Zesto Grape")]);
-                orderScript.DecreaseItemRequest("Zesto Grape", zestoGrapeToGive);
-                totalItemsInCart -= zestoGrapeToGive;
-            }
-
-            if (itemsRequest.Contains("Zesto Orange") && totalZestoOrange > 0)
-            {
-                int zestoOrangeToGive = Mathf.Min(totalZestoOrange, quantityItemRequest[itemsRequest.IndexOf("Zesto Orange")]);
-                orderScript.DecreaseItemRequest("Zesto Orange", zestoOrangeToGive);
-                totalItemsInCart -= zestoOrangeToGive;
-            }
-
-            if (itemsRequest.Contains("Adobo") && totalAdobo > 0)
-            {
-                int adoboToGive = Mathf.Min(totalAdobo, quantityItemRequest[itemsRequest.IndexOf("Adobo")]);
-                orderScript.DecreaseItemRequest("Adobo", adoboToGive);
-                totalItemsInCart -= adoboToGive;
-            }
-
-            if (itemsRequest.Contains("Afritada") && totalAfritada > 0)
-            {
-                int afritadaToGive = Mathf.Min(totalAfritada, quantityItemRequest[itemsRequest.IndexOf("Afritada")]);
-                orderScript.DecreaseItemRequest("Afritada", afritadaToGive);
-                totalItemsInCart -= afritadaToGive;
-            }
-
-            if (itemsRequest.Contains("Flakes in Oil") && totalFlakesInOil > 0)
-            {
-                int flakesInOilToGive = Mathf.Min(totalFlakesInOil, quantityItemRequest[itemsRequest.IndexOf("Flakes in Oil")]);
-                orderScript.DecreaseItemRequest("Flakes in Oil", flakesInOilToGive);
-                totalItemsInCart -= flakesInOilToGive;
-            }
-
-            if (itemsRequest.Contains("Cheese Spread") && totalCheeseSpread > 0)
-            {
-                int cheeseSpreadToGive = Mathf.Min(totalCheeseSpread, quantityItemRequest[itemsRequest.IndexOf("Cheese Spread")]);
-                orderScript.DecreaseItemRequest("Cheese Spread", cheeseSpreadToGive);
-                totalItemsInCart -= cheeseSpreadToGive;
-            }
-
-            if (itemsRequest.Contains("Nescafe") && totalNescafe > 0)
-            {
-                int nescafeToGive = Mathf.Min(totalNescafe, quantityItemRequest[itemsRequest.IndexOf("Nescafe")]);
-                orderScript.DecreaseItemRequest("Nescafe", nescafeToGive);
-                totalItemsInCart -= nescafeToGive;
-            }
-
-            if (itemsRequest.Contains("Peanut Butter") && totalPeanutButter > 0)
-            {
-                int peanutButterToGive = Mathf.Min(totalPeanutButter, quantityItemRequest[itemsRequest.IndexOf("Peanut Butter")]);
-                orderScript.DecreaseItemRequest("Peanut Butter", peanutButterToGive);
-                totalItemsInCart -= peanutButterToGive;
-            }
-
-            if (itemsRequest.Contains("Artisan") && totalArtisan > 0)
-            {
-                int artisanToGive = Mathf.Min(totalArtisan, quantityItemRequest[itemsRequest.IndexOf("Artisan")]);
-                orderScript.DecreaseItemRequest("Artisan", artisanToGive);
-                totalItemsInCart -= artisanToGive;
-            }
-
-            if (itemsRequest.Contains("Gardenia") && totalGardenia > 0)
-            {
-                int gardeniaToGive = Mathf.Min(totalGardenia, quantityItemRequest[itemsRequest.IndexOf("Gardenia")]);
-                orderScript.DecreaseItemRequest("Gardenia", gardeniaToGive);
-                totalItemsInCart -= gardeniaToGive;
+                if (quantityToGive > 0)
+                {
+                    orderScript.DecreaseItemRequest(itemName, quantityToGive);
+                    Debug.Log($"[CART] Gave {quantityToGive} x {itemName} to cat");
+                }
             }
         }
     }

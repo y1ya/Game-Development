@@ -1,73 +1,100 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
-    public GameObject nextPageButton;
-    public GameObject previousPageButton;
-    public GameObject pages;
+    public GameObject settingPanels;
 
-    public Text currentPageNumberText;
+    public GameObject buttonForCategs;
 
-    private int currentPage = 1;
-    private int pagesCount = 0;
+    public List<Sprite> categoryPanels;
 
-    private void Start()
+    public void ChangePanel(GameObject button)
     {
-        for (int i = 0; i < pages.transform.childCount; i++)
+        string name = button.name;
+
+        if (name.Equals("Back Button"))
         {
-            if (pages.transform.GetChild(i).gameObject)
+            DisableAllChildren(settingPanels);
+            settingPanels.SetActive(false);
+            buttonForCategs.SetActive(true);
+            return;
+        }
+
+        buttonForCategs.SetActive(false);
+        settingPanels.SetActive(true);
+
+        if (name.Equals("Pantry Staple"))
+        { 
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[0];
+            EnableChildButton(0);
+        }
+        else if (name.Equals("Candies"))
+        { 
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[1];
+            EnableChildButton(1);
+        }
+        else if (name.Equals("Snacks"))
+        { 
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[2];
+            EnableChildButton(2);
+        }
+        else if (name.Equals("Drinks")) 
+        { 
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[3];
+            EnableChildButton(3);
+        }
+        else if (name.Equals("Instant Noodles"))
+        { 
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[4];
+            EnableChildButton(4);
+        }
+        else if (name.Equals("Breads"))
+        {
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[5];
+            EnableChildButton(5);
+        }
+        else if (name.Equals("Spreads"))
+        {
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[6];
+            EnableChildButton(6);
+        }
+        else if (name.Equals("Canned Goods"))
+        {
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[7];
+            EnableChildButton(7);
+        }
+        else if (name.Equals("Personal Care"))
+        {
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[8];
+            EnableChildButton(8);
+        }
+        else if (name.Equals("Household Basics"))
+        {
+            settingPanels.GetComponent<Image>().sprite = categoryPanels[9];
+            EnableChildButton(9);
+        }
+
+        Debug.Log($"[ShopScript] ChangePanel: Button is Clicked {name}");
+    }
+
+    private void EnableChildButton(int childIndex)
+    {
+        Transform childButton = settingPanels.transform.GetChild(childIndex);
+        childButton.gameObject.SetActive(true);
+    }
+
+    private void DisableAllChildren(GameObject parent)
+    {
+        foreach (Transform child in parent.transform)
+        {
+            if (!child.gameObject.name.Equals("Back Button"))
             {
-                pagesCount++;
+                child.gameObject.SetActive(false);
             }
         }
-        Debug.Log("[SHOP] Total Pages: " + pagesCount);
-        currentPageNumberText.text = $"Page {currentPage.ToString()}/{pagesCount}";
-    }
-
-    public void NextPage()
-    {
-        currentPage++;
-
-        pages.transform.GetChild(pagesCount - currentPage).gameObject.SetActive(false);
-        pages.transform.GetChild(pagesCount - currentPage + 1).gameObject.SetActive(true);
-
-        if (currentPage == pagesCount)
-        {
-            nextPageButton.SetActive(false);
-            previousPageButton.SetActive(true);
-        }
-        else
-        {
-            nextPageButton.SetActive(true);
-            previousPageButton.SetActive(true);
-        }
-
-        UpdatePageText();
-    }
-
-    public void PreviousPage()
-    {
-        currentPage--;
-        pages.transform.GetChild(pagesCount - currentPage - 1).gameObject.SetActive(true);
-        pages.transform.GetChild(pagesCount - currentPage).gameObject.SetActive(false);
-
-        if (currentPage == 1)
-        {
-            nextPageButton.SetActive(true);
-            previousPageButton.SetActive(false);
-        }
-        else
-        {
-            nextPageButton.SetActive(true);
-            previousPageButton.SetActive(true);
-        }
-
-        UpdatePageText();
-    }
-
-    private void UpdatePageText()
-    {
-        currentPageNumberText.text = $"Page {currentPage.ToString()}/{pagesCount}";
     }
 }

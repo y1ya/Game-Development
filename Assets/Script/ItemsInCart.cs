@@ -6,7 +6,9 @@ using System.Collections.Generic;
 public class ItemsInCart : MonoBehaviour
 {
     private int totalItems = 0;
+
     public Text totalItemsText;
+    public Text itemsList;
 
     private int totalGoyaCandy = 0; 
     private int totalMentos = 0;

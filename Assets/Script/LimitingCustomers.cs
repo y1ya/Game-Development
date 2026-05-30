@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LimitingCustomers : MonoBehaviour
 {
@@ -6,11 +7,11 @@ public class LimitingCustomers : MonoBehaviour
 
     private int maxCustomers;
 
-    private void Start()
+    private void Awake()
     {
-        int maxCustomerCount = changeCustomers.GetMaxCustomers();
+        int maxCustomerCount = changeCustomers.lineupCustomers.Length - 8;
 
-        int randomMaxCustomers = Random.Range(1, maxCustomerCount - 3);
+        int randomMaxCustomers = Random.Range(1, maxCustomerCount);
 
         maxCustomers = randomMaxCustomers;
         Debug.Log("[LIMITINGCUSTOMERS] Limiting customers to: " + maxCustomers);
